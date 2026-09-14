@@ -191,7 +191,7 @@ ConfigurableJoint:
     useAcceleration: 0
   m_TargetRotation: {x: 0, y: 0, z: 0, w: 1}
   m_TargetAngularVelocity: {x: 0, y: 0, z: 0}
-  m_RotationDriveMode: 1
+  m_RotationDriveMode: 0
   m_AngularXDrive:
     serializedVersion: 4
     positionSpring: 20
@@ -370,7 +370,7 @@ ConfigurableJoint:
     useAcceleration: 0
   m_TargetRotation: {x: 0, y: 0, z: 0, w: 1}
   m_TargetAngularVelocity: {x: 0, y: 0, z: 0}
-  m_RotationDriveMode: 1
+  m_RotationDriveMode: 0
   m_AngularXDrive:
     serializedVersion: 4
     positionSpring: 20
@@ -601,6 +601,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e84b15a91274eab4fab9dd809b9d3667, type: 3}
       propertyPath: m_Name
       value: mop
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e84b15a91274eab4fab9dd809b9d3667, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -863,7 +867,7 @@ ConfigurableJoint:
     useAcceleration: 0
   m_TargetRotation: {x: 0, y: 0, z: 0, w: 1}
   m_TargetAngularVelocity: {x: 0, y: 0, z: 0}
-  m_RotationDriveMode: 1
+  m_RotationDriveMode: 0
   m_AngularXDrive:
     serializedVersion: 4
     positionSpring: 20
@@ -992,7 +996,7 @@ ConfigurableJoint:
     useAcceleration: 0
   m_TargetRotation: {x: 0, y: 0, z: 0, w: 1}
   m_TargetAngularVelocity: {x: 0, y: 0, z: 0}
-  m_RotationDriveMode: 1
+  m_RotationDriveMode: 0
   m_AngularXDrive:
     serializedVersion: 4
     positionSpring: 20
@@ -1121,7 +1125,7 @@ ConfigurableJoint:
     useAcceleration: 0
   m_TargetRotation: {x: 0, y: 0, z: 0, w: 1}
   m_TargetAngularVelocity: {x: 0, y: 0, z: 0}
-  m_RotationDriveMode: 1
+  m_RotationDriveMode: 0
   m_AngularXDrive:
     serializedVersion: 4
     positionSpring: 20
@@ -1296,7 +1300,7 @@ ConfigurableJoint:
     useAcceleration: 0
   m_TargetRotation: {x: 0, y: 0, z: 0, w: 1}
   m_TargetAngularVelocity: {x: 0, y: 0, z: 0}
-  m_RotationDriveMode: 1
+  m_RotationDriveMode: 0
   m_AngularXDrive:
     serializedVersion: 4
     positionSpring: 20
@@ -1453,7 +1457,7 @@ ConfigurableJoint:
     useAcceleration: 0
   m_TargetRotation: {x: 0, y: 0, z: 0, w: 1}
   m_TargetAngularVelocity: {x: 0, y: 0, z: 0}
-  m_RotationDriveMode: 1
+  m_RotationDriveMode: 0
   m_AngularXDrive:
     serializedVersion: 4
     positionSpring: 20
@@ -1506,6 +1510,287 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1001 &655029748
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 135313520205836291, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_Name
+      value: mop_WIP
+      objectReference: {fileID: 0}
+    - target: {fileID: 768824995707972281, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 768824995707972281, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 768824995707972281, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -8
+      objectReference: {fileID: 0}
+    - target: {fileID: 768824995707972281, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 768824995707972281, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 768824995707972281, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 768824995707972281, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 768824995707972281, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 768824995707972281, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 768824995707972281, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1232473100125786876, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_Axis.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1232473100125786876, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_Axis.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1232473100125786876, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_Limits.max
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 1232473100125786876, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_Limits.min
+      value: -60
+      objectReference: {fileID: 0}
+    - target: {fileID: 1232473100125786876, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_Spring.damper
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1374883728817479343, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_Axis.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1374883728817479343, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_Axis.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1374883728817479343, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_Limits.max
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 1374883728817479343, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_Limits.min
+      value: -60
+      objectReference: {fileID: 0}
+    - target: {fileID: 1374883728817479343, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_Spring.damper
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3326508269569111176, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_Axis.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3326508269569111176, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_Axis.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3326508269569111176, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_Limits.max
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 3326508269569111176, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_Limits.min
+      value: -60
+      objectReference: {fileID: 0}
+    - target: {fileID: 3326508269569111176, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_Spring.damper
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3581923531391581063, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_Axis.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3581923531391581063, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_Axis.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3581923531391581063, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_Limits.max
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 3581923531391581063, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_Limits.min
+      value: -60
+      objectReference: {fileID: 0}
+    - target: {fileID: 3581923531391581063, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_Spring.damper
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3581923531391581063, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_UseAcceleration
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4546707217313496440, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_Axis.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4546707217313496440, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_Axis.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4546707217313496440, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_Limits.max
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 4546707217313496440, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_Limits.min
+      value: -60
+      objectReference: {fileID: 0}
+    - target: {fileID: 4546707217313496440, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_Spring.damper
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5945247887834888834, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_Axis.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5945247887834888834, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_Axis.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5945247887834888834, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_Limits.max
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 5945247887834888834, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_Limits.min
+      value: -60
+      objectReference: {fileID: 0}
+    - target: {fileID: 5945247887834888834, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_Spring.damper
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6276329886863503465, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_Axis.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6276329886863503465, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_Axis.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6276329886863503465, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_Limits.max
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 6276329886863503465, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_Limits.min
+      value: -60
+      objectReference: {fileID: 0}
+    - target: {fileID: 6276329886863503465, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_Spring.damper
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6520645725286211234, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_Axis.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6520645725286211234, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_Axis.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6520645725286211234, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_Limits.max
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 6520645725286211234, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_Limits.min
+      value: -60
+      objectReference: {fileID: 0}
+    - target: {fileID: 6520645725286211234, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_Spring.damper
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7038718819836133806, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_Axis.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7038718819836133806, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_Axis.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7038718819836133806, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_Limits.max
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 7038718819836133806, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_Limits.min
+      value: -60
+      objectReference: {fileID: 0}
+    - target: {fileID: 7038718819836133806, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_Spring.damper
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8177544697361054130, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_Axis.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8177544697361054130, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_Axis.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8177544697361054130, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_Limits.max
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 8177544697361054130, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_Limits.min
+      value: -60
+      objectReference: {fileID: 0}
+    - target: {fileID: 8177544697361054130, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_Spring.damper
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8876597819330344601, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_Axis.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8876597819330344601, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_Axis.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8876597819330344601, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_Limits.max
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 8876597819330344601, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_Limits.min
+      value: -60
+      objectReference: {fileID: 0}
+    - target: {fileID: 8876597819330344601, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
+      propertyPath: m_Spring.damper
+      value: 5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9836d434514159f48babbe6b1e1000fd, type: 3}
 --- !u!54 &849622320
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1605,7 +1890,7 @@ ConfigurableJoint:
     useAcceleration: 0
   m_TargetRotation: {x: 0, y: 0, z: 0, w: 1}
   m_TargetAngularVelocity: {x: 0, y: 0, z: 0}
-  m_RotationDriveMode: 1
+  m_RotationDriveMode: 0
   m_AngularXDrive:
     serializedVersion: 4
     positionSpring: 20
@@ -1757,7 +2042,7 @@ ConfigurableJoint:
     useAcceleration: 0
   m_TargetRotation: {x: 0, y: 0, z: 0, w: 1}
   m_TargetAngularVelocity: {x: 0, y: 0, z: 0}
-  m_RotationDriveMode: 1
+  m_RotationDriveMode: 0
   m_AngularXDrive:
     serializedVersion: 4
     positionSpring: 20
@@ -2180,7 +2465,7 @@ ConfigurableJoint:
     useAcceleration: 0
   m_TargetRotation: {x: 0, y: 0, z: 0, w: 1}
   m_TargetAngularVelocity: {x: 0, y: 0, z: 0}
-  m_RotationDriveMode: 1
+  m_RotationDriveMode: 0
   m_AngularXDrive:
     serializedVersion: 4
     positionSpring: 20
@@ -2263,3 +2548,4 @@ SceneRoots:
   - {fileID: 1050467768}
   - {fileID: 74223528}
   - {fileID: 181046576}
+  - {fileID: 655029748}
