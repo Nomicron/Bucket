@@ -5,12 +5,13 @@ public class PlayerMovement : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public float moveSpeed = 4.0f;
-
+    private float originalMoveSpeed;
 
     private Rigidbody rb;
     private Vector2 moveInput;
     void Start()
     {
+        originalMoveSpeed = moveSpeed;
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
     }
@@ -18,10 +19,19 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        moveInput = new Vector2(
-         Keyboard.current.dKey.isPressed ? 1 : Keyboard.current.aKey.isPressed ? -1 : 0,
-         Keyboard.current.wKey.isPressed ? 1 : Keyboard.current.sKey.isPressed ? -1 : 0
-     );
+        if (PauseController.IsGamePaused) 
+        {
+            moveSpeed = 0;
+            return;
+        }
+        else 
+        {
+            moveSpeed = originalMoveSpeed;
+        }
+            moveInput = new Vector2(
+             Keyboard.current.dKey.isPressed ? 1 : Keyboard.current.aKey.isPressed ? -1 : 0,
+             Keyboard.current.wKey.isPressed ? 1 : Keyboard.current.sKey.isPressed ? -1 : 0
+         );
     }
 
     private void FixedUpdate()
