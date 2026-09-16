@@ -26,7 +26,10 @@ public class mopPhysicsScript : MonoBehaviour
 
     [SerializeField] private float collisionRadius = 0.025f; // Radius of the sphere used for collision detection for each bone.
 
-    [SerializeField] private int collisionIterations = 2;   // Number of iterations to resolve collisions each frame.
+    // [SerializeField] private int collisionIterations = 2;   // Number of iterations to resolve collisions each frame.
+
+    //private Vector3 previousObjectPosition;
+    //private Quaternion previousObjectRotation;
 
     private Vector3[] positions;    
     private Vector3[] previousPositions;
@@ -72,8 +75,7 @@ public class mopPhysicsScript : MonoBehaviour
 
         for (int i = 0; i < count - 1; i++)
         {
-            Vector3 difference =
-                bones[i + 1].position - bones[i].position;
+            Vector3 difference = bones[i + 1].position - bones[i].position;
 
             segmentLengths[i] = difference.magnitude;
 
@@ -81,19 +83,17 @@ public class mopPhysicsScript : MonoBehaviour
 
             if (bones[i].parent != null)
             {
-                restDirectionsInParent[i] =
-                    bones[i].parent.InverseTransformDirection(
-                        difference.normalized
-                    );
+                restDirectionsInParent[i] = bones[i].parent.InverseTransformDirection(difference.normalized);
             }
             else
             {
-                restDirectionsInParent[i] =
-                    difference.normalized;
+                restDirectionsInParent[i] = difference.normalized;
             }
         }
 
         damping = dryDamping;
+        //previousObjectPosition = transform.position;
+        //previousObjectRotation = transform.rotation;
 
         initialized = true;
     }
@@ -107,6 +107,8 @@ public class mopPhysicsScript : MonoBehaviour
 
         if (dt <= 0f)
             return;
+
+        //FollowParentMovement();
 
         Simulate(dt);
 
@@ -175,8 +177,7 @@ public class mopPhysicsScript : MonoBehaviour
     {
         for (int i = 0; i < bones.Length - 1; i++)
         {
-            Vector3 desiredDirection =
-                positions[i + 1] - positions[i];
+            Vector3 desiredDirection = positions[i + 1] - positions[i];
 
             if (desiredDirection.sqrMagnitude < 0.000001f)
                 continue;
@@ -187,15 +188,11 @@ public class mopPhysicsScript : MonoBehaviour
 
             if (bones[i].parent != null)
             {
-                desiredDirectionInParent =
-                    bones[i].parent.InverseTransformDirection(
-                        desiredDirection
-                    );
+                desiredDirectionInParent = bones[i].parent.InverseTransformDirection(desiredDirection);
             }
             else
             {
-                desiredDirectionInParent =
-                    desiredDirection;
+                desiredDirectionInParent = desiredDirection;
             }
 
             Quaternion swingRotation =
@@ -236,9 +233,7 @@ public class mopPhysicsScript : MonoBehaviour
             );
 
             // Put the next point back at the correct segment length.
-            positions[i + 1] =
-                positions[i] +
-                limitedDirection * segmentLengths[i];
+            positions[i + 1] = positions[i] + limitedDirection * segmentLengths[i];
         }
     }
 
@@ -340,6 +335,37 @@ public class mopPhysicsScript : MonoBehaviour
             }
         }
     }
+    //private void FollowParentMovement()
+    //{
+    //    Vector3 currentPosition = transform.position;
+    //    Quaternion currentRotation = transform.rotation;
+
+    //    Quaternion rotationDelta = currentRotation * Quaternion.Inverse(previousObjectRotation);
+
+    //    for (int i = 0; i < positions.Length; i++)
+    //    {
+    //        // Move simulated position with mop movement.
+    //        Vector3 relative =
+    //            positions[i] - previousObjectPosition;
+
+    //        positions[i] =
+    //            currentPosition +
+    //            rotationDelta * relative;
+
+    //        // Move previous position too,
+    //        // otherwise moving the player creates fake velocity.
+    //        Vector3 previousRelative =
+    //            previousPositions[i] -
+    //            previousObjectPosition;
+
+    //        previousPositions[i] =
+    //            currentPosition +
+    //            rotationDelta * previousRelative;
+    //    }
+
+    //    previousObjectPosition = currentPosition;
+    //    previousObjectRotation = currentRotation;
+    //}
     public void SetWet(bool wet)
     {
         damping = wet ? wetDamping : dryDamping;

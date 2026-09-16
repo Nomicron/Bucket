@@ -1,34 +1,62 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Windows;
 
 public class mopMovement : MonoBehaviour
 {
     [Header("Movement")]
     [SerializeField] private float moveSpeed = 2f;
-    [SerializeField] private float rotationSpeed = 2f;
+    [SerializeField] private float maxOffset = 0.5f;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [Header("Rotation")]
+    [SerializeField] private float maxRotation = 20f;
+
+    private Vector3 startLocalPosition;
+    private Quaternion startLocalRotation;
+
+    private float currentOffset;
+
+    private void Start()
     {
-        
+        startLocalPosition = transform.localPosition;
+        startLocalRotation = transform.localRotation;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        MopControlls();
+        MopControls();
     }
-    private void MopControlls()
+
+    private void MopControls()
     {
-        float moveInput = 0f;
+        float input = 0f;
 
-        if (Keyboard.current.qKey.IsPressed())
-            moveInput = -1f;
+        if (Keyboard.current.zKey.isPressed)
+            input -= 1f;
 
-        if (Keyboard.current.eKey.IsPressed())
-            moveInput = 1f;
+        if (Keyboard.current.xKey.isPressed)
+            input += 1f;
 
-        transform.position += transform.right * moveInput * moveSpeed * Time.deltaTime;
-        transform.Rotate(Vector3.forward, moveInput * rotationSpeed * 10f * Time.deltaTime);
+        currentOffset += input * moveSpeed * Time.deltaTime;
+
+        currentOffset = Mathf.Clamp(
+            currentOffset,
+            -maxOffset,
+            maxOffset
+        );
+
+        transform.localPosition =
+            startLocalPosition +
+            Vector3.right * currentOffset;
+
+        float normalizedOffset =
+            currentOffset / maxOffset;
+
+        float angle =
+            -normalizedOffset * maxRotation;
+
+        transform.localRotation =
+            startLocalRotation *
+            Quaternion.Euler(0f, 0f, angle);
     }
 }
