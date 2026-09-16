@@ -11,12 +11,10 @@ public class DialogueScript : MonoBehaviour
     bool startedDialogue = false;
     Character currentCharacter;
 
-    public TextMeshPro characterName;
+    public TextMeshProUGUI characterName;
 
     void Start()
     {
-        characterName = GetComponent<TextMeshPro>();
-
         DialogueCanvas.SetActive(false);
     }
 
@@ -70,5 +68,6 @@ public class DialogueScript : MonoBehaviour
     void ShowCharacterInfo(Character character) 
     {
         //Change characterName TextMeshPro to the string character.Name
+        characterName.text = character.name;
     }
 }

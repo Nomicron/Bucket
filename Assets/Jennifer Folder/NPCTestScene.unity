@@ -534,6 +534,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   DialogueCanvas: {fileID: 108508427}
   playerCamera: {fileID: 1814290034}
+  characterName: {fileID: 1945513899}
 --- !u!1 &807252996
 GameObject:
   m_ObjectHideFlags: 0
@@ -2306,7 +2307,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Character
   character: {fileID: 1896697230}
   name: Dewey Bates
-  description: The ship's appointed engineer.
+  description: The ships engineer
   sprite: {fileID: 1595982907714843850, guid: 7f701d4232b6ab644b9be470f1c332c8, type: 3}
 --- !u!1 &1945513897
 GameObject:
@@ -2431,7 +2432,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -389.85468, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
