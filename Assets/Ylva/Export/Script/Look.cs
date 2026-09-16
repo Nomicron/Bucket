@@ -6,7 +6,7 @@ public class Look : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
-    [SerializeField]float mouseSensitivity = 100;
+    [SerializeField]float mouseSensitivity = 0.5f;
     Transform playerCamera;
     float xRotation = 0f;
     float yRotation = 0f;
@@ -33,9 +33,9 @@ public class Look : MonoBehaviour
         float lookX = mouseX * mouseSensitivity * Time.deltaTime;
         float lookY = mouseY * mouseSensitivity * Time.deltaTime;
 
-        xRotation -= mouseY;
+        xRotation -= lookY;
         xRotation = Mathf.Clamp(xRotation, -35f, 40f);
-        yRotation += mouseX;
+        yRotation += lookX;
         transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
 
 
