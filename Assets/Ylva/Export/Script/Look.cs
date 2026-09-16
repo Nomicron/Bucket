@@ -33,9 +33,9 @@ public class Look : MonoBehaviour
         float lookX = mouseX * mouseSensitivity * Time.deltaTime;
         float lookY = mouseY * mouseSensitivity * Time.deltaTime;
 
-        xRotation -= mouseY;
+        xRotation -= lookY;
         xRotation = Mathf.Clamp(xRotation, -35f, 40f);
-        yRotation += mouseX;
+        yRotation += lookX;
         transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
 
 
