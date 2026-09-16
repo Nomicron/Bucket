@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
-
+using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class Character : MonoBehaviour
 {
@@ -9,7 +10,8 @@ public class Character : MonoBehaviour
 
     public string name;
     public string description;
-    [SerializeField] Sprite sprite;
+    public Sprite sprite;
+    public DialogueData[] dialogueData;
 
     void Start()
     {
