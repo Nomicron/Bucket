@@ -82,6 +82,9 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e84b15a91274eab4fab9dd809b9d3667, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 891422344419205945}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e84b15a91274eab4fab9dd809b9d3667, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 5380049083925939603}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e84b15a91274eab4fab9dd809b9d3667, type: 3}
       insertIndex: -1
@@ -224,6 +227,20 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e84b15a91274eab4fab9dd809b9d3667, type: 3}
   m_PrefabInstance: {fileID: 8170947013746479335}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &891422344419205945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9053467621498351030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc2f1ccbe90024045a1f3ade4722fb5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::mopMovement
+  moveSpeed: 2
+  rotationSpeed: 10
 --- !u!114 &5380049083925939603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,7 +253,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37ac788931495d740b41a4ca0dd6fb68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::mopScript
-  moveSpeed: 0.5
   mopPhysics: {fileID: 8975878774880720212}
 --- !u!114 &8975878774880720212
 MonoBehaviour:
@@ -262,7 +278,7 @@ MonoBehaviour:
   - {fileID: 1575634800658633882}
   - {fileID: 8265749044267352800}
   gravity: 9.81
-  dryDamping: 0.05
+  dryDamping: 0.1
   wetDamping: 0.15
   constraintIterations: 5
   maxStretchCorrection: 1

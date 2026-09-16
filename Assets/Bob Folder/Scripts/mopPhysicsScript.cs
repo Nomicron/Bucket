@@ -3,38 +3,38 @@ using UnityEngine;
 public class mopPhysicsScript : MonoBehaviour
 {
     [Header("Bones in order")]
-    [SerializeField] private Transform[] bones;
+    [SerializeField] private Transform[] bones; // Array of bones in order from root to tip.
 
     [Header("Physics")]
     [SerializeField] private float gravity = 9.81f;
 
     [Range(0f, 1f)]
-    [SerializeField] private float dryDamping = 0.05f;
+    [SerializeField] private float dryDamping = 0.05f;  // Mop will move faster when dry, less damping.
     [SerializeField] private float wetDamping = 0.15f;
 
     [SerializeField] private int constraintIterations = 5;
 
     [Header("Movement")]
-    [SerializeField] private float maxStretchCorrection = 1f;
+    [SerializeField] private float maxStretchCorrection = 1f; // How much to correct the length of the segments each iteration. 1 = full correction, 0 = no correction.
 
     [Header("Rotation Limits")]
     [Range(0f, 180f)]
-    [SerializeField] private float maxBendAngle = 45f;
+    [SerializeField] private float maxBendAngle = 45f;  // Maximum angle in degrees that a segment can bend relative to the previous segment.
 
     [Header("Collision")]
-    [SerializeField] private LayerMask collisionMask;
+    [SerializeField] private LayerMask collisionMask;   // Layers that the mop can collide with.
 
-    [SerializeField] private float collisionRadius = 0.025f;
+    [SerializeField] private float collisionRadius = 0.025f; // Radius of the sphere used for collision detection for each bone.
 
-    [SerializeField] private int collisionIterations = 2;
+    [SerializeField] private int collisionIterations = 2;   // Number of iterations to resolve collisions each frame.
 
-    private Vector3[] positions;
+    private Vector3[] positions;    
     private Vector3[] previousPositions;
 
     private float[] segmentLengths;
 
-    private Vector3[] restDirections;
-    private Quaternion[] restRotations;
+    private Vector3[] restDirectionsInParent;   // Rest direction of each segment in local space of the bone.
+    private Quaternion[] restRotations; // Rest rotation of each bone in local space of the bone.
 
     private bool initialized;
 
@@ -47,6 +47,7 @@ public class mopPhysicsScript : MonoBehaviour
 
     private void Initialize()
     {
+
         if (bones == null || bones.Length < 2)
         {
             Debug.LogError("MopChainPhysics needs at least 2 bones.");
@@ -60,7 +61,7 @@ public class mopPhysicsScript : MonoBehaviour
 
         segmentLengths = new float[count - 1];
 
-        restDirections = new Vector3[count - 1];
+        restDirectionsInParent = new Vector3[count - 1];
         restRotations = new Quaternion[count - 1];
 
         for (int i = 0; i < count; i++)
@@ -71,13 +72,25 @@ public class mopPhysicsScript : MonoBehaviour
 
         for (int i = 0; i < count - 1; i++)
         {
-            Vector3 difference =  bones[i + 1].position - bones[i].position;
+            Vector3 difference =
+                bones[i + 1].position - bones[i].position;
 
             segmentLengths[i] = difference.magnitude;
 
-            restDirections[i] = bones[i].InverseTransformDirection(difference.normalized);
-
             restRotations[i] = bones[i].localRotation;
+
+            if (bones[i].parent != null)
+            {
+                restDirectionsInParent[i] =
+                    bones[i].parent.InverseTransformDirection(
+                        difference.normalized
+                    );
+            }
+            else
+            {
+                restDirectionsInParent[i] =
+                    difference.normalized;
+            }
         }
 
         damping = dryDamping;
@@ -162,18 +175,37 @@ public class mopPhysicsScript : MonoBehaviour
     {
         for (int i = 0; i < bones.Length - 1; i++)
         {
-            Vector3 desiredDirection = positions[i + 1] - positions[i];
+            Vector3 desiredDirection =
+                positions[i + 1] - positions[i];
 
             if (desiredDirection.sqrMagnitude < 0.000001f)
                 continue;
 
             desiredDirection.Normalize();
 
-            Vector3 currentRestDirection = bones[i].TransformDirection(restDirections[i]);
+            Vector3 desiredDirectionInParent;
 
-            Quaternion rotation = Quaternion.FromToRotation(currentRestDirection, desiredDirection);
+            if (bones[i].parent != null)
+            {
+                desiredDirectionInParent =
+                    bones[i].parent.InverseTransformDirection(
+                        desiredDirection
+                    );
+            }
+            else
+            {
+                desiredDirectionInParent =
+                    desiredDirection;
+            }
 
-            bones[i].rotation = rotation * bones[i].rotation;
+            Quaternion swingRotation =
+                Quaternion.FromToRotation(
+                    restDirectionsInParent[i],
+                    desiredDirectionInParent
+                );
+
+            bones[i].localRotation =
+                swingRotation * restRotations[i];
         }
     }
 

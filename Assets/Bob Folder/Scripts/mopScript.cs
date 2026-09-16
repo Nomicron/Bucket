@@ -5,10 +5,6 @@ public class mopScript : MonoBehaviour
 {
 
 
-    [Header("Movement")]
-    [SerializeField] private float moveSpeed = 2f;
-    [SerializeField] private float rotationSpeed = 2f;
-
     [Header("References")]
     [SerializeField] private mopPhysicsScript mopPhysics;
 
@@ -26,7 +22,7 @@ public class mopScript : MonoBehaviour
     // Update is called once per frame
     private void FixedUpdate()
     {
-        MopControlls();
+        
     }
     public void HandleTriggerEnter(Collider other)
     {
@@ -64,17 +60,5 @@ public class mopScript : MonoBehaviour
     {
         // Stop any continuous interaction if needed.
     }
-    private void MopControlls()
-    {
-        float moveInput = 0f;
-
-        if (Keyboard.current.qKey.IsPressed())
-            moveInput = -1f;
-
-        if (Keyboard.current.eKey.IsPressed())
-            moveInput = 1f;
-
-        transform.position += transform.right * moveInput * moveSpeed * Time.deltaTime;
-        transform.Rotate (Vector3.forward, moveInput * rotationSpeed * 10f * Time.deltaTime);
-    }
+    
 }
