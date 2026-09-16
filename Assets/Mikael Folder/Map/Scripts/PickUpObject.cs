@@ -78,11 +78,11 @@ public class PickUpObject : MonoBehaviour
         Drop();
     }
 
-    private void OnMouseExit()
-    {
-        //Drop
-        Drop();
-    }
+    //private void OnMouseExit()
+    //{
+    //    //Drop
+    //    Drop();
+    //}
     // Handles the logic for keeping the object in front of the player and checking for zones/throws
     private void Hold()
     {

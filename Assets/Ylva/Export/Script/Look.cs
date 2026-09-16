@@ -13,11 +13,13 @@ public class Look : MonoBehaviour
     float mouseX;
     float mouseY;
 
+    private float originalSens;
     public bool canLook = true;
 
 
     void Start()
     {
+        originalSens = mouseSensitivity;
         canLook = true;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -27,6 +29,20 @@ public class Look : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (PauseController.IsGamePaused)
+        {
+            mouseSensitivity = 0;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            return;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            mouseSensitivity = originalSens;
+        }
         if (!canLook)
             return;
 
@@ -34,7 +50,7 @@ public class Look : MonoBehaviour
         float lookY = mouseY * mouseSensitivity * Time.deltaTime;
 
         xRotation -= lookY;
-        xRotation = Mathf.Clamp(xRotation, -35f, 40f);
+        xRotation = Mathf.Clamp(xRotation, -85f, 85f);
         yRotation += lookX;
         transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
 

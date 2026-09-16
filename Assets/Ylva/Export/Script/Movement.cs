@@ -10,9 +10,11 @@ public class Movement : MonoBehaviour
     Vector3 movementInput;
     Vector3 movementVector;
     [SerializeField] float movementSpeed = 500;
+    private float originalMoveSpeed;
 
     void Start()
     {
+        originalMoveSpeed = movementSpeed;
         rigidbody = GetComponent<Rigidbody>();
 
     }
@@ -21,6 +23,15 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (PauseController.IsGamePaused)
+        {
+            movementSpeed = 0;
+            return;
+        }
+        else 
+        {
+            movementSpeed = originalMoveSpeed;
+        }
         if (movementInput != Vector3.zero)
         {
             // Calculate movement based on the character's orientation
