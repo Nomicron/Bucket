@@ -6,7 +6,7 @@ public class Look : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
-    [SerializeField]int mouseSensitivity = 100;
+    [SerializeField]float mouseSensitivity = 100;
     Transform playerCamera;
     float xRotation = 0f;
     float yRotation = 0f;
