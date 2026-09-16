@@ -26,7 +26,7 @@ public class mopPhysicsScript : MonoBehaviour
 
     [SerializeField] private float collisionRadius = 0.025f; // Radius of the sphere used for collision detection for each bone.
 
-    [SerializeField] private int collisionIterations = 2;   // Number of iterations to resolve collisions each frame.
+   // [SerializeField] private int collisionIterations = 2;   // Number of iterations to resolve collisions each frame.
 
     private Vector3[] positions;    
     private Vector3[] previousPositions;
