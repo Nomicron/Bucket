@@ -11,13 +11,14 @@ public class Cleaning : MonoBehaviour
     float scrubAmount;
     bool cleaningMode = false;
     Stain currentStain;
+    public bool hasMop = false;
 
     void Update()
     {
 
         if (cleaningMode)
         {
-            HandleCleaning();
+            HandleCleaning(currentStain.stainType);
         }
 
     }
@@ -55,7 +56,6 @@ public class Cleaning : MonoBehaviour
 
                 cleaningMode = true;
 
-                lookScript.canLook = false;
 
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
@@ -69,50 +69,74 @@ public class Cleaning : MonoBehaviour
         currentStain = null;
 
         lookScript.canLook = true;
+        hasMop = false;
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
-    void HandleCleaning()
+    void HandleCleaning(StainType stainType)
     {
+        Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
 
-        // Must hold left mouse button to scrub
-        if (!Mouse.current.leftButton.isPressed)
+        switch (stainType) 
         {
-            scrubAmount = 0;
-            return;
-        }
+            case StainType.Blood:
 
-        Ray ray = new Ray(
-            playerCamera.transform.position,
-            playerCamera.transform.forward
-        );
+                lookScript.canLook = false;
 
-        if (Physics.Raycast(ray, out RaycastHit hit, cleaningRange))
-        {
-            Stain stain = hit.collider.GetComponent<Stain>();
-
-            // Only clean the stain we entered cleaning mode on
-            if (stain == currentStain)
-            {
-                Vector2 mouseDelta = Mouse.current.delta.ReadValue();
-
-                // Ignore tiny mouse movement / input noise
-                if (mouseDelta.magnitude < 1f)
-                    return;
-
-                scrubAmount += mouseDelta.magnitude;
-
-                if (scrubAmount >= scrubThreshold)
+                if (!Mouse.current.leftButton.isPressed)
                 {
-                    currentStain.Clean();
                     scrubAmount = 0;
+                    return;
                 }
 
+                if (Physics.Raycast(ray, out RaycastHit hit, cleaningRange))
+                {
+        
+                    Stain stain = hit.collider.GetComponent<Stain>();
 
-            }
+                   
+                    if (stain == currentStain)
+                    {
+               
+                        Vector2 mouseDelta = Mouse.current.delta.ReadValue();
+
+                            
+                        if (mouseDelta.magnitude < 1f)
+               
+                            return;
+
+              
+                        scrubAmount += mouseDelta.magnitude;
+
+              
+                        if (scrubAmount >= scrubThreshold)
+                        {
+                            currentStain.Clean();
+                            scrubAmount = 0;
+                        }
+                    }
+                } 
+                break;
+
+            case StainType.Dirt:
+
+
+                if (Physics.Raycast(ray, out RaycastHit hit2, cleaningRange))
+                {
+
+                    Stain stain = hit2.collider.GetComponent<Stain>();
+
+
+                    if (stain == currentStain)
+                    {
+
+                        hasMop = true;
+                    }
+                }
+                break;
+   
         }
-
     }
 }
 public enum StainType
