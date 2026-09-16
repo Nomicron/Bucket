@@ -35,9 +35,7 @@ public class Movement : MonoBehaviour
         if (movementInput != Vector3.zero)
         {
             // Calculate movement based on the character's orientation
-            movementVector =
-                transform.right * movementInput.x +
-                transform.forward * movementInput.z;
+            movementVector = transform.right * movementInput.x + transform.forward * movementInput.z;
 
             // Ignore vertical movement
             movementVector.y = 0;

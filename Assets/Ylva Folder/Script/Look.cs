@@ -8,6 +8,7 @@ public class Look : MonoBehaviour
 
     [SerializeField]float mouseSensitivity = 0.5f;
     Transform playerCamera;
+    [SerializeField] Cleaning cleaning;
     float xRotation = 0f;
     float yRotation = 0f;
     float mouseX;
@@ -37,7 +38,7 @@ public class Look : MonoBehaviour
             Cursor.visible = true;
             return;
         }
-        else
+        else if(!PauseController.IsGamePaused && !cleaning.cleaningMode)
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;

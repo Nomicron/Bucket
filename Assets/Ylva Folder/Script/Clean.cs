@@ -7,12 +7,19 @@ public class Cleaning : MonoBehaviour
     [SerializeField] Look lookScript;
     [SerializeField] float cleaningRange = 2f;
     [SerializeField] float scrubThreshold = 1000f;
+    Ray ray;
 
     float scrubAmount;
-    bool cleaningMode = false;
+    public bool cleaningMode = false;
     Stain currentStain;
     public bool hasMop = false;
 
+
+    private void Start()
+    {
+        ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward
+        );
+    }
     void Update()
     {
 
@@ -39,10 +46,8 @@ public class Cleaning : MonoBehaviour
 
     void TryEnterCleaningMode()
     {
-        Ray ray = new Ray(
-            playerCamera.transform.position,
-            playerCamera.transform.forward
-        );
+
+      Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
 
         if (Physics.Raycast(ray, out RaycastHit hit, cleaningRange))
         {
