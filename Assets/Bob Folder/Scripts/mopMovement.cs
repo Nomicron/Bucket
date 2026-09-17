@@ -6,7 +6,12 @@ public class mopMovement : MonoBehaviour
 {
     [Header("Movement")]
     [SerializeField] private float moveSpeed = 2f;
-    [SerializeField] private float maxOffset = 0.5f;
+    [SerializeField] private float maxHorizontalOffset = 0.5f;
+
+    [SerializeField] private float liftSpeed = 1f;
+    [SerializeField] private float maxVerticalOffset = 0.5f;
+
+
 
     [Header("Rotation")]
     [SerializeField] private float maxRotation = 20f;
@@ -14,7 +19,8 @@ public class mopMovement : MonoBehaviour
     private Vector3 startLocalPosition;
     private Quaternion startLocalRotation;
 
-    private float currentOffset;
+    private float currentHorizontalOffset;
+    private float currentVerticalOffset;
 
     private void Start()
     {
@@ -29,26 +35,37 @@ public class mopMovement : MonoBehaviour
 
     private void MopControls()
     {
-        float input = 0f;
+        float horizontaInput = 0f;
+        float verticalInput = 0f;
+
+        // Z = Left, X = Right, C = Up, V = Down (Let's change this later!)
 
         if (Keyboard.current.zKey.isPressed)
-            input -= 1f;
+            horizontaInput -= 1f;
 
         if (Keyboard.current.xKey.isPressed)
-            input += 1f;
+            horizontaInput += 1f;
 
-        currentOffset += input * moveSpeed * Time.deltaTime;
+        if(Keyboard.current.cKey.isPressed)
+            verticalInput += 1f;
 
-        currentOffset = Mathf.Clamp(currentOffset, -maxOffset, maxOffset);
+        if (Keyboard.current.vKey.isPressed)
+            verticalInput -= 1f;
 
-        transform.localPosition = startLocalPosition + Vector3.right * currentOffset;
+        //Horizontal movement
+        currentHorizontalOffset += horizontaInput * moveSpeed * Time.deltaTime;
+        currentHorizontalOffset = Mathf.Clamp(currentHorizontalOffset, -maxHorizontalOffset, maxHorizontalOffset);
 
-        float normalizedOffset = currentOffset / maxOffset;
+        // Vertical movement
+        currentVerticalOffset += verticalInput * liftSpeed * Time.deltaTime;
+        currentVerticalOffset = Mathf.Clamp(currentVerticalOffset, -maxVerticalOffset, maxVerticalOffset);
 
+        // Final transformation
+        transform.localPosition = startLocalPosition + Vector3.right * currentHorizontalOffset + Vector3.up * currentVerticalOffset;
+
+        float normalizedOffset = currentHorizontalOffset / maxHorizontalOffset;
         float angle =  -normalizedOffset * maxRotation;
 
-        transform.localRotation =
-            startLocalRotation *
-            Quaternion.Euler(0f, 0f, angle);
+        transform.localRotation = startLocalRotation * Quaternion.Euler(0f, 0f, angle);
     }
 }
