@@ -12,11 +12,17 @@ public class mopScript : MonoBehaviour
     private float wetnessLevel = 0f;
 
 
+    //Added by Ylva 
+    [SerializeField] Cleaning cleaning;
+    [SerializeField] Transform mopHead;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         if (mopPhysics == null)
             mopPhysics = GetComponent<mopPhysicsScript>();
+
+
     }
 
     // Update is called once per frame
@@ -47,13 +53,33 @@ public class mopScript : MonoBehaviour
     }
     public void HandleTriggerStay(Collider other)
     {
-        if (other.CompareTag("Stain") && isWet)
-        {
+        //Added by Ylva 
+        if (!cleaning.hasMop)
+            return;
 
-            // Cleaning logic here.
-            // Clean continuously while touching stain.
-            //Make it  so that the wetness level decreces.
+        MopPainter surface = other.GetComponent<MopPainter>();
+
+        if (surface == null)
+            return;
+
+        // Start slightly above the mop head and raycast downward.
+        Vector3 rayOrigin = mopHead.position + Vector3.up * 0.1f;
+
+        Ray ray = new Ray(rayOrigin, Vector3.down);
+
+        if (other.Raycast(ray, out RaycastHit hit, 0.3f))
+        {
+            surface.CleanAtUV(hit.textureCoord);
         }
+
+
+        //if (other.CompareTag("Stain") && isWet)
+        //{
+
+        //    // Cleaning logic here.
+        //    // Clean continuously while touching stain.
+        //    //Make it  so that the wetness level decreces.
+        //}
     }
 
     public void HandleTriggerExit(Collider other)
