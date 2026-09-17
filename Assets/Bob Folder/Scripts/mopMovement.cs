@@ -39,21 +39,13 @@ public class mopMovement : MonoBehaviour
 
         currentOffset += input * moveSpeed * Time.deltaTime;
 
-        currentOffset = Mathf.Clamp(
-            currentOffset,
-            -maxOffset,
-            maxOffset
-        );
+        currentOffset = Mathf.Clamp(currentOffset, -maxOffset, maxOffset);
 
-        transform.localPosition =
-            startLocalPosition +
-            Vector3.right * currentOffset;
+        transform.localPosition = startLocalPosition + Vector3.right * currentOffset;
 
-        float normalizedOffset =
-            currentOffset / maxOffset;
+        float normalizedOffset = currentOffset / maxOffset;
 
-        float angle =
-            -normalizedOffset * maxRotation;
+        float angle =  -normalizedOffset * maxRotation;
 
         transform.localRotation =
             startLocalRotation *
