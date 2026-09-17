@@ -41,6 +41,18 @@ public class MopPainter : MonoBehaviour
         GetComponent<Renderer>().material.SetTexture(
             "CleaningMask", cleaningMask
         );
+
+
+        Renderer rend = GetComponent<Renderer>();
+
+        rend.material.SetTexture("_CleaningMask", cleaningMask);
+
+        //Debug.Log("Mask property exists: " +
+        //          rend.material.HasProperty("_CleaningMask"));
+
+        //Debug.Log("Assigned mask: " +
+        //          rend.material.GetTexture("_CleaningMask"));
+
     }
 
     public void CleanAtUV(Vector2 uv)
@@ -71,7 +83,7 @@ public class MopPainter : MonoBehaviour
                 {
                     cleaningMask.SetPixel(pixelX, pixelY, Color.white);
                     cleanedPixels++;
-                    Debug.Log($"Total cleaned: {cleanedPixels}/{totalPixels}");
+                   // Debug.Log($"Total cleaned: {cleanedPixels}/{totalPixels}");
                 }
             }
         }
@@ -92,12 +104,7 @@ public class MopPainter : MonoBehaviour
 
         Debug.Log("Floor cleaned!");
 
-        // Later:
-        // reward player
-        // update objective
-        // remove outline
-        // play sound
-        // etc.
+
     }
 
     public float GetCleanPercentage()
