@@ -298,6 +298,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5205120386999272443, guid: 47bfea7656fd1914fbf791a0bf1636ad, type: 3}
+      propertyPath: cleaning
+      value: 
+      objectReference: {fileID: 2090684066}
     - target: {fileID: 5667356436846815268, guid: 47bfea7656fd1914fbf791a0bf1636ad, type: 3}
       propertyPath: m_Name
       value: Bob Player Variant
@@ -1360,6 +1364,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7735728872842809025, guid: 47bfea7656fd1914fbf791a0bf1636ad, type: 3}
   m_PrefabInstance: {fileID: 102557178}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2090684066 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7539812175464171643, guid: 47bfea7656fd1914fbf791a0bf1636ad, type: 3}
+  m_PrefabInstance: {fileID: 102557178}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fece455dda115446b41597e942627c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Cleaning
 --- !u!1001 &6294034767854296412
 PrefabInstance:
   m_ObjectHideFlags: 0
