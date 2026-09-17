@@ -1,6 +1,7 @@
 using Microsoft.Unity.VisualStudio.Editor;
 using System.Collections;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
@@ -23,6 +24,8 @@ public class DialogueScript : MonoBehaviour
 
     public float timeBetweenLetters;
     public float timeBetweenLines;
+
+    public int dialogueOptions;
 
     void Start()
     {
