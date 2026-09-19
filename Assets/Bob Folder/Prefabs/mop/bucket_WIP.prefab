@@ -48,6 +48,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7489146143387214588, guid: d7e974d9f9635ed43abc387e3e9a095d, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: b9734d8b611b9ab46bdbd62d5f0c449a, type: 2}
     - target: {fileID: -1346369550762627069, guid: d7e974d9f9635ed43abc387e3e9a095d, type: 3}
       propertyPath: m_Layer
       value: 4
@@ -60,6 +64,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: bucket_WIP
       objectReference: {fileID: 0}
+    - target: {fileID: 2723171655770325533, guid: d7e974d9f9635ed43abc387e3e9a095d, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: b9734d8b611b9ab46bdbd62d5f0c449a, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

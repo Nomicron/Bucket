@@ -518,11 +518,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 299335327153276991, guid: 59a08871928efe64fae1c792e85e4953, type: 3}
       propertyPath: maxOffset
-      value: 0.01
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 299335327153276991, guid: 59a08871928efe64fae1c792e85e4953, type: 3}
       propertyPath: moveSpeed
-      value: 0.02
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 876072930412662681, guid: 59a08871928efe64fae1c792e85e4953, type: 3}
+      propertyPath: m_Name
+      value: mop_root
       objectReference: {fileID: 0}
     - target: {fileID: 4814420714613632661, guid: 59a08871928efe64fae1c792e85e4953, type: 3}
       propertyPath: m_Enabled
@@ -578,11 +582,11 @@ PrefabInstance:
       objectReference: {fileID: 2090684064}
     - target: {fileID: 8555953931314157961, guid: 59a08871928efe64fae1c792e85e4953, type: 3}
       propertyPath: offset.x
-      value: 0
+      value: -0.2
       objectReference: {fileID: 0}
     - target: {fileID: 8555953931314157961, guid: 59a08871928efe64fae1c792e85e4953, type: 3}
       propertyPath: offset.y
-      value: 0.5
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 8555953931314157961, guid: 59a08871928efe64fae1c792e85e4953, type: 3}
       propertyPath: offset.z
