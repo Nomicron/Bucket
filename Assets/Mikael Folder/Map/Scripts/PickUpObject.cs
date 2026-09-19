@@ -5,6 +5,8 @@ public class PickUpObject : MonoBehaviour
 {
     public string itemID;
 
+    //[SerializeField]
+    //float itemWeight = 2f;
     [SerializeField]
     float throwForce = 600f;
     [SerializeField]
@@ -31,6 +33,11 @@ public class PickUpObject : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         tempParent = TempParent.Instance;
+
+        //if(rb != null) 
+        //{
+        //    rb.mass = itemWeight;
+        //}
     }
 
     // Update is called once per frame
@@ -96,6 +103,10 @@ public class PickUpObject : MonoBehaviour
         }
 
         Vector3 targetPosition = tempParent.transform.position + tempParent.transform.forward * holdDistance;
+
+        //float followSpeed = Mathf.Max(5f, 30f / itemWeight);
+        //Vector3 newPosition = Vector3.Lerp(transform.position, targetPosition, followSpeed * Time.deltaTime);
+
         rb.MovePosition(targetPosition);
         // Remove any existing momentum so the object doesn't spin or drift wildly while being held
         rb.linearVelocity = Vector3.zero;
@@ -180,6 +191,6 @@ public class PickUpObject : MonoBehaviour
         rb.isKinematic = true;
 
         // Tell the zone that it is now full
-        zone.MarkOccupied();
+        zone.AddItem();
     }
 }

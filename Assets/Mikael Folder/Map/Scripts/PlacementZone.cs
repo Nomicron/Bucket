@@ -6,8 +6,11 @@ public class PlacementZone : MonoBehaviour
 
     [SerializeField]
     Transform snapPoint;
+    [SerializeField]
+    int maxCapacity = 1;
 
-    public bool IsOccupied { get; private set; }
+    int currentItemCount = 0;
+    public bool IsOccupied => currentItemCount >= maxCapacity;
     public Transform SnapPoint => snapPoint != null ? snapPoint : transform;
 
     public bool AcceptsItem(string itemID) 
@@ -27,11 +30,15 @@ public class PlacementZone : MonoBehaviour
         // Only accept if the object's ID matches the zone's required ID
         return acceptedItemID == itemID;
     }
-
-    public void MarkOccupied()
+    public void AddItem() 
     {
-        IsOccupied = true;
+        currentItemCount++;
+        if (IsOccupied)
+        {
+            Destroy(gameObject);
+        }
     }
+
     //// Draws visual guides in the Unity Editor scene view to make level designing easier
     //private void OnDrawGizmos()
     //{
