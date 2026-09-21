@@ -23,7 +23,7 @@ public class Cleaning : MonoBehaviour
     void Update()
     {
 
-        if (cleaningMode)
+        if (cleaningMode && currentStain != null)
         {
             HandleCleaning(currentStain.stainType);
         }
