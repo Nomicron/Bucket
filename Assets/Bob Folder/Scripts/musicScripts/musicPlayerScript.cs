@@ -2,15 +2,35 @@ using UnityEngine;
 
 public class musicPlayerScript : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private Camera playerCamera;
+    [SerializeField] private float interactionDistance = 3.0f;
+
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private musicDiskScript musicDisk;
+    [SerializeField] private musicCrankScript musicCrank;
+
+    void Update()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnMouseDown()
+    {      
+         ToggleMusic();      
+    }
+
+    void ToggleMusic()
     {
-        
+        if (audioSource.isPlaying)
+        {
+            audioSource.Pause();
+            musicDisk.StopPlaying();
+        }
+        else
+        {
+            audioSource.Play();
+            musicDisk.StartPlaying();
+            musicCrank.StartPlaying();
+        }
     }
 }
