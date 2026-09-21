@@ -11,6 +11,8 @@ using Image = UnityEngine.UI.Image;
 
 public class DialogueScript : MonoBehaviour
 {
+    public int currentDialogue = 0;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     public GameObject DialogueCanvas;
@@ -25,11 +27,17 @@ public class DialogueScript : MonoBehaviour
     public float timeBetweenLetters;
     public float timeBetweenLines;
 
-    public int dialogueOptions;
+    public GameObject optionManager;
 
     void Start()
     {
         DialogueCanvas.SetActive(false);
+        
+        if (optionManager != null) 
+        {
+            optionManager.SetActive(false);
+        }
+
         PauseController.SetPause(false);
     }
 
@@ -59,8 +67,30 @@ public class DialogueScript : MonoBehaviour
                 DialogueCanvas.SetActive(true);
                 PauseController.SetPause(true);
 
-                ShowCharacterInfo(currentCharacter);    
+                StartNewDialogue(0);
             }
+        }
+    }
+
+    public void StartNewDialogue(int currentDialogue) 
+    {
+       this.currentDialogue = currentDialogue;
+
+        if (optionManager != null) 
+        {
+            optionManager.SetActive(false);
+        }
+
+        if (currentCharacter != null && currentDialogue < currentCharacter.dialogueData.Length) 
+        {
+            ShowCharacterInfo(currentCharacter);
+
+            StopAllCoroutines();
+            StartCoroutine(SlowPrint(currentCharacter.dialogueData[currentDialogue]));
+        }
+        else 
+        {
+            EndDialogue();
         }
     }
 
@@ -69,16 +99,10 @@ public class DialogueScript : MonoBehaviour
         //Makes tmp and sprite to match character
         CharName.text = character.name;
         CharImage.sprite = character.sprite;
-
-        StartCoroutine(SlowPrint(character));
     }
 
-    IEnumerator SlowPrint(Character character)
+    IEnumerator SlowPrint(DialogueData dialogue)
     { 
-        //Needs to be changed to work with days when that is implemented.
-        //for example (if there is a daymanager implemented: Dialogue dialogue = character.DialogueData[DayManager.currentDay - 1];
-        DialogueData dialogue = character.dialogueData[0];
-
         //Prints every line in the scriptable dialogue data object attatched to the character
         foreach (string line in dialogue.lines) 
         {
@@ -110,10 +134,26 @@ public class DialogueScript : MonoBehaviour
             yield return new WaitUntil(() => Mouse.current.leftButton.wasPressedThisFrame);
         }
 
+        if (optionManager != null) 
+        {
+            optionManager.SetActive(true);
+        }
+
+    }
+
+    public void EndDialogue() 
+    {
         //end the dialogue
         startedDialogue = false;
         DialogueCanvas.SetActive(false);
+
+        if (optionManager != null)
+        {
+            optionManager.SetActive(false);
+        }
+
         PauseController.SetPause(false);
         CharDialogue.text = "";
+        currentDialogue = 0;
     }
 }
