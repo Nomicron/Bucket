@@ -49,7 +49,15 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7489146143387214588, guid: d7e974d9f9635ed43abc387e3e9a095d, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7489146143387214588, guid: d7e974d9f9635ed43abc387e3e9a095d, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: c42b0b376fef09b7c919a27a16d0820f, type: 2}
+    - target: {fileID: -7489146143387214588, guid: d7e974d9f9635ed43abc387e3e9a095d, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: b9734d8b611b9ab46bdbd62d5f0c449a, type: 2}
     - target: {fileID: -1346369550762627069, guid: d7e974d9f9635ed43abc387e3e9a095d, type: 3}
@@ -60,6 +68,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Water
       objectReference: {fileID: 0}
+    - target: {fileID: 312798698618953876, guid: d7e974d9f9635ed43abc387e3e9a095d, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5922f65544aa81f4c8601ce9ecb513dc, type: 2}
     - target: {fileID: 919132149155446097, guid: d7e974d9f9635ed43abc387e3e9a095d, type: 3}
       propertyPath: m_Name
       value: bucket_WIP
@@ -68,6 +80,22 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: b9734d8b611b9ab46bdbd62d5f0c449a, type: 2}
+    - target: {fileID: 9000107344292248105, guid: d7e974d9f9635ed43abc387e3e9a095d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.0012817296
+      objectReference: {fileID: 0}
+    - target: {fileID: 9000107344292248105, guid: d7e974d9f9635ed43abc387e3e9a095d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.0015701664
+      objectReference: {fileID: 0}
+    - target: {fileID: 9000107344292248105, guid: d7e974d9f9635ed43abc387e3e9a095d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.0012817296
+      objectReference: {fileID: 0}
+    - target: {fileID: 9000107344292248105, guid: d7e974d9f9635ed43abc387e3e9a095d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.17
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
