@@ -658,6 +658,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dd9299dba55e1248b43b381b6a98c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueScript
+  currentDialogue: 0
   DialogueCanvas: {fileID: 245492114}
   playerCamera: {fileID: 1657420638}
   CharName: {fileID: 196307556}
@@ -665,7 +666,7 @@ MonoBehaviour:
   CharDialogue: {fileID: 1663079280}
   timeBetweenLetters: 0.03
   timeBetweenLines: 3
-  dialogueOptions: 1
+  optionManager: {fileID: 0}
 --- !u!4 &355798116
 Transform:
   m_ObjectHideFlags: 0
@@ -1081,6 +1082,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlacementZone
   acceptedItemID: Vase1
   snapPoint: {fileID: 1265828818}
+  maxCapacity: 1
 --- !u!65 &444705611
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2200,7 +2202,7 @@ PrefabInstance:
     - target: {fileID: -1505937892694860325, guid: ae31bf0417fcb7da79db7480d3232363, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: c42b0b376fef09b7c919a27a16d0820f, type: 2}
+      objectReference: {fileID: 2100000, guid: f42e7528131eddcef82de1eec9ec545b, type: 2}
     - target: {fileID: 1497973572473538, guid: ae31bf0417fcb7da79db7480d3232363, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -2212,7 +2214,11 @@ PrefabInstance:
     - target: {fileID: 4268372926053018927, guid: ae31bf0417fcb7da79db7480d3232363, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: b35fd6c2098d0831cb1825e7cbd428b8, type: 2}
+      objectReference: {fileID: 2100000, guid: debcdf2b651c9559d9250fdd71a20fba, type: 2}
+    - target: {fileID: 4953377252493334692, guid: ae31bf0417fcb7da79db7480d3232363, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: b28750920e3809d26bd54f7b37e6bc19, type: 2}
     - target: {fileID: 5104288111541237543, guid: ae31bf0417fcb7da79db7480d3232363, type: 3}
       propertyPath: m_Materials.Array.size
       value: 1
