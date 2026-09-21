@@ -48,14 +48,82 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 819335279a562124383c62a0fde6a893, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 819335279a562124383c62a0fde6a893, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: c42b0b376fef09b7c919a27a16d0820f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 819335279a562124383c62a0fde6a893, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: b9734d8b611b9ab46bdbd62d5f0c449a, type: 2}
+    - target: {fileID: -5293544875296516203, guid: 819335279a562124383c62a0fde6a893, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: -5293544875296516203, guid: 819335279a562124383c62a0fde6a893, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 8bd6bfb994802af478b81342f37ae6af, type: 2}
+    - target: {fileID: -5293544875296516203, guid: 819335279a562124383c62a0fde6a893, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: b9734d8b611b9ab46bdbd62d5f0c449a, type: 2}
     - target: {fileID: 919132149155446097, guid: 819335279a562124383c62a0fde6a893, type: 3}
       propertyPath: m_Name
       value: gramophone_2.0
       objectReference: {fileID: 0}
+    - target: {fileID: 1681327875699782535, guid: 819335279a562124383c62a0fde6a893, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1681327875699782535, guid: 819335279a562124383c62a0fde6a893, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: c42b0b376fef09b7c919a27a16d0820f, type: 2}
+    - target: {fileID: 1681327875699782535, guid: 819335279a562124383c62a0fde6a893, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: b9734d8b611b9ab46bdbd62d5f0c449a, type: 2}
+    - target: {fileID: 3336182266008515235, guid: 819335279a562124383c62a0fde6a893, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3336182266008515235, guid: 819335279a562124383c62a0fde6a893, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: c42b0b376fef09b7c919a27a16d0820f, type: 2}
+    - target: {fileID: 3336182266008515235, guid: 819335279a562124383c62a0fde6a893, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: b9734d8b611b9ab46bdbd62d5f0c449a, type: 2}
+    - target: {fileID: 3662303158102021535, guid: 819335279a562124383c62a0fde6a893, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3662303158102021535, guid: 819335279a562124383c62a0fde6a893, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: c42b0b376fef09b7c919a27a16d0820f, type: 2}
+    - target: {fileID: 3662303158102021535, guid: 819335279a562124383c62a0fde6a893, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: b9734d8b611b9ab46bdbd62d5f0c449a, type: 2}
+    - target: {fileID: 4218150923528852525, guid: 819335279a562124383c62a0fde6a893, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218150923528852525, guid: 819335279a562124383c62a0fde6a893, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: c42b0b376fef09b7c919a27a16d0820f, type: 2}
+    - target: {fileID: 4218150923528852525, guid: 819335279a562124383c62a0fde6a893, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: b9734d8b611b9ab46bdbd62d5f0c449a, type: 2}
     - target: {fileID: 8091132604151060672, guid: 819335279a562124383c62a0fde6a893, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0
@@ -83,6 +151,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 819335279a562124383c62a0fde6a893, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5319842594927031564}
+    - targetCorrespondingSourceObject: {fileID: 270668371211418519, guid: 819335279a562124383c62a0fde6a893, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 621406714744795015}
     - targetCorrespondingSourceObject: {fileID: -7229654505222763432, guid: 819335279a562124383c62a0fde6a893, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4995799116788409857}
@@ -125,7 +196,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -207,3 +278,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &6516500023337493288 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 270668371211418519, guid: 819335279a562124383c62a0fde6a893, type: 3}
+  m_PrefabInstance: {fileID: 6462341443685341375}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &621406714744795015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6516500023337493288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f423370c6a6c6fd4ab4c511a77a96cf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::musicCrankScript
+  rotationSpeed: 50
+  crankTimer: 5
+  isPlaying: 0
