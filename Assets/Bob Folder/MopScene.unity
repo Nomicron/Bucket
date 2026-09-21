@@ -387,6 +387,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47bfea7656fd1914fbf791a0bf1636ad, type: 3}
+--- !u!20 &102557179 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 8088280471709851367, guid: 47bfea7656fd1914fbf791a0bf1636ad, type: 3}
+  m_PrefabInstance: {fileID: 102557178}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &196788859
 GameObject:
   m_ObjectHideFlags: 0
@@ -1594,6 +1599,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: gramophone_2.0
       objectReference: {fileID: 0}
+    - target: {fileID: 6457763872356980516, guid: f4edb802a43f7ad4abade311b2cc97dc, type: 3}
+      propertyPath: playerCamera
+      value: 
+      objectReference: {fileID: 102557179}
     - target: {fileID: 6783652700796698452, guid: f4edb802a43f7ad4abade311b2cc97dc, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.313

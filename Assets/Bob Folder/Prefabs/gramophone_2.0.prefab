@@ -317,6 +317,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 843a52ee83244804aa9448d2dba2de2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::musicPlayerScript
+  playerCamera: {fileID: 0}
+  interactionDistance: 3
+  audioSource: {fileID: 5319842594927031564}
+  musicDisk: {fileID: 4995799116788409857}
+  musicCrank: {fileID: 621406714744795015}
 --- !u!1 &6516500023337493288 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 270668371211418519, guid: 819335279a562124383c62a0fde6a893, type: 3}
