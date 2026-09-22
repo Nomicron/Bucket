@@ -13,6 +13,11 @@ public class PlacementZone : MonoBehaviour
     public bool IsOccupied => currentItemCount >= maxCapacity;
     public Transform SnapPoint => snapPoint != null ? snapPoint : transform;
 
+    //Suspicion
+    [SerializeField]
+    int suspicionAmount = 0;
+    [SerializeField]
+    NPCSuspicionProfile targetNPC;
     public bool AcceptsItem(string itemID) 
     {
         // Reject if there is already an item here
@@ -33,19 +38,16 @@ public class PlacementZone : MonoBehaviour
     public void AddItem() 
     {
         currentItemCount++;
+        if (targetNPC != null && SuspicionController.Instance != null)
+        {
+            SuspicionController.Instance.AddSuspicion(targetNPC, suspicionAmount);
+        }
         if (IsOccupied)
         {
             Destroy(gameObject);
         }
     }
 
-    //// Draws visual guides in the Unity Editor scene view to make level designing easier
-    //private void OnDrawGizmos()
-    //{
-    //    Gizmos.color = new Color(0f, 1f, 0f, 0.3f);
-    //    Gizmos.DrawSphere(SnapPoint.position, 0.15f);
-    //}
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         
