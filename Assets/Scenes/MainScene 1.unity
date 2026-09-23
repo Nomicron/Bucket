@@ -1121,10 +1121,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PickUpObject
   itemID: 
   throwForce: 600
-  maxDistance: 3
-  snapRadius: 0.5
-  holdDistance: 2
+  maxDist: 3
+  snapRad: 0.5
+  holdDist: 2
+  objectRad: 0.25
+  followSpeed: 20
+  minHoldDist: 1
+  maxHoldDist: 2.5
+  scrollSense: 0.25
   zoneLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  obstacleLayers:
     serializedVersion: 2
     m_Bits: 0
 --- !u!65 &402149513
@@ -1346,6 +1354,8 @@ MonoBehaviour:
   acceptedItemID: Vase1
   snapPoint: {fileID: 1265828818}
   maxCapacity: 1
+  suspicionAmount: 0
+  targetNPC: {fileID: 0}
 --- !u!65 &444705611
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1908,12 +1918,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PickUpObject
   itemID: Trashcan
   throwForce: 600
-  maxDistance: 3
-  snapRadius: 0.5
-  holdDistance: 2
+  maxDist: 3
+  snapRad: 0.5
+  holdDist: 2
+  objectRad: 0.25
+  followSpeed: 20
+  minHoldDist: 1
+  maxHoldDist: 2.5
+  scrollSense: 0.25
   zoneLayer:
     serializedVersion: 2
     m_Bits: 64
+  obstacleLayers:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &835688125 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8185233381778413342, guid: 633406015f776604caf57f551a3269a7, type: 3}
@@ -1956,12 +1974,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PickUpObject
   itemID: Vase1
   throwForce: 600
-  maxDistance: 3
-  snapRadius: 0.5
-  holdDistance: 2
+  maxDist: 3
+  snapRad: 0.5
+  holdDist: 2
+  objectRad: 0.25
+  followSpeed: 20
+  minHoldDist: 1
+  maxHoldDist: 2.5
+  scrollSense: 0.25
   zoneLayer:
     serializedVersion: 2
     m_Bits: 64
+  obstacleLayers:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!54 &884528938
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2523,6 +2549,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 68ed5c3c0a36d23a2a8da1e7e8d37479, type: 2}
+    - target: {fileID: -4135761786055788197, guid: ae31bf0417fcb7da79db7480d3232363, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: c42b0b376fef09b7c919a27a16d0820f, type: 2}
     - target: {fileID: -3494704522322593246, guid: ae31bf0417fcb7da79db7480d3232363, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
