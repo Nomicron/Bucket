@@ -31,12 +31,33 @@ public class CursorScript : MonoBehaviour
         {
             if (hit.collider.CompareTag("Pickup"))
             {
+                //Hand open cursor
                 currentTexture = textures[0];
+
+                if (Mouse.current.leftButton.isPressed) 
+                {
+                    //Hand closed cursor
+                    currentTexture = textures[0];
+                }
+
                 return;
             }
             else if (hit.collider.CompareTag("Dirt"))
             {
+                //Rag cursor
                 currentTexture = textures[1];
+                return;
+            }
+            else if (hit.collider.CompareTag("Stain")) 
+            {
+                //Brush cursor
+                currentTexture = textures[2];
+                return;
+            }
+            else if (hit.collider.CompareTag("Clue")) 
+            {
+                //Spyglass cursor
+                currentTexture = textures[0];
                 return;
             }
         }
