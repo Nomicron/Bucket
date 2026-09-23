@@ -17,7 +17,7 @@ public class PlacementZone : MonoBehaviour
     [SerializeField]
     int suspicionAmount = 0;
     [SerializeField]
-    NPCSuspicionProfile targetNPC;
+    Character targetNPC;
     public bool AcceptsItem(string itemID) 
     {
         // Reject if there is already an item here
