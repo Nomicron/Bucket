@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class NPCSuspicionUI : MonoBehaviour
 {
     [SerializeField]
-    Character targetNPC;
+    NPCSuspicionProfile targetNPC;
 
     [SerializeField]
     Image fillImage;
