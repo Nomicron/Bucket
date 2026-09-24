@@ -62,8 +62,7 @@ public class Cleaning : MonoBehaviour
                 cleaningMode = true;
 
 
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
+                PauseController.SetPause(true);
             }
         }
     }
@@ -76,8 +75,7 @@ public class Cleaning : MonoBehaviour
         lookScript.canLook = true;
         hasMop = false;
 
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        PauseController.SetPause(false);
     }
     void HandleCleaning(StainType stainType)
     {
