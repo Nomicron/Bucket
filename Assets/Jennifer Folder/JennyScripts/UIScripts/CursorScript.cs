@@ -31,12 +31,46 @@ public class CursorScript : MonoBehaviour
         {
             if (hit.collider.CompareTag("Pickup"))
             {
+                //Hand open cursor
+                currentTexture = textures[1];
+
+                if (Mouse.current.leftButton.isPressed) 
+                {
+                    //Hand closed cursor
+                    currentTexture = textures[2];
+                }
+
+                return;
+            }
+            if (hit.collider.CompareTag("Openable")) 
+            {
+                //Hand pointing cursor
                 currentTexture = textures[0];
+
+                if (Mouse.current.leftButton.isPressed)
+                {
+                    //Hand closed cursor
+                    currentTexture = textures[2];
+                }
+
                 return;
             }
             else if (hit.collider.CompareTag("Dirt"))
             {
-                currentTexture = textures[1];
+                //Rag cursor
+                currentTexture = textures[3];
+                return;
+            }
+            else if (hit.collider.CompareTag("Stain")) 
+            {
+                //Brush cursor
+                currentTexture = textures[4];
+                return;
+            }
+            else if (hit.collider.CompareTag("Clue")) 
+            {
+                //Spyglass cursor
+                currentTexture = textures[5];
                 return;
             }
         }
@@ -50,6 +84,7 @@ public class CursorScript : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+            currentTexture = textures[0];
         }
         else
         {
