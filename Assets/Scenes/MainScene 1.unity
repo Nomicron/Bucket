@@ -1088,7 +1088,7 @@ MonoBehaviour:
   snapPoint: {fileID: 1265828818}
   maxCapacity: 1
   suspicionAmount: 10
-  targetNPC: {fileID: 1515097761}
+  targetNPC: {fileID: 0}
 --- !u!65 &444705611
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1955,7 +1955,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b95c37105c2de24b9c2f6785f1d5a3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCSuspicionUI
-  targetNPC: {fileID: 1515097761}
+  targetNPC: {fileID: 0}
   fillImage: {fileID: 860383376}
 --- !u!114 &716251765
 MonoBehaviour:
@@ -2174,6 +2174,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4949019333932935476, guid: cb9b791a7f6f2904bb0b16da06dcffe0, type: 3}
   m_PrefabInstance: {fileID: 641522072}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &738411352 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8391937411778668681, guid: cb9b791a7f6f2904bb0b16da06dcffe0, type: 3}
+  m_PrefabInstance: {fileID: 641522072}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25cd6d3d18e5fb949a3abba1805a8ab0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Look
 --- !u!1 &753772245
 GameObject:
   m_ObjectHideFlags: 0
@@ -3279,6 +3290,34 @@ PrefabInstance:
     - target: {fileID: 165554292317414765, guid: 59a08871928efe64fae1c792e85e4953, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 299335327153276991, guid: 59a08871928efe64fae1c792e85e4953, type: 3}
+      propertyPath: look
+      value: 
+      objectReference: {fileID: 738411352}
+    - target: {fileID: 299335327153276991, guid: 59a08871928efe64fae1c792e85e4953, type: 3}
+      propertyPath: cleaning
+      value: 
+      objectReference: {fileID: 738411343}
+    - target: {fileID: 299335327153276991, guid: 59a08871928efe64fae1c792e85e4953, type: 3}
+      propertyPath: maxYOffset
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 299335327153276991, guid: 59a08871928efe64fae1c792e85e4953, type: 3}
+      propertyPath: maxVerticalOffset
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 299335327153276991, guid: 59a08871928efe64fae1c792e85e4953, type: 3}
+      propertyPath: maxHorizontalOffset
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 299335327153276991, guid: 59a08871928efe64fae1c792e85e4953, type: 3}
+      propertyPath: verticalSensitivity
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 299335327153276991, guid: 59a08871928efe64fae1c792e85e4953, type: 3}
+      propertyPath: horizontalSensitivity
+      value: 0.001
       objectReference: {fileID: 0}
     - target: {fileID: 4814420714613632661, guid: 59a08871928efe64fae1c792e85e4953, type: 3}
       propertyPath: mopHead
@@ -5715,17 +5754,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 80378263}
   m_SourcePrefab: {fileID: 100100000, guid: 633406015f776604caf57f551a3269a7, type: 3}
---- !u!114 &1515097761 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2427261861940429206, guid: 633406015f776604caf57f551a3269a7, type: 3}
-  m_PrefabInstance: {fileID: 1515097760}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 80378257}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0d5247991e138343a57a73387936297, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Character
 --- !u!1 &1560110382
 GameObject:
   m_ObjectHideFlags: 0

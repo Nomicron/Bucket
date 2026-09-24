@@ -62,7 +62,7 @@ public class Cleaning : MonoBehaviour
                 cleaningMode = true;
 
 
-                PauseController.SetPause(true);
+                //PauseController.SetPause(true);
             }
         }
     }
@@ -124,6 +124,7 @@ public class Cleaning : MonoBehaviour
 
             case StainType.Dirt:
 
+                lookScript.canLook = false;
 
                 if (Physics.Raycast(ray, out RaycastHit hit2, cleaningRange))
                 {
