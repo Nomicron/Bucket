@@ -13348,11 +13348,6 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
---- !u!1 &1572683586 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 165554292317414765, guid: 59a08871928efe64fae1c792e85e4953, type: 3}
-  m_PrefabInstance: {fileID: 1900125623}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1588175055
 GameObject:
   m_ObjectHideFlags: 0
@@ -16344,11 +16339,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fece455dda115446b41597e942627c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Cleaning
---- !u!4 &1876078519 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4949019333932935476, guid: cb9b791a7f6f2904bb0b16da06dcffe0, type: 3}
-  m_PrefabInstance: {fileID: 5017062729188902129}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1886791952
 GameObject:
   m_ObjectHideFlags: 0
@@ -16936,10 +16926,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8555953931314157961, guid: 59a08871928efe64fae1c792e85e4953, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1876078519}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19386,7 +19372,7 @@ PrefabInstance:
     - target: {fileID: 4416507322818299266, guid: cb9b791a7f6f2904bb0b16da06dcffe0, type: 3}
       propertyPath: mop
       value: 
-      objectReference: {fileID: 1572683586}
+      objectReference: {fileID: 0}
     - target: {fileID: 4949019333932935476, guid: cb9b791a7f6f2904bb0b16da06dcffe0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.621824
