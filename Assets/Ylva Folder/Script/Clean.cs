@@ -7,6 +7,8 @@ public class Cleaning : MonoBehaviour
     [SerializeField] Look lookScript;
     [SerializeField] float cleaningRange = 2f;
     [SerializeField] float scrubThreshold = 1000f;
+    [SerializeField] RayController rayController;
+
     Ray ray;
 
     float scrubAmount;
@@ -47,12 +49,10 @@ public class Cleaning : MonoBehaviour
     void TryEnterCleaningMode()
     {
 
-      Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
+      //Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
 
-        if (Physics.Raycast(ray, out RaycastHit hit, cleaningRange))
+        if (rayController.TryGetComponent<Stain>(out Stain stain))
         {
-            Stain stain = hit.collider.GetComponent<Stain>();
-
             if (stain != null)
             {
                 currentStain = stain;
@@ -77,9 +77,13 @@ public class Cleaning : MonoBehaviour
 
         PauseController.SetPause(false);
     }
+
     void HandleCleaning(StainType stainType)
     {
-        Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
+        if (!rayController.TryGetComponent<Stain>(out Stain stain) || stain != currentStain) 
+        {
+            return;
+        }
 
         switch (stainType) 
         {
@@ -93,51 +97,30 @@ public class Cleaning : MonoBehaviour
                     return;
                 }
 
-                if (Physics.Raycast(ray, out RaycastHit hit, cleaningRange))
+                Vector2 mouseDelta = Mouse.current.delta.ReadValue();
+
+
+                if (mouseDelta.magnitude < 1f)
+
+                    return;
+
+
+                scrubAmount += mouseDelta.magnitude;
+
+
+                if (scrubAmount >= scrubThreshold)
                 {
-        
-                    Stain stain = hit.collider.GetComponent<Stain>();
+                    currentStain.Clean();
+                    scrubAmount = 0;
+                }
 
-                   
-                    if (stain == currentStain)
-                    {
-               
-                        Vector2 mouseDelta = Mouse.current.delta.ReadValue();
-
-                            
-                        if (mouseDelta.magnitude < 1f)
-               
-                            return;
-
-              
-                        scrubAmount += mouseDelta.magnitude;
-
-              
-                        if (scrubAmount >= scrubThreshold)
-                        {
-                            currentStain.Clean();
-                            scrubAmount = 0;
-                        }
-                    }
-                } 
                 break;
 
             case StainType.Dirt:
 
+                hasMop = true;
                 lookScript.canLook = false;
 
-                if (Physics.Raycast(ray, out RaycastHit hit2, cleaningRange))
-                {
-
-                    Stain stain = hit2.collider.GetComponent<Stain>();
-
-
-                    if (stain == currentStain)
-                    {
-
-                        hasMop = true;
-                    }
-                }
                 break;
    
         }
