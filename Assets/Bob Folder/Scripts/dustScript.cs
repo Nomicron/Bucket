@@ -8,6 +8,11 @@ public class dustScript : MonoBehaviour
     [SerializeField] private float interactionDistance = 3.0f;
     [SerializeField] private float destroyDelay = 3.0f;
 
+    [SerializeField] RayController rayController;
+    [SerializeField] Camera playerCamera;
+
+    Ray ray;
+
     private bool destroyed = false;
 
     void Start()
@@ -22,8 +27,8 @@ public class dustScript : MonoBehaviour
 
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
-            Ray ray = Camera.main.ViewportPointToRay(
-                new Vector3(0.5f, 0.5f, 0f));
+            ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward
+         );
 
             if (Physics.Raycast(ray, out RaycastHit hit, interactionDistance))
             {
