@@ -12,6 +12,7 @@ using Image = UnityEngine.UI.Image;
 public class DialogueScript : MonoBehaviour
 {
     public int currentDialogue = 0;
+    public RayController rayController;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
@@ -54,9 +55,9 @@ public class DialogueScript : MonoBehaviour
     //checks if player sees a character and presses e on the keyboard to indicate youve started dialogue with them
     void RaycastCheck() 
     {
-        Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
+        //Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
 
-        if (Physics.Raycast(ray, out RaycastHit hit, 5) && Keyboard.current.eKey.wasPressedThisFrame) 
+        if (rayController.TryGetHit(out RaycastHit hit) && Keyboard.current.eKey.wasPressedThisFrame) 
         {
             currentCharacter = hit.collider.GetComponent<Character>();
             

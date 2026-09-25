@@ -5,6 +5,7 @@ public class CursorScript : MonoBehaviour
 {
     public Texture2D[] textures;
     public Vector2 hotspot = Vector2.zero;
+    [SerializeField] public RayController rayController;
 
     private float cursorSize = 32f;
     private Texture2D currentTexture = null;
@@ -25,9 +26,7 @@ public class CursorScript : MonoBehaviour
 
     public void ChangeCursor() 
     {
-        Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
-
-        if (Physics.Raycast(ray, out RaycastHit hit)) 
+        if (rayController.TryGetHit(out RaycastHit hit)) 
         {
             if (hit.collider.CompareTag("Pickup"))
             {
