@@ -313,9 +313,13 @@ MonoBehaviour:
       data:
         shaderGraph: {fileID: 4333940904281232215, guid: 9545529d040b7b044acf7ef11aabf76e, type: 3}
         materialSettings:
-          m_PropertyNames: []
-          m_PropertyValues: []
-          renderQueue: -1
+          m_PropertyNames:
+          - _AlphaClip
+          - _QueueControl
+          m_PropertyValues:
+          - 0
+          - 0
+          renderQueue: 2450
 --- !u!114 &8926484042661615059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1877,7 +1881,7 @@ MonoBehaviour:
     m_Value:
       m_Type:
         m_SerializableType: UnityEngine.Gradient, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"colorKeys":[{"color":{"r":0.9773584604263306,"g":0.963209331035614,"b":0.07929503917694092,"a":1.0},"time":0.0},{"color":{"r":2.0,"g":1.4540859460830688,"b":0.0,"a":1.0},"time":0.11882200092077255},{"color":{"r":0.9698112607002258,"g":0.2277500033378601,"b":0.0,"a":1.0},"time":0.6317692995071411},{"color":{"r":1.0,"g":0.0015111288521438837,"b":0.0,"a":1.0},"time":0.9258869290351868},{"color":{"r":0.4490565061569214,"g":0.0,"b":0.0,"a":1.0},"time":1.0}],"alphaKeys":[{"alpha":1.0,"time":0.0},{"alpha":1.0,"time":1.0}],"gradientMode":0}'
+      m_SerializableObject: '{"colorKeys":[{"color":{"r":2.9960782527923584,"g":2.9527041912078857,"b":0.24307778477668762,"a":1.0},"time":0.0},{"color":{"r":2.9960787296295166,"g":2.1782779693603516,"b":0.0,"a":1.0},"time":0.09059281647205353},{"color":{"r":2.9960782527923584,"g":0.7035975456237793,"b":0.0,"a":1.0},"time":0.5588311553001404},{"color":{"r":2.9960787296295166,"g":0.0045274607837200165,"b":0.0,"a":1.0},"time":0.9117723107337952},{"color":{"r":2.9960782527923584,"g":0.0,"b":0.0,"a":1.0},"time":1.0}],"alphaKeys":[{"alpha":1.0,"time":0.0},{"alpha":1.0,"time":1.0}],"gradientMode":0}'
     m_Space: -1
   m_Property:
     name: gradient
