@@ -83,7 +83,7 @@ public class MopPainter : MonoBehaviour
                 {
                     cleaningMask.SetPixel(pixelX, pixelY, Color.white);
                     cleanedPixels++;
-                    Debug.Log($"Total cleaned: {cleanedPixels}/{totalPixels}");
+                   // Debug.Log($"Total cleaned: {cleanedPixels}/{totalPixels}");
                 }
             }
         }
