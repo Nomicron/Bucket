@@ -14,6 +14,10 @@ public class Look : MonoBehaviour
     float mouseX;
     float mouseY;
 
+    // public getters (added by Bob)
+    public float MouseX => mouseX;
+    public float MouseY => mouseY;
+
     private float originalSens;
     public bool canLook = true;
 
@@ -22,9 +26,6 @@ public class Look : MonoBehaviour
     {
         originalSens = mouseSensitivity;
         canLook = true;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-
     }
 
     // Update is called once per frame
@@ -34,17 +35,13 @@ public class Look : MonoBehaviour
         if (PauseController.IsGamePaused)
         {
             mouseSensitivity = 0;
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
             return;
         }
         else if(!PauseController.IsGamePaused && !cleaning.cleaningMode)
         {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
             mouseSensitivity = originalSens;
         }
-        if (!canLook)
+        if (!canLook && !MopLookOverrideActive)
             return;
 
         float lookX = mouseX * mouseSensitivity * Time.deltaTime;
@@ -66,6 +63,16 @@ public class Look : MonoBehaviour
 
         mouseX = lookInput.x;
         mouseY = lookInput.y;
+    }
+
+    public bool MopLookOverrideActive
+    {
+        get
+        {
+            return cleaning != null &&
+                   cleaning.cleaningMode &&
+                   Mouse.current.middleButton.isPressed;
+        }
     }
 }
 

@@ -4,13 +4,19 @@ using UnityEngine.Windows;
 
 public class mopMovement : MonoBehaviour
 {
+    [Header("References")]
+    [SerializeField] Look look;
+
+
     [Header("Movement")]
-    [SerializeField] private float moveSpeed = 2f;
-    [SerializeField] private float maxHorizontalOffset = 0.5f;
+    [SerializeField] private float xSensitivity = 0.001f;
+    [SerializeField] private float zSensitivity = 0.001f;
 
-    [SerializeField] private float liftSpeed = 1f;
-    [SerializeField] private float maxVerticalOffset = 0.5f;
+    [SerializeField] private float maxXOffset = 2.5f;
+    [SerializeField] private float maxZOffset = 1f;
 
+    [SerializeField] private float liftSpeed = 0.5f;
+    [SerializeField] private float maxYOffset = 0.5f;
 
 
     [Header("Rotation")]
@@ -19,8 +25,9 @@ public class mopMovement : MonoBehaviour
     private Vector3 startLocalPosition;
     private Quaternion startLocalRotation;
 
-    private float currentHorizontalOffset;
-    private float currentVerticalOffset;
+    private float currentXOffset;
+    private float currentYOffset;
+    private float currentZOffset;
 
     private void Start()
     {
@@ -35,37 +42,99 @@ public class mopMovement : MonoBehaviour
 
     private void MopControls()
     {
-        float horizontaInput = 0f;
-        float verticalInput = 0f;
+        //float horizontaInput = 0f;
+        //float verticalInput = 0f;
 
-        // Z = Left, X = Right, C = Up, V = Down (Let's change this later!)
+        //// Z = Left, X = Right, C = Up, V = Down (Let's change this later!)
 
-        if (Keyboard.current.zKey.isPressed)
-            horizontaInput -= 1f;
+        //if (Keyboard.current.zKey.isPressed)
+        //    horizontaInput -= 1f;
 
-        if (Keyboard.current.xKey.isPressed)
-            horizontaInput += 1f;
+        //if (Keyboard.current.xKey.isPressed)
+        //    horizontaInput += 1f;
 
-        if(Keyboard.current.cKey.isPressed)
-            verticalInput += 1f;
+        //if(Keyboard.current.cKey.isPressed)
+        //    verticalInput += 1f;
 
-        if (Keyboard.current.vKey.isPressed)
-            verticalInput -= 1f;
+        //if (Keyboard.current.vKey.isPressed)
+        //    verticalInput -= 1f;
 
-        //Horizontal movement
-        currentHorizontalOffset += horizontaInput * moveSpeed * Time.deltaTime;
-        currentHorizontalOffset = Mathf.Clamp(currentHorizontalOffset, -maxHorizontalOffset, maxHorizontalOffset);
+        ////Horizontal movement
+        //currentHorizontalOffset += horizontaInput * moveSpeed * Time.deltaTime;
+        //currentHorizontalOffset = Mathf.Clamp(currentHorizontalOffset, -maxHorizontalOffset, maxHorizontalOffset);
 
-        // Vertical movement
-        currentVerticalOffset += verticalInput * liftSpeed * Time.deltaTime;
-        currentVerticalOffset = Mathf.Clamp(currentVerticalOffset, -maxVerticalOffset, maxVerticalOffset);
+        //// Vertical movement
+        //currentVerticalOffset += verticalInput * liftSpeed * Time.deltaTime;
+        //currentVerticalOffset = Mathf.Clamp(currentVerticalOffset, -maxVerticalOffset, maxVerticalOffset);
 
-        // Final transformation
-        transform.localPosition = startLocalPosition + Vector3.right * currentHorizontalOffset + Vector3.up * currentVerticalOffset;
+        //// Final transformation
+        //transform.localPosition = startLocalPosition + Vector3.right * currentHorizontalOffset + Vector3.up * currentVerticalOffset;
 
-        float normalizedOffset = currentHorizontalOffset / maxHorizontalOffset;
-        float angle =  -normalizedOffset * maxRotation;
+        //float normalizedOffset = currentHorizontalOffset / maxHorizontalOffset;
+        //float angle =  -normalizedOffset * maxRotation;
 
-        transform.localRotation = startLocalRotation * Quaternion.Euler(0f, 0f, angle);
+        //transform.localRotation = startLocalRotation * Quaternion.Euler(0f, 0f, angle);
+        if (look == null)
+            return;
+
+        // Middle mouse is used for looking around.
+        if (Mouse.current.middleButton.isPressed)
+            return;
+
+        float mouseX = look.MouseX;
+        float mouseY = look.MouseY;
+
+        // Mouse movement controls X and Z.
+        currentXOffset += mouseX * xSensitivity;
+        currentZOffset += mouseY * zSensitivity;
+
+        // Left mouse raises mop.
+        if (Mouse.current.leftButton.isPressed)
+        {
+            currentYOffset += liftSpeed * Time.deltaTime;
+        }
+
+        // Right mouse lowers mop.
+        if (Mouse.current.rightButton.isPressed)
+        {
+            currentYOffset -= liftSpeed * Time.deltaTime;
+        }
+
+        // Clamp movement.
+        currentXOffset = Mathf.Clamp(
+            currentXOffset,
+            -maxXOffset,
+            maxXOffset
+        );
+
+        currentYOffset = Mathf.Clamp(
+            currentYOffset,
+            -maxYOffset,
+            maxYOffset
+        );
+
+        currentZOffset = Mathf.Clamp(
+            currentZOffset,
+            -maxZOffset,
+            maxZOffset
+        );
+
+        // Apply final position.
+        transform.localPosition =
+            startLocalPosition +
+            Vector3.right * currentXOffset +
+            Vector3.up * currentYOffset +
+            Vector3.forward * currentZOffset;
+
+        // Rotate mop based on horizontal X movement.
+        float normalizedHorizontal =
+            currentXOffset / maxXOffset;
+
+        float angle =
+            -normalizedHorizontal * maxRotation;
+
+        transform.localRotation =
+            startLocalRotation *
+            Quaternion.Euler(0f, 0f, angle);
     }
 }
