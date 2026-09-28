@@ -8,13 +8,14 @@ public class Cleaning : MonoBehaviour
     [SerializeField] float cleaningRange = 2f;
     [SerializeField] float scrubThreshold = 1000f;
     [SerializeField] RayController rayController;
-
+    [SerializeField] GameObject madeBed;
     Ray ray;
 
     float scrubAmount;
     public bool cleaningMode = false;
     Stain currentStain;
     public bool hasMop = false;
+    public bool bedMade = false; 
 
 
     private void Start()
@@ -122,6 +123,19 @@ public class Cleaning : MonoBehaviour
                 lookScript.canLook = false;
 
                 break;
+            case StainType.Bed:
+
+                if (!bedMade)
+                {
+                    madeBed.SetActive(true);
+
+                    stain.gameObject.SetActive(false);
+
+                    bedMade = true;
+
+                    ExitCleaningMode();
+                }
+                break;
    
         }
     }
@@ -130,5 +144,6 @@ public enum StainType
 {
     Blood,
     Dirt,
-    Paint
+    Paint,
+    Bed
 }
