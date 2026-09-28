@@ -47,6 +47,7 @@ public class mopScript : MonoBehaviour
         else if (other.CompareTag("Stain"))
         {
             // Mop entered a stain.
+            
         }
         else
             return;
