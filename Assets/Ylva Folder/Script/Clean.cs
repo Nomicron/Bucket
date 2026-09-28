@@ -63,7 +63,7 @@ public class Cleaning : MonoBehaviour
                 cleaningMode = true;
 
 
-                //PauseController.SetPause(true);
+                PauseController.SetPause(true);
             }
         }
     }

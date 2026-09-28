@@ -313,9 +313,13 @@ MonoBehaviour:
       data:
         shaderGraph: {fileID: 4333940904281232215, guid: 9545529d040b7b044acf7ef11aabf76e, type: 3}
         materialSettings:
-          m_PropertyNames: []
-          m_PropertyValues: []
-          renderQueue: -1
+          m_PropertyNames:
+          - _AlphaClip
+          - _QueueControl
+          m_PropertyValues:
+          - 0
+          - 0
+          renderQueue: 2450
 --- !u!114 &8926484042661615059
 MonoBehaviour:
   m_ObjectHideFlags: 0
