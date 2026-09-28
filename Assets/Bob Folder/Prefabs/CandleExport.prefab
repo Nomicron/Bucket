@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: fire
       objectReference: {fileID: 0}
+    - target: {fileID: 96767303974170015, guid: 4afd7efc8236b7a43b80a2f5da2bfb19, type: 3}
+      propertyPath: m_TagString
+      value: Lightsource
+      objectReference: {fileID: 0}
     - target: {fileID: 957405567012869725, guid: 4afd7efc8236b7a43b80a2f5da2bfb19, type: 3}
       propertyPath: m_Range
       value: 0.22
@@ -23,6 +27,10 @@ PrefabInstance:
     - target: {fileID: 957405567012869725, guid: 4afd7efc8236b7a43b80a2f5da2bfb19, type: 3}
       propertyPath: m_Shadows.m_Type
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6855534217612363569, guid: 4afd7efc8236b7a43b80a2f5da2bfb19, type: 3}
+      propertyPath: m_TagString
+      value: Lightsource
       objectReference: {fileID: 0}
     - target: {fileID: 8137053005766507896, guid: 4afd7efc8236b7a43b80a2f5da2bfb19, type: 3}
       propertyPath: m_CastShadows
@@ -154,6 +162,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CandleExport
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 60f503cc3a23a4949bdc7e3a6c20bf64, type: 3}
+      propertyPath: m_TagString
+      value: Openable
+      objectReference: {fileID: 0}
     - target: {fileID: 7330095381222774183, guid: 60f503cc3a23a4949bdc7e3a6c20bf64, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -168,10 +180,57 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 60f503cc3a23a4949bdc7e3a6c20bf64, type: 3}
       insertIndex: -1
       addedObject: {fileID: 9165241453634122688}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 60f503cc3a23a4949bdc7e3a6c20bf64, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4386417421431169323}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 60f503cc3a23a4949bdc7e3a6c20bf64, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2369145942794821789}
   m_SourcePrefab: {fileID: 100100000, guid: 60f503cc3a23a4949bdc7e3a6c20bf64, type: 3}
 --- !u!4 &385204705345078215 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 60f503cc3a23a4949bdc7e3a6c20bf64, type: 3}
   m_PrefabInstance: {fileID: 203291857455309868}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1014247867781962109 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 60f503cc3a23a4949bdc7e3a6c20bf64, type: 3}
+  m_PrefabInstance: {fileID: 203291857455309868}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4386417421431169323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1014247867781962109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37d72abd59c62d544b60bf18771c6415, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::lightControlScript
+  interactionDistance: 3
+  rayController: {fileID: 0}
+  playerCamera: {fileID: 0}
+--- !u!65 &2369145942794821789
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1014247867781962109}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.05, y: 0.15, z: 0.05}
+  m_Center: {x: 0, y: 0.1, z: 0}
