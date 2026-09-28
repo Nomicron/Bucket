@@ -13,7 +13,7 @@ public class MopPainter : MonoBehaviour
 
     int cleanedPixels;
     int totalPixels;
-    bool completed;
+    public bool completed;
 
     void Start()
     {
@@ -98,9 +98,21 @@ public class MopPainter : MonoBehaviour
         }
     }
 
-    void CompleteCleaning()
+    void CompleteCleaning() // Added by Bob
     {
         completed = true;
+
+        Color[] pixels = new Color[textureResolution * textureResolution];
+
+        for (int i = 0; i < pixels.Length; i++)
+        {
+            pixels[i] = Color.white;
+        }
+
+        cleaningMask.SetPixels(pixels);
+        cleaningMask.Apply();
+
+        cleanedPixels = totalPixels;
 
         Debug.Log("Floor cleaned!");
 

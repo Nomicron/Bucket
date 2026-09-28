@@ -29,7 +29,7 @@ RectTransform:
   m_GameObject: {fileID: 1045338288334799785}
   m_LocalRotation: {x: -0, y: -0.34041187, z: -0, w: 0.94027644}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.12230875, y: 0.12230875, z: 0.12230875}
+  m_LocalScale: {x: 0.05744475, y: 0.05744475, z: 0.05744475}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4323300894550961314}
@@ -89,7 +89,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 6033617607697383389, guid: 8990a50aeec505c4b8564d4081b649c0, type: 3}
+  m_Sprite: {fileID: -3821147245862409429, guid: 2c697c1f5c70a0f42928a7f39615a0c4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -133,7 +133,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 6.5, y: 6.5, z: 1.35}
+  m_Size: {x: 26.4, y: 26.4, z: 5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &5217943086975199143
 MonoBehaviour:
@@ -150,6 +150,8 @@ MonoBehaviour:
   dustEffect: {fileID: 1305345687705772987}
   interactionDistance: 3
   destroyDelay: 0.25
+  rayController: {fileID: 0}
+  playerCamera: {fileID: 0}
 --- !u!1 &8301157582293821580
 GameObject:
   m_ObjectHideFlags: 0
@@ -178,7 +180,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.34041187, z: -0, w: 0.94027644}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 8.176029, y: 8.17603, z: 8.176029}
+  m_LocalScale: {x: 11.529018, y: 11.52902, z: 11.529018}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7174968054880847987}

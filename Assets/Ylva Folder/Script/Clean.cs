@@ -9,6 +9,8 @@ public class Cleaning : MonoBehaviour
     [SerializeField] float scrubThreshold = 1000f;
     [SerializeField] RayController rayController;
 
+    public MopPainter currentMopPainter;
+
     Ray ray;
 
     float scrubAmount;
@@ -57,6 +59,8 @@ public class Cleaning : MonoBehaviour
             {
                 currentStain = stain;
 
+                currentMopPainter = stain.GetComponent<MopPainter>();
+
                 scrubAmount = 0;
 
                 cleaningMode = true;
@@ -71,6 +75,7 @@ public class Cleaning : MonoBehaviour
     {
         cleaningMode = false;
         currentStain = null;
+        currentMopPainter = null;
 
         lookScript.canLook = true;
         hasMop = false;
