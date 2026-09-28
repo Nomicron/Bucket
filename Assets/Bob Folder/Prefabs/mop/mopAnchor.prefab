@@ -136,12 +136,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8975878774880720212, guid: 375251a562ba4f14999873b54a51d962, type: 3}
+      propertyPath: gravity
+      value: 29.81
+      objectReference: {fileID: 0}
+    - target: {fileID: 8975878774880720212, guid: 375251a562ba4f14999873b54a51d962, type: 3}
       propertyPath: dryDamping
-      value: 0.1
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 8975878774880720212, guid: 375251a562ba4f14999873b54a51d962, type: 3}
       propertyPath: wetDamping
-      value: 0.2
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 9053467621498351030, guid: 375251a562ba4f14999873b54a51d962, type: 3}
       propertyPath: m_Name
