@@ -1116,7 +1116,7 @@ MonoBehaviour:
   snapPoint: {fileID: 1265828818}
   maxCapacity: 1
   suspicionAmount: 10
-  targetNPC: {fileID: 1515097761}
+  targetNPC: {fileID: 0}
 --- !u!65 &444705611
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2051,7 +2051,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b95c37105c2de24b9c2f6785f1d5a3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCSuspicionUI
-  targetNPC: {fileID: 1515097761}
+  targetNPC: {fileID: 0}
   fillImage: {fileID: 860383376}
 --- !u!114 &716251765
 MonoBehaviour:
@@ -3426,7 +3426,7 @@ PrefabInstance:
     - target: {fileID: 4814420714613632661, guid: 59a08871928efe64fae1c792e85e4953, type: 3}
       propertyPath: mopHead
       value: 
-      objectReference: {fileID: 1800030118}
+      objectReference: {fileID: 1888083535}
     - target: {fileID: 4814420714613632661, guid: 59a08871928efe64fae1c792e85e4953, type: 3}
       propertyPath: cleaning
       value: 
@@ -5984,17 +5984,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 80378263}
   m_SourcePrefab: {fileID: 100100000, guid: 633406015f776604caf57f551a3269a7, type: 3}
---- !u!114 &1515097761 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2427261861940429206, guid: 633406015f776604caf57f551a3269a7, type: 3}
-  m_PrefabInstance: {fileID: 1515097760}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 80378257}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0d5247991e138343a57a73387936297, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Character
 --- !u!1 &1560110382
 GameObject:
   m_ObjectHideFlags: 0
@@ -6568,7 +6557,6 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 8748954fa0719ad4395a89f2c9558adb, type: 3}
   - {fileID: 2800000, guid: c874c95f18fc64143abdc8bd9071e325, type: 3}
   - {fileID: 2800000, guid: 2f68e62c21cd00840a4a1c043a76b876, type: 3}
-  - {fileID: 2800000, guid: 0281edfd63729624eb4bca3e636ed8d8, type: 3}
   hotspot: {x: 0, y: 0}
   rayController: {fileID: 2077969079}
 --- !u!1001 &1669141295
@@ -8164,4 +8152,3 @@ SceneRoots:
   - {fileID: 1272442487}
   - {fileID: 1077707796}
   - {fileID: 573272679}
-  - {fileID: 1840315493}

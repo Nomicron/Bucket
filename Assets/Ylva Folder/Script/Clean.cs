@@ -3,12 +3,13 @@ using UnityEngine.InputSystem;
 
 public class Cleaning : MonoBehaviour
 {
-   // [SerializeField] Camera playerCamera;
+    [SerializeField] Camera playerCamera;
     [SerializeField] Look lookScript;
-    //[SerializeField] float cleaningRange = 2f;
+    [SerializeField] float cleaningRange = 2f;
     [SerializeField] float scrubThreshold = 1000f;
     [SerializeField] RayController rayController;
     [SerializeField] GameObject madeBed;
+    Ray ray;
 
     float scrubAmount;
     public bool cleaningMode = false;
@@ -16,9 +17,11 @@ public class Cleaning : MonoBehaviour
     public bool hasMop = false;
     public bool bedMade = false; 
 
+
     private void Start()
     {
-       
+        ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward
+        );
     }
     void Update()
     {
@@ -60,7 +63,7 @@ public class Cleaning : MonoBehaviour
                 cleaningMode = true;
 
 
-                //PauseController.SetPause(true); 
+                //PauseController.SetPause(true);
             }
         }
     }
@@ -111,6 +114,7 @@ public class Cleaning : MonoBehaviour
                     currentStain.Clean();
                     scrubAmount = 0;
                 }
+
                 break;
 
             case StainType.Dirt:
