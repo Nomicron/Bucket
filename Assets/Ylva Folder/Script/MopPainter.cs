@@ -8,6 +8,7 @@ public class MopPainter : MonoBehaviour
 
     [SerializeField] int textureResolution = 256;
     [SerializeField] int brushSize = 10;
+    [SerializeField] mopScript mop;
 
     Texture2D cleaningMask;
 
@@ -57,8 +58,14 @@ public class MopPainter : MonoBehaviour
 
     public void CleanAtUV(Vector2 uv)
     {
+        if (!mop.isWet)
+            return;
+
         if (completed)
             return;
+
+        if (mop.isWet)
+            mop.MopUseWater();
 
         int centerX = Mathf.RoundToInt(uv.x * textureResolution);
         int centerY = Mathf.RoundToInt(uv.y * textureResolution);
@@ -96,6 +103,8 @@ public class MopPainter : MonoBehaviour
         {
             CompleteCleaning();
         }
+
+        
     }
 
     void CompleteCleaning() // Added by Bob
