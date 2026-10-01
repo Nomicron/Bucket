@@ -19,7 +19,7 @@ public class cleaningUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (cleaning.cleaningMode && cleaning.currentMopPainter != null)
+        if (CleaningModeController.InCleaningMode && cleaning.currentMopPainter != null)
         {
             float cleaningPercentage = cleaning.currentMopPainter.GetCleanPercentage() * 100f;
 

@@ -14,7 +14,7 @@ public class Cleaning : MonoBehaviour
     Ray ray;
 
     float scrubAmount;
-    public bool cleaningMode = false;
+    //public bool cleaningMode = false;
     Stain currentStain;
     public bool hasMop = false;
 
@@ -27,7 +27,7 @@ public class Cleaning : MonoBehaviour
     void Update()
     {
 
-        if (cleaningMode && currentStain != null)
+        if (CleaningModeController.InCleaningMode && currentStain != null)
         {
             HandleCleaning(currentStain.stainType);
         }
@@ -38,7 +38,7 @@ public class Cleaning : MonoBehaviour
         if (!input.isPressed)
             return;
 
-        if (cleaningMode)
+        if (CleaningModeController.InCleaningMode)
         {
             ExitCleaningMode();
         }
@@ -63,7 +63,7 @@ public class Cleaning : MonoBehaviour
 
                 scrubAmount = 0;
 
-                cleaningMode = true;
+                //cleaningMode = true;
                 CleaningModeController.SetCleaningMode(true);
 
                 //PauseController.SetPause(true);
@@ -73,7 +73,7 @@ public class Cleaning : MonoBehaviour
 
     void ExitCleaningMode()
     {
-        cleaningMode = false;
+       // cleaningMode = false;
         CleaningModeController.SetCleaningMode(false);
         currentStain = null;
         currentMopPainter = null;
