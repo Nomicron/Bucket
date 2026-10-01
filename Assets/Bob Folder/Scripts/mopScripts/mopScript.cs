@@ -8,13 +8,14 @@ public class mopScript : MonoBehaviour
     [Header("References")]
     [SerializeField] private mopPhysicsScript mopPhysics;
 
-    private bool isWet = false;
-    private float wetnessLevel = 0f;
+    public bool isWet = false;
+    public float wetnessLevel = 0f;
 
 
     //Added by Ylva 
     [SerializeField] Cleaning cleaning;
     [SerializeField] Transform mopHead;
+    [SerializeField] float dryingSpeed = 0.1f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -85,6 +86,17 @@ public class mopScript : MonoBehaviour
     public void HandleTriggerExit(Collider other)
     {
         // Stop any continuous interaction if needed.
+    }
+
+    public void MopUseWater()
+    {
+        wetnessLevel -= dryingSpeed * Time.deltaTime;
+        if (wetnessLevel < 0f)
+        {
+            wetnessLevel = 0f;
+            isWet = false;
+            Debug.Log("Mop is Dry");
+        }
     }
     
 }

@@ -7,7 +7,7 @@ public class Stain : MonoBehaviour
     [SerializeField] Sprite[] cleaningStages;
 
     SpriteRenderer spriteRenderer;
-    int currentStage = 0;
+    public int currentStage = 0;
 
     void Start()
     {

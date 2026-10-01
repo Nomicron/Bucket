@@ -64,7 +64,7 @@ public class Cleaning : MonoBehaviour
                 scrubAmount = 0;
 
                 cleaningMode = true;
-
+                CleaningModeController.SetCleaningMode(true);
 
                 //PauseController.SetPause(true);
             }
@@ -74,6 +74,7 @@ public class Cleaning : MonoBehaviour
     void ExitCleaningMode()
     {
         cleaningMode = false;
+        CleaningModeController.SetCleaningMode(false);
         currentStain = null;
         currentMopPainter = null;
 

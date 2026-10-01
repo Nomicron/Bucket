@@ -152,6 +152,7 @@ MonoBehaviour:
   sprite: {fileID: -1584050605377162327, guid: 2e9130c79c513154994947b08a1b58d1, type: 3}
   dialogueData:
   - {fileID: 11400000, guid: 28f06f822bd47274190c899ed459c9d2, type: 2}
-  - {fileID: 11400000, guid: 16f371bd78e71574980ad8adb08b39f7, type: 2}
-  - {fileID: 11400000, guid: 66d2cfa883c16e54bb693bcf1dfcf998, type: 2}
-  - {fileID: 11400000, guid: 05895ec9ff142d04782ef8d41e5c38ec, type: 2}
+  maxSuspicion: 100
+  onSuspicionChanged:
+    m_PersistentCalls:
+      m_Calls: []

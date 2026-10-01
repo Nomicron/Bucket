@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6509008296404779949}
   m_Layer: 0
   m_Name: Point Light (1)
-  m_TagString: Untagged
+  m_TagString: Lightsource
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -167,9 +167,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3157271528136281760}
+  - component: {fileID: 7316293213480651350}
+  - component: {fileID: 5780784825467626036}
   m_Layer: 0
   m_Name: LampNew
-  m_TagString: Untagged
+  m_TagString: Openable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -193,6 +195,44 @@ Transform:
   - {fileID: 6997167559741748782}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7316293213480651350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2349525603523548186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37d72abd59c62d544b60bf18771c6415, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::lightControlScript
+  interactionDistance: 3
+  rayController: {fileID: 0}
+  playerCamera: {fileID: 0}
+--- !u!136 &5780784825467626036
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2349525603523548186}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.02
+  m_Height: 0.07
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.02, z: 0}
 --- !u!1 &3461911646131892279
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,13 +11,13 @@ using Image = UnityEngine.UI.Image;
 
 public class DialogueScript : MonoBehaviour
 {
-    public int currentDialogue = 0;
     public RayController rayController;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     public GameObject DialogueCanvas;
     public Camera playerCamera;
+
     bool startedDialogue = false;
     Character currentCharacter;
 
@@ -28,7 +28,7 @@ public class DialogueScript : MonoBehaviour
     public float timeBetweenLetters;
     public float timeBetweenLines;
 
-    public GameObject optionManager;
+    public OptionManagerScript optionManager;
 
     void Start()
     {
@@ -36,7 +36,7 @@ public class DialogueScript : MonoBehaviour
         
         if (optionManager != null) 
         {
-            optionManager.SetActive(false);
+            optionManager.gameObject.SetActive(false);
         }
 
         PauseController.SetPause(false);
@@ -68,26 +68,25 @@ public class DialogueScript : MonoBehaviour
                 DialogueCanvas.SetActive(true);
                 PauseController.SetPause(true);
 
-                StartNewDialogue(0);
+                StartNewDialogue(currentCharacter.dialogueData[0]);
             }
         }
     }
 
-    public void StartNewDialogue(int currentDialogue) 
+    public void StartNewDialogue(DialogueData dialogue) 
     {
-       this.currentDialogue = currentDialogue;
-
         if (optionManager != null) 
         {
-            optionManager.SetActive(false);
+            optionManager.gameObject.SetActive(false);
         }
 
-        if (currentCharacter != null && currentDialogue < currentCharacter.dialogueData.Length) 
+        if (dialogue != null) 
         {
             ShowCharacterInfo(currentCharacter);
 
             StopAllCoroutines();
-            StartCoroutine(SlowPrint(currentCharacter.dialogueData[currentDialogue]));
+
+            StartCoroutine(SlowPrint(dialogue));
         }
         else 
         {
@@ -103,12 +102,15 @@ public class DialogueScript : MonoBehaviour
     }
 
     IEnumerator SlowPrint(DialogueData dialogue)
-    { 
+    {
+        yield return new WaitUntil(() => !Mouse.current.leftButton.isPressed);
+
         //Prints every line in the scriptable dialogue data object attatched to the character
         foreach (string line in dialogue.lines) 
         {
             //Clears text after every line
             CharDialogue.text = "";
+            bool skippedLine = false;
 
             //Prints letter by letter
             foreach (char c in line) 
@@ -117,27 +119,49 @@ public class DialogueScript : MonoBehaviour
                 if (Mouse.current.leftButton.wasPressedThisFrame) 
                 {
                     CharDialogue.text = line;
+                    skippedLine = true;
                     break;
                 }
 
                 CharDialogue.text += c;
 
-                //adds delay per letter
-                yield return new WaitForSeconds(timeBetweenLetters);
+                float timer = 0f;
+
+                while (timer < timeBetweenLetters) 
+                {
+                    if (Mouse.current.leftButton.wasPressedThisFrame) 
+                    {
+                        CharDialogue.text = line;
+                        skippedLine = true;
+                        break;
+                    }
+
+                    timer += Time.deltaTime;
+                    yield return null;
+                }
+
+                if (skippedLine)
+                {
+                    break;
+                }
             }
 
             CharDialogue.text = line;
 
             //checks if the mouse is pressed first to ensure no line is skipped
-            yield return new WaitUntil(() => Mouse.current.leftButton.isPressed);
+            yield return new WaitUntil(() => !Mouse.current.leftButton.isPressed);
 
             //then checks to make sure its pressed this frame
             yield return new WaitUntil(() => Mouse.current.leftButton.wasPressedThisFrame);
+
+            yield return null;
         }
 
         if (optionManager != null) 
         {
-            optionManager.SetActive(true);
+            optionManager.gameObject.SetActive(true);
+
+            optionManager.ShowOptions(dialogue.options);
         }
 
     }
@@ -150,11 +174,11 @@ public class DialogueScript : MonoBehaviour
 
         if (optionManager != null)
         {
-            optionManager.SetActive(false);
+            optionManager.gameObject.SetActive(false);
         }
 
         PauseController.SetPause(false);
+
         CharDialogue.text = "";
-        currentDialogue = 0;
     }
 }
