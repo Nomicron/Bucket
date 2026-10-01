@@ -16,7 +16,7 @@ public class SuspicionController : MonoBehaviour
         }
     }
 
-    public void AddSuspicion(NPCSuspicionProfile targetNPC, int amount) 
+    public void AddSuspicion(Character targetNPC, int amount) 
     {
         if(targetNPC != null) 
         {

@@ -45,11 +45,7 @@ public class PickUpObject : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         myCollider = GetComponent<Collider>();
         tempParent = TempParent.Instance;
-
-        if (tempParent != null)
-        {
-            playerColliders = tempParent.GetComponentsInParent<Collider>();
-        }
+        playerColliders = tempParent.GetComponentsInParent<Collider>();
     }
 
     void Update()
