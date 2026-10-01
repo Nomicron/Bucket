@@ -763,11 +763,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 872e43252c84a4a48a3906ea90183293, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCSuspicionProfile
-  npcName: Dewey Bates
-  maxSuspicion: 100
-  onSuspicionChanged:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1001 &86556107
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2496,6 +2491,8 @@ MonoBehaviour:
   acceptedItemID: Vase1
   snapPoint: {fileID: 1265828818}
   maxCapacity: 1
+  minThrowRange: 50
+  maxThrownRange: 150
   suspicionAmount: 10
   targetNPC: {fileID: 0}
 --- !u!65 &444705611
@@ -3877,6 +3874,7 @@ MonoBehaviour:
   obstacleLayers:
     serializedVersion: 2
     m_Bits: 0
+  throwStartPosition: {x: 0, y: 0, z: 0}
 --- !u!1001 &785348579
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4511,6 +4509,7 @@ MonoBehaviour:
   obstacleLayers:
     serializedVersion: 2
     m_Bits: 512
+  throwStartPosition: {x: 0, y: 0, z: 0}
 --- !u!54 &884528938
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8935,6 +8934,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a051db412de2edc46b7a02885664765d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SuspicionController
+  targetNPCs: []
 --- !u!114 &1656066599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10012,6 +10012,22 @@ PrefabInstance:
     - target: {fileID: 2972964935174093628, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5712157656177604028, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -8428974833949422360, guid: e1a0852c18814f545ae5bbd3872ef806, type: 3}
+    - target: {fileID: 5888466098998687590, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5931797140321161101, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 5931797140321161101, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 267
       objectReference: {fileID: 0}
     - target: {fileID: 7120378841767570487, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}
       propertyPath: playerCamera
