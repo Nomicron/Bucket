@@ -1,7 +1,5 @@
-using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Rendering;
 
 public class CursorScript : MonoBehaviour
 {
@@ -9,10 +7,7 @@ public class CursorScript : MonoBehaviour
     public Vector2 hotspot = Vector2.zero;
     [SerializeField] public RayController rayController;
 
-    Stain hitStain;
-    bool needsRag = false;
-
-    //private float cursorSize = 32f;
+    private float cursorSize = 32f;
     private Texture2D currentTexture = null;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -61,36 +56,20 @@ public class CursorScript : MonoBehaviour
             }
             else if (hit.collider.CompareTag("Dirt"))
             {
-                //Brush cursor
+                //Rag cursor
                 currentTexture = textures[3];
-                return;
-            }
-            else if (hit.collider.CompareTag("Clue"))
-            {
-                //Spyglass cursor
-                currentTexture = textures[4];
                 return;
             }
             else if (hit.collider.CompareTag("Stain")) 
             {
-                hitStain = hit.collider.GetComponent<Stain>();
-
-                if (hitStain != null) 
-                {
-                    if (!CleaningModeController.InCleaningMode) 
-                    {
-                        currentTexture = textures[5];
-                    }
-                    else if (hitStain.stainType == StainType.Blood) 
-                    {
-                        currentTexture = textures[6 + hitStain.currentStage];
-                    }
-                    else 
-                    {
-                        currentTexture = null;
-                    }
-                }
-
+                //Brush cursor
+                currentTexture = textures[4];
+                return;
+            }
+            else if (hit.collider.CompareTag("Clue")) 
+            {
+                //Spyglass cursor
+                currentTexture = textures[5];
                 return;
             }
         }
@@ -106,11 +85,6 @@ public class CursorScript : MonoBehaviour
             Cursor.visible = true;
             currentTexture = textures[0];
         }
-        else if (CleaningModeController.InCleaningMode && currentTexture != null) 
-        {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = false;
-        }
         else
         {
             Cursor.lockState = CursorLockMode.Locked;
@@ -122,11 +96,8 @@ public class CursorScript : MonoBehaviour
     {
         if (currentTexture != null && !PauseController.IsGamePaused) 
         {
-            Vector2 mousePos = Mouse.current.position.ReadValue();
-
-            float x = mousePos.x - (currentTexture.width / 2f) + hotspot.x;
-            //uses Screen.height since Unity input system uses bottom left as (0,0) while OnGUI uses top left as (0,0)
-            float y = Screen.height - mousePos.y - (currentTexture.height / 2f) + hotspot.y;
+            float x = (Screen.width / 2f) - (cursorSize / 2f) + hotspot.x;
+            float y = (Screen.height / 2f) - (cursorSize / 2f) + hotspot.y;
 
             GUI.DrawTexture(new Rect(x, y, currentTexture.width, currentTexture.height), currentTexture);
         }
