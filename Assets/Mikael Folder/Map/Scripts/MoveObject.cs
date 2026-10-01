@@ -69,12 +69,7 @@ public class MoveObject : MonoBehaviour
     private IEnumerator SlideRoutine(Vector3 dest) 
     {
         isMoving = true;
-
-        if(rb != null) 
-        {
-            rb.isKinematic = true;
-        }
-
+        rb.isKinematic = true;
         float elapsedTime = 0f;
         float length = Vector3.Distance(transform.position, dest);
         float totalTime = length / (slideSpeed * 2f);
@@ -90,11 +85,7 @@ public class MoveObject : MonoBehaviour
         }
 
         transform.position = dest;
-
-        if(rb != null) 
-        {
-            rb.isKinematic = false;
-        }
+        rb.isKinematic = false;
         isMoving = false;
     }
 }

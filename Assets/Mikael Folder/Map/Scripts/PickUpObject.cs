@@ -30,8 +30,12 @@ public class PickUpObject : MonoBehaviour
     [SerializeField] 
     LayerMask obstacleLayers;
 
+    [SerializeField]
+    Vector3 throwStartPosition;
+
     bool isHolding = false;
     bool isPlaced = false;
+    bool isThown = false;
     float distance;
 
     TempParent tempParent;
@@ -45,11 +49,7 @@ public class PickUpObject : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         myCollider = GetComponent<Collider>();
         tempParent = TempParent.Instance;
-
-        if (tempParent != null)
-        {
-            playerColliders = tempParent.GetComponentsInParent<Collider>();
-        }
+        playerColliders = tempParent.GetComponentsInParent<Collider>();
     }
 
     void Update()
@@ -65,6 +65,8 @@ public class PickUpObject : MonoBehaviour
 
             if (Mouse.current.rightButton.wasPressedThisFrame)
             {
+                isThown = true;
+                throwStartPosition = transform.position;
                 rb.AddForce(tempParent.transform.forward * throwForce);
                 Drop();
             }
@@ -224,6 +226,11 @@ public class PickUpObject : MonoBehaviour
         rb.angularVelocity = Vector3.zero;
         rb.isKinematic = true;
 
-        zone.AddItem();
+        float throwDist = 0;
+        if (isThown) 
+        {
+            throwDist = Vector3.Distance(throwStartPosition, transform.position);
+        }
+        zone.AddItem(isThown, throwDist);
     }
 }

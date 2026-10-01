@@ -9,6 +9,11 @@ public class PlacementZone : MonoBehaviour
     [SerializeField]
     int maxCapacity = 1;
 
+    [SerializeField]
+    float minThrowRange = 50f;
+    [SerializeField]
+    float maxThrownRange = 150f;
+
     int currentItemCount = 0;
     public bool IsOccupied => currentItemCount >= maxCapacity;
     public Transform SnapPoint => snapPoint != null ? snapPoint : transform;
@@ -17,7 +22,7 @@ public class PlacementZone : MonoBehaviour
     [SerializeField]
     int suspicionAmount = 0;
     [SerializeField]
-    NPCSuspicionProfile targetNPC;
+    Character targetNPC;
     public bool AcceptsItem(string itemID) 
     {
         // Reject if there is already an item here
@@ -35,9 +40,14 @@ public class PlacementZone : MonoBehaviour
         // Only accept if the object's ID matches the zone's required ID
         return acceptedItemID == itemID;
     }
-    public void AddItem() 
+    public void AddItem(bool wasThrown, float throwDist) 
     {
         currentItemCount++;
+        if(wasThrown && throwDist >= minThrowRange && throwDist <= maxThrownRange)
+        {
+            OnSuccessfullThrow(throwDist);
+        }
+
         if (targetNPC != null && SuspicionController.Instance != null)
         {
             SuspicionController.Instance.AddSuspicion(targetNPC, suspicionAmount);
@@ -46,6 +56,11 @@ public class PlacementZone : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    private void OnSuccessfullThrow(float dist) 
+    {
+        Debug.Log("Amazing throw");
     }
 
     void Start()
