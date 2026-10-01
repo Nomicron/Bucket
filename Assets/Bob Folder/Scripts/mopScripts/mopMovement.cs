@@ -15,7 +15,7 @@ public class mopMovement : MonoBehaviour
     [SerializeField] private float maxXOffset = 2.5f;
     [SerializeField] private float maxZOffset = 1f;
 
-    [SerializeField] private float liftSpeed = 0.5f;
+    [SerializeField] private float liftSpeed = 0.002f;
     [SerializeField] private float maxYOffset = 0.5f;
 
 
@@ -88,17 +88,9 @@ public class mopMovement : MonoBehaviour
         currentXOffset += mouseX * xSensitivity;
         currentZOffset += mouseY * zSensitivity;
 
-        // Left mouse raises mop.
-        if (Mouse.current.leftButton.isPressed)
-        {
-            currentYOffset += liftSpeed * Time.deltaTime;
-        }
-
-        // Right mouse lowers mop.
-        if (Mouse.current.rightButton.isPressed)
-        {
-            currentYOffset -= liftSpeed * Time.deltaTime;
-        }
+        // Mouse wheel controls Y.
+        float scroll = Mouse.current.scroll.ReadValue().y;
+        currentYOffset += scroll * liftSpeed;
 
         // Clamp movement.
         currentXOffset = Mathf.Clamp(

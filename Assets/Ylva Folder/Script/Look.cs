@@ -71,7 +71,7 @@ public class Look : MonoBehaviour
         {
             return cleaning != null &&
                    cleaning.cleaningMode &&
-                   Mouse.current.middleButton.isPressed;
+                   Mouse.current.rightButton.isPressed;
         }
     }
 }
