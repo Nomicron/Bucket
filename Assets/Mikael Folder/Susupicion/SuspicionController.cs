@@ -4,6 +4,9 @@ public class SuspicionController : MonoBehaviour
 {
     public static SuspicionController Instance;
 
+    [SerializeField]
+    Character[] targetNPCs;
+
     private void Awake()
     {
         if (Instance == null) 
@@ -21,6 +24,17 @@ public class SuspicionController : MonoBehaviour
         if(targetNPC != null) 
         {
             targetNPC.ModifySuspicion(amount);
+        }
+    }
+
+    public void AddSuspicionAll(int amount) 
+    {
+        foreach(Character character in targetNPCs) 
+        {
+            if(character != null) 
+            {
+                character.ModifySuspicion(amount);
+            }
         }
     }
 }

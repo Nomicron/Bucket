@@ -7,9 +7,6 @@ public class TutorialController : MonoBehaviour
     [SerializeField]
     GameObject tutorialGUI;
 
-    [SerializeField]
-    Cleaning cleaning;
-
     bool hasShownTutorial = false;
     void Start()
     {
@@ -22,7 +19,7 @@ public class TutorialController : MonoBehaviour
 
     public void ActivateTutorial() 
     {
-        if(!hasShownTutorial && cleaning != null && tutorialGUI != null && cleaning.cleaningMode) 
+        if(!hasShownTutorial && tutorialGUI != null && CleaningModeController.InCleaningMode) 
         {
             hasShownTutorial = true;
             PauseController.SetPause(true);
@@ -30,7 +27,6 @@ public class TutorialController : MonoBehaviour
         }
         else if (Keyboard.current.hKey.wasPressedThisFrame) 
         {
-            PauseController.SetPause(true);
             tutorialGUI.SetActive(true);
         }
     }
@@ -38,6 +34,5 @@ public class TutorialController : MonoBehaviour
     public void CloseTutorial() 
     {
         tutorialGUI.SetActive(false);
-        PauseController.SetPause(false);
     }
 }
