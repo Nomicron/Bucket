@@ -64,7 +64,7 @@ public class Cleaning : MonoBehaviour
                 scrubAmount = 0;
 
                 cleaningMode = true;
-                CameraFilterController.SetCleaningMode(true);
+
 
                 //PauseController.SetPause(true);
             }
@@ -74,7 +74,6 @@ public class Cleaning : MonoBehaviour
     void ExitCleaningMode()
     {
         cleaningMode = false;
-        CameraFilterController.SetCleaningMode(false);
         currentStain = null;
         currentMopPainter = null;
 
