@@ -3,7 +3,7 @@ using UnityEngine.Rendering.Universal;
 using UnityEngine.Rendering;
 using System.Runtime.CompilerServices;
 
-public class CameraFilterController : MonoBehaviour
+public class CleaningModeController : MonoBehaviour
 {
     public static bool InCleaningMode { get; private set; } = false;
 
