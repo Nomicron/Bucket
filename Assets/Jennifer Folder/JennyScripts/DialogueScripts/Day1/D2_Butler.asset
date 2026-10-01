@@ -10,11 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d4e1a26556f1fb42ba3b2309295cecd, type: 3}
-  m_Name: D3_Butler
+  m_Name: D2_Butler
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
   lines:
-  - Right now my duties include general service, reception, paperwork and making sure all guests feel welcome aboard this ship.
-  options:
-  - {fileID: 11400000, guid: 5f5087298abc3e7459bddae934b74b32, type: 2}
-  - {fileID: 11400000, guid: 44b8d1073743d5d4488ffbde9dac1856, type: 2}
-  - {fileID: 11400000, guid: d1b583163b4205047b5c03a354330d8e, type: 2}
+  - "I\u2019m sure you\u2019ve been made aware by your recruiters, but the owner of this boat is not present at the moment, so I\u2019ve been put in charge temporarily."

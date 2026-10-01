@@ -28,9 +28,9 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3728618397904662368}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 6.2039}
-  m_LocalScale: {x: 0.028289946, y: 0.028289946, z: 0.028289946}
+  m_LocalScale: {x: 0.024406819, y: 0.024406819, z: 0.024406819}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -153,6 +153,9 @@ MonoBehaviour:
   sprite: {fileID: -2575802120332324317, guid: 71da069d56fc4124a95a6225168df047, type: 3}
   dialogueData:
   - {fileID: 11400000, guid: 1c3c85151ae00c1479afa034c365e7d9, type: 2}
+  - {fileID: 11400000, guid: 909dc066f5e2c54458ca813600f6da77, type: 2}
+  - {fileID: 11400000, guid: 49068102eda032844998318b808aa0e9, type: 2}
+  - {fileID: 11400000, guid: dcc9d8fc31a2842419a825f430ce7db1, type: 2}
   maxSuspicion: 100
   onSuspicionChanged:
     m_PersistentCalls:
