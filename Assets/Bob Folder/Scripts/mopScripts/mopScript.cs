@@ -12,6 +12,8 @@ public class mopScript : MonoBehaviour
     public bool isWet = false;
     public float wetnessLevel = 0f;
 
+    [SerializeField] private Renderer mopHeadRenderer;
+    [SerializeField] private Gradient wetnessGradient;
 
     //Added by Ylva 
     [SerializeField] Cleaning cleaning;
@@ -24,7 +26,7 @@ public class mopScript : MonoBehaviour
         if (mopPhysics == null)
             mopPhysics = GetComponent<mopPhysicsScript>();
 
-
+        UpdateMopColor();
     }
 
     // Update is called once per frame
@@ -39,6 +41,8 @@ public class mopScript : MonoBehaviour
             // Mop entered water.
             isWet = true;
             wetnessLevel = 1f; // Set wetness level to maximum when entering water.
+
+            UpdateMopColor();
 
           //Increce the damping of the mop when it is wet.
             if (mopPhysics != null)
@@ -92,12 +96,23 @@ public class mopScript : MonoBehaviour
     public void MopUseWater()
     {
         wetnessLevel -= dryingSpeed * Time.deltaTime;
-        if (wetnessLevel < 0f)
+
+        wetnessLevel = Mathf.Clamp01(wetnessLevel);
+
+        UpdateMopColor();
+        if (wetnessLevel <= 0f)
         {
             wetnessLevel = 0f;
             isWet = false;
             Debug.Log("Mop is Dry");
         }
     }
-    
+
+    private void UpdateMopColor()
+    {
+        Color color = wetnessGradient.Evaluate(wetnessLevel);
+
+        mopHeadRenderer.material.color = color;
+    }
+
 }
