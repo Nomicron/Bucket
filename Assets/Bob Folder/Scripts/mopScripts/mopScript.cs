@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
 public class mopScript : MonoBehaviour
 {
 
@@ -71,7 +72,7 @@ public class mopScript : MonoBehaviour
 
         if (other.Raycast(ray, out RaycastHit hit, 0.3f))
         {
-            surface.CleanAtUV(hit.textureCoord);
+            surface.CleanAtUV(hit.textureCoord, hit.point);
         }
 
     //if (other.CompareTag("Stain") && isWet)

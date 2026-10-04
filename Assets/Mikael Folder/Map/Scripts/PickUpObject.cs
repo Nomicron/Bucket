@@ -40,6 +40,12 @@ public class PickUpObject : MonoBehaviour
     Collider[] playerColliders;
     PlacementZone currentZone;
 
+    // Added by Bob
+    [SerializeField] private roomScript homeRoom;
+
+    private Vector3 originalPos;
+    private Quaternion originalRotation;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -50,6 +56,9 @@ public class PickUpObject : MonoBehaviour
         {
             playerColliders = tempParent.GetComponentsInParent<Collider>();
         }
+
+        originalPos = transform.position;
+        originalRotation = transform.rotation;
     }
 
     void Update()
@@ -198,20 +207,6 @@ public class PickUpObject : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (isPlaced || isHolding)
-        {
-            return;
-        }
-
-        PlacementZone zone = other.GetComponent<PlacementZone>();
-        if (zone != null && zone.AcceptsItem(itemID))
-        {
-            SnapToZone(zone);
-        }
-    }
-
     private void SnapToZone(PlacementZone zone)
     {
         isPlaced = true;
@@ -225,5 +220,49 @@ public class PickUpObject : MonoBehaviour
         rb.isKinematic = true;
 
         zone.AddItem();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (isPlaced || isHolding)
+        {
+            return;
+        }
+
+        PlacementZone zone = other.GetComponent<PlacementZone>();
+        if (zone != null && zone.AcceptsItem(itemID))
+        {
+            SnapToZone(zone);
+        }
+    }  
+
+    //Added by Bob
+
+    private void OnTriggerExit(Collider other)
+    {
+        roomScript room = other.GetComponent<roomScript>();
+
+        if (room != null && room == homeRoom && !isPlaced)
+        {
+            RespawnObject();
+        }
+    }
+  
+    private void RespawnObject()
+    {
+        isHolding = false;
+
+        TogglePlayerCollisions(false);
+
+        rb.linearVelocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+
+        rb.isKinematic = false;
+        rb.useGravity = true;
+
+        transform.position = originalPos;
+        transform.rotation = originalRotation;
+
+        Debug.Log(gameObject.name + " returned to " + homeRoom.roomName);
     }
 }
