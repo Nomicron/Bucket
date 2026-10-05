@@ -6,6 +6,7 @@ public class Look : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
+    [SerializeField] private Transform head;
     [SerializeField]float mouseSensitivity = 0.5f;
     Transform playerCamera;
     [SerializeField] Cleaning cleaning;
@@ -47,10 +48,14 @@ public class Look : MonoBehaviour
         float lookX = mouseX * mouseSensitivity * Time.deltaTime;
         float lookY = mouseY * mouseSensitivity * Time.deltaTime;
 
+        // Look up/down with head only.
         xRotation -= lookY;
         xRotation = Mathf.Clamp(xRotation, -85f, 85f);
-        yRotation += lookX;
-        transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
+
+        head.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+
+        // Look left/right by rotating the whole player.
+        transform.Rotate(Vector3.up * lookX);
 
 
     }
@@ -70,8 +75,8 @@ public class Look : MonoBehaviour
         get
         {
             return cleaning != null &&
-                   CleaningModeController.InCleaningMode &&
-                   Mouse.current.middleButton.isPressed;
+                   cleaning.cleaningMode &&
+                   Mouse.current.rightButton.isPressed;
         }
     }
 }
