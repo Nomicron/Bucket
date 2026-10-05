@@ -12,5 +12,6 @@ public class PauseController : MonoBehaviour
     public static void SetPause(bool pause) 
     {
         IsGamePaused = pause;
+        Debug.Log($"Is paused = {pause}");
     }
 }

@@ -763,11 +763,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 872e43252c84a4a48a3906ea90183293, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCSuspicionProfile
-  npcName: Dewey Bates
-  maxSuspicion: 100
-  onSuspicionChanged:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1001 &86556107
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2540,6 +2535,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9f658027c717547469f5b64b6ba34e02, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -2579,8 +2578,19 @@ MonoBehaviour:
   acceptedItemID: Vase1
   snapPoint: {fileID: 1265828818}
   maxCapacity: 1
+  minThrowDist: 2
+  maxThrowDist: 200
+  trashVisual: {fileID: 0}
+  startPos: {x: 0, y: -0.5, z: 0}
+  endPos: {x: 0, y: 0, z: 0}
+  isTrashCan: 0
   suspicionAmount: 10
   targetNPC: {fileID: 0}
+  audioSource: {fileID: 0}
+  successThrowSound: {fileID: 0}
+  tooCloseSound: {fileID: 0}
+  dustEffect: {fileID: 0}
+  destroyDelay: 3
 --- !u!65 &444705611
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3961,6 +3971,7 @@ MonoBehaviour:
   obstacleLayers:
     serializedVersion: 2
     m_Bits: 0
+  destroyObject: 0
   homeRoom: {fileID: 1678500581}
 --- !u!1001 &785348579
 PrefabInstance:
@@ -4600,6 +4611,7 @@ MonoBehaviour:
   obstacleLayers:
     serializedVersion: 2
     m_Bits: 512
+  destroyObject: 0
   homeRoom: {fileID: 1678500581}
 --- !u!54 &884528938
 Rigidbody:
@@ -9044,6 +9056,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrashCanPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 4069905310774004745, guid: 380b3a6ec94dac14f91c0e56ab3f19a9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6403147692345421166, guid: 380b3a6ec94dac14f91c0e56ab3f19a9, type: 3}
       propertyPath: maxCapacity
       value: 5
@@ -9269,6 +9285,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4045031127896535376, guid: 5a706094a6331014cb31b9ab53d72db5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1656066602}
+    - targetCorrespondingSourceObject: {fileID: 4045031127896535376, guid: 5a706094a6331014cb31b9ab53d72db5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1656066605}
   m_SourcePrefab: {fileID: 100100000, guid: 5a706094a6331014cb31b9ab53d72db5, type: 3}
 --- !u!1 &1656066592 stripped
 GameObject:
@@ -9302,6 +9321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a051db412de2edc46b7a02885664765d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SuspicionController
+  targetNPCs: []
 --- !u!114 &1656066599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9339,6 +9359,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::roomManager
   currentRoom: {fileID: 0}
+--- !u!114 &1656066605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1656066592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed6611c13e76f4498ee36a5852dddbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TutorialController
+  tutorialGUI: {fileID: 2023142590}
 --- !u!1 &1678500578
 GameObject:
   m_ObjectHideFlags: 0
@@ -11556,6 +11589,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8bb6f5ce24e18a1458acd63005d14fbd, type: 3}
+--- !u!1 &2023142590 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5888466098998687590, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}
+  m_PrefabInstance: {fileID: 1816961622}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2039842797 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c823205a123c7f44797bb2cde2553e33, type: 3}
