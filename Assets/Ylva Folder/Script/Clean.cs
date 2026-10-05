@@ -128,6 +128,7 @@ public class Cleaning : MonoBehaviour
             case StainType.Dirt:
 
                 hasMop = true;
+                lookScript.canLook = false;
 
                 break;
    

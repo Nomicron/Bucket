@@ -9,9 +9,10 @@ public class TutorialController : MonoBehaviour
 
     bool hasShownTutorial = false;
     bool isOpen = false;
-    void Start()
+    void Awake()
     {
         tutorialGUI.SetActive(false);
+        hasShownTutorial = false;
     }
     void Update()
     {
@@ -20,12 +21,8 @@ public class TutorialController : MonoBehaviour
 
     public void ActivateTutorial() 
     {
-        if(!hasShownTutorial && tutorialGUI != null && CleaningModeController.InCleaningMode) 
-        {
-            hasShownTutorial = true;
-            OpenTutorial();
-        }
-        if (Keyboard.current.hKey.wasPressedThisFrame) 
+
+        if (Keyboard.current.hKey.wasPressedThisFrame || (!hasShownTutorial && tutorialGUI != null && CleaningModeController.InCleaningMode)) 
         {
             if (!isOpen) 
             {
