@@ -18,6 +18,8 @@ public class Cleaning : MonoBehaviour
     Stain currentStain;
     public bool hasMop = false;
 
+    //private bool isClean = false; 
+
 
     private void Start()
     {
@@ -118,6 +120,7 @@ public class Cleaning : MonoBehaviour
                 {
                     currentStain.Clean();
                     scrubAmount = 0;
+                  //  Finish(); 
                 }
 
                 break;
@@ -125,7 +128,6 @@ public class Cleaning : MonoBehaviour
             case StainType.Dirt:
 
                 hasMop = true;
-                lookScript.canLook = false;
 
                 break;
    
