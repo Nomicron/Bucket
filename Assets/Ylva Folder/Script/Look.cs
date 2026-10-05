@@ -40,7 +40,7 @@ public class Look : MonoBehaviour
         }
         //else if(!PauseController.IsGamePaused && !CleaningModeController.InCleaningMode)
         //{
-        //    mouseSensitivity = originalSens;
+            //mouseSensitivity = originalSens;
         //}
         if (!canLook && !MopLookOverrideActive)
             return;
@@ -74,9 +74,7 @@ public class Look : MonoBehaviour
     {
         get
         {
-            return cleaning != null &&
-                   CleaningModeController.InCleaningMode &&
-                   Mouse.current.rightButton.isPressed;
+            return cleaning != null && CleaningModeController.InCleaningMode &&  Mouse.current.rightButton.isPressed;
         }
     }
 }

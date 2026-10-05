@@ -50,5 +50,7 @@ public class CleaningModeController : MonoBehaviour
         { 
             filmGrain.active = inCleaningMode;
         }
+
+        Debug.Log($"Cleaningmode = {inCleaningMode}");
     }
 }
