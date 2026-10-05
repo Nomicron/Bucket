@@ -9277,6 +9277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::QuestManager
   activeQuests: []
+  activeTasks: []
   questUI: {fileID: 0}
 --- !u!114 &1656066596
 MonoBehaviour:
@@ -11179,7 +11180,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34d2be213875ef5c78217df62613eb90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::QuestDestination
-  questId: 1
 --- !u!135 &1975783167
 SphereCollider:
   m_ObjectHideFlags: 0
