@@ -21,7 +21,7 @@ public class MakeBed : MonoBehaviour
         //    {
         //        if (Input.GetKeyDown(KeyCode.E))
         //        {
-        //            bedComponent.MakeBed();
+        //          bedComponent.MakeBed();
         //        }
         //    }
         //}
