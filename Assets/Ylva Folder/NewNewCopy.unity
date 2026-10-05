@@ -836,11 +836,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 872e43252c84a4a48a3906ea90183293, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCSuspicionProfile
-  npcName: Dewey Bates
-  maxSuspicion: 100
-  onSuspicionChanged:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1001 &86556107
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2780,8 +2775,19 @@ MonoBehaviour:
   acceptedItemID: Vase1
   snapPoint: {fileID: 1265828818}
   maxCapacity: 1
+  minThrowDist: 2
+  maxThrowDist: 200
+  trashVisual: {fileID: 0}
+  startPos: {x: 0, y: -0.5, z: 0}
+  endPos: {x: 0, y: 0, z: 0}
+  isTrashCan: 0
   suspicionAmount: 10
   targetNPC: {fileID: 0}
+  audioSource: {fileID: 0}
+  successThrowSound: {fileID: 0}
+  tooCloseSound: {fileID: 0}
+  dustEffect: {fileID: 0}
+  destroyDelay: 3
 --- !u!65 &444705611
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4168,6 +4174,7 @@ MonoBehaviour:
   obstacleLayers:
     serializedVersion: 2
     m_Bits: 0
+  destroyObject: 0
   homeRoom: {fileID: 0}
 --- !u!1001 &785348579
 PrefabInstance:
@@ -4876,6 +4883,7 @@ MonoBehaviour:
   obstacleLayers:
     serializedVersion: 2
     m_Bits: 512
+  destroyObject: 0
   homeRoom: {fileID: 0}
 --- !u!54 &884528938
 Rigidbody:
@@ -5941,6 +5949,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1341466061}
   m_SourcePrefab: {fileID: 100100000, guid: 9a74ed30bded34e4496dd023ddea703c, type: 3}
+--- !u!1 &1079664946 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7623359044511507308, guid: 23f3e3737e0f9724bbe3970a44b3dcaa, type: 3}
+  m_PrefabInstance: {fileID: 301870086311559391}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1100156911 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 2070a7fb3da6cfd4e917842204883e5a, type: 3}
@@ -9702,6 +9715,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4045031127896535376, guid: 5a706094a6331014cb31b9ab53d72db5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1656066599}
+    - targetCorrespondingSourceObject: {fileID: 4045031127896535376, guid: 5a706094a6331014cb31b9ab53d72db5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1656066602}
   m_SourcePrefab: {fileID: 100100000, guid: 5a706094a6331014cb31b9ab53d72db5, type: 3}
 --- !u!1 &1656066592 stripped
 GameObject:
@@ -9720,6 +9736,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a051db412de2edc46b7a02885664765d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SuspicionController
+  targetNPCs: []
 --- !u!114 &1656066599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9744,6 +9761,19 @@ MonoBehaviour:
   - {fileID: 2800000, guid: c1540c0de89ee2448bfe51a66dc04d60, type: 3}
   hotspot: {x: 0, y: 0}
   rayController: {fileID: 2077969079}
+--- !u!114 &1656066602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1656066592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed6611c13e76f4498ee36a5852dddbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TutorialController
+  tutorialGUI: {fileID: 1079664946}
 --- !u!1 &1678500578
 GameObject:
   m_ObjectHideFlags: 0
@@ -12037,6 +12067,10 @@ PrefabInstance:
     - target: {fileID: 6865809787417994383, guid: 23f3e3737e0f9724bbe3970a44b3dcaa, type: 3}
       propertyPath: m_Name
       value: NewUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 7623359044511507308, guid: 23f3e3737e0f9724bbe3970a44b3dcaa, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
