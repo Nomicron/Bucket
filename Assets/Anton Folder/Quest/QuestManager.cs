@@ -5,13 +5,28 @@ public class QuestManager : MonoBehaviour
 {
     public static QuestManager Instance;
 
-    public List<Quest> activeQuests = new List<Quest>();
+    [SerializeField] public List<Quest> activeQuests = new List<Quest>();
+    [SerializeField] public List<Task> activeTasks = new List<Task>();
+
     public QuestUI questUI;
 
     private void Awake()
     {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
+    }
+
+    private void Start()
+    {
+
+        foreach (Task task in activeTasks)
+        {
+            if (task.state == TaskState.NotStarted)
+                task.state = TaskState.InProgress;
+        }
+
+        questUI.UpdateUI();
+
     }
 
     public void AddQuest(Quest quest)
@@ -21,18 +36,18 @@ public class QuestManager : MonoBehaviour
             quest.state = QuestState.InProgress;
             activeQuests.Add(quest);
             questUI.UpdateUI();
-            Debug.Log($"Accepted Quest: {quest.title}");
+           // Debug.Log($"Accepted Quest: {quest.title}");
         }
     }
 
-    public void CompleteObjective(string questId)
+    public void CompleteQuest(string questId)
     {
         Quest q = activeQuests.Find(x => x.id == questId);
         if (q != null && q.state == QuestState.InProgress)
         {
             q.state = QuestState.ObjectiveCompleted;
             questUI.UpdateUI();
-            Debug.Log($"Objective completed for: {q.title}. Return to the quest giver!");
+           // Debug.Log($"Quest completed for: {q.title}. Return to the quest giver!");
         }
     }
 
@@ -42,9 +57,20 @@ public class QuestManager : MonoBehaviour
         if (q != null && q.state == QuestState.ObjectiveCompleted)
         {
             q.state = QuestState.TurnedIn;
-            activeQuests.Remove(q);
+            // activeQuests.Remove(q);
             questUI.UpdateUI();
-            Debug.Log($"Quest Turned In: {q.title}! Reward Received.");
+            // Debug.Log($"Quest Turned In: {q.title}! Reward Received.");
         }
+    }
+
+    public void CompleteTask(string taskId)
+    {
+        Task t = activeTasks.Find(x => x.id == taskId);
+        if (t != null && t.state == TaskState.InProgress)
+        {
+            t.state = TaskState.ObjectiveCompleted;
+            questUI.UpdateUI();
+            // Debug.Log($"Task completed for: {t.title}. Return to the quest giver!");
         }
+    }
 }

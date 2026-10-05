@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MopPainter : MonoBehaviour
+public class MopPainter : ObjectiveMechanics
 {
     [Header("Cleaning")]
     [Range(0f, 1f)]
@@ -122,7 +122,7 @@ public class MopPainter : MonoBehaviour
         cleaningMask.Apply();
 
         cleanedPixels = totalPixels;
-
+        Finish();
         Debug.Log("Floor cleaned!");
 
 
