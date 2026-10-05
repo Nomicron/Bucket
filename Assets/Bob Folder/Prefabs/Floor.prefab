@@ -151,6 +151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Stain
   stainType: 1
   cleaningStages: []
+  currentStage: 0
 --- !u!114 &3471326569057883416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,4 +167,9 @@ MonoBehaviour:
   requiredCleanAmount: 0.9
   textureResolution: 256
   brushSize: 20
+  mop: {fileID: 0}
+  useBubbles: 0
+  bubbleVFXPrefabs: []
+  bubbleInterval: 0.025
+  bubbleLifetime: 0.7
   completed: 0

@@ -187,6 +187,78 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.1
       objectReference: {fileID: 0}
+    - target: {fileID: 5380049083925939603, guid: 375251a562ba4f14999873b54a51d962, type: 3}
+      propertyPath: mopHead
+      value: 
+      objectReference: {fileID: 4080812649992777530}
+    - target: {fileID: 5380049083925939603, guid: 375251a562ba4f14999873b54a51d962, type: 3}
+      propertyPath: dryingSpeed
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5380049083925939603, guid: 375251a562ba4f14999873b54a51d962, type: 3}
+      propertyPath: mopHeadRenderer
+      value: 
+      objectReference: {fileID: 2174994484740004615}
+    - target: {fileID: 5380049083925939603, guid: 375251a562ba4f14999873b54a51d962, type: 3}
+      propertyPath: wetnessGradient.ctime1
+      value: 9830
+      objectReference: {fileID: 0}
+    - target: {fileID: 5380049083925939603, guid: 375251a562ba4f14999873b54a51d962, type: 3}
+      propertyPath: wetnessGradient.ctime2
+      value: 36044
+      objectReference: {fileID: 0}
+    - target: {fileID: 5380049083925939603, guid: 375251a562ba4f14999873b54a51d962, type: 3}
+      propertyPath: wetnessGradient.ctime3
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 5380049083925939603, guid: 375251a562ba4f14999873b54a51d962, type: 3}
+      propertyPath: wetnessGradient.key0.b
+      value: 0.35760057
+      objectReference: {fileID: 0}
+    - target: {fileID: 5380049083925939603, guid: 375251a562ba4f14999873b54a51d962, type: 3}
+      propertyPath: wetnessGradient.key0.g
+      value: 0.60414743
+      objectReference: {fileID: 0}
+    - target: {fileID: 5380049083925939603, guid: 375251a562ba4f14999873b54a51d962, type: 3}
+      propertyPath: wetnessGradient.key0.r
+      value: 0.6603774
+      objectReference: {fileID: 0}
+    - target: {fileID: 5380049083925939603, guid: 375251a562ba4f14999873b54a51d962, type: 3}
+      propertyPath: wetnessGradient.key1.b
+      value: 0.6245283
+      objectReference: {fileID: 0}
+    - target: {fileID: 5380049083925939603, guid: 375251a562ba4f14999873b54a51d962, type: 3}
+      propertyPath: wetnessGradient.key1.g
+      value: 0.886735
+      objectReference: {fileID: 0}
+    - target: {fileID: 5380049083925939603, guid: 375251a562ba4f14999873b54a51d962, type: 3}
+      propertyPath: wetnessGradient.key2.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5380049083925939603, guid: 375251a562ba4f14999873b54a51d962, type: 3}
+      propertyPath: wetnessGradient.key2.g
+      value: 0.59592694
+      objectReference: {fileID: 0}
+    - target: {fileID: 5380049083925939603, guid: 375251a562ba4f14999873b54a51d962, type: 3}
+      propertyPath: wetnessGradient.key2.r
+      value: 0.2999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 5380049083925939603, guid: 375251a562ba4f14999873b54a51d962, type: 3}
+      propertyPath: wetnessGradient.key3.b
+      value: 0.4264151
+      objectReference: {fileID: 0}
+    - target: {fileID: 5380049083925939603, guid: 375251a562ba4f14999873b54a51d962, type: 3}
+      propertyPath: wetnessGradient.key3.g
+      value: 0.31683096
+      objectReference: {fileID: 0}
+    - target: {fileID: 5380049083925939603, guid: 375251a562ba4f14999873b54a51d962, type: 3}
+      propertyPath: wetnessGradient.key3.r
+      value: 0.23412599
+      objectReference: {fileID: 0}
+    - target: {fileID: 5380049083925939603, guid: 375251a562ba4f14999873b54a51d962, type: 3}
+      propertyPath: wetnessGradient.m_NumColorKeys
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5815557533610717096, guid: 375251a562ba4f14999873b54a51d962, type: 3}
       propertyPath: m_LocalScale.y
       value: 1.1
@@ -292,6 +364,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 9119610588100691227}
   m_SourcePrefab: {fileID: 100100000, guid: 375251a562ba4f14999873b54a51d962, type: 3}
+--- !u!137 &2174994484740004615 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1609656397226389505, guid: 375251a562ba4f14999873b54a51d962, type: 3}
+  m_PrefabInstance: {fileID: 610664372171287302}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2707065473115896146 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3308150895548404308, guid: 375251a562ba4f14999873b54a51d962, type: 3}
