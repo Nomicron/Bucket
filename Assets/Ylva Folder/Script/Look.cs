@@ -38,7 +38,7 @@ public class Look : MonoBehaviour
             mouseSensitivity = 0;
             return;
         }
-        else if(!PauseController.IsGamePaused && !cleaning.cleaningMode)
+        else if(!PauseController.IsGamePaused && !CleaningModeController.InCleaningMode)
         {
             mouseSensitivity = originalSens;
         }
@@ -75,7 +75,7 @@ public class Look : MonoBehaviour
         get
         {
             return cleaning != null &&
-                   cleaning.cleaningMode &&
+                   CleaningModeController.InCleaningMode &&
                    Mouse.current.rightButton.isPressed;
         }
     }
