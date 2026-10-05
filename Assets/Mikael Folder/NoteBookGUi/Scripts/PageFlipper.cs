@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CharacterController : MonoBehaviour
+public class PageFlipper : MonoBehaviour
 {
     private GameObject active_page;
     private int page;
