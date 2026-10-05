@@ -1,5 +1,6 @@
 using UnityEngine;
 
+//parent class for all scripts that handles finishing a task 
 public class ObjectiveMechanics : MonoBehaviour
 {
     public bool Finished { get; private set;}

@@ -1,5 +1,6 @@
 using UnityEngine;
 
+//listens to objetiveMechanics raised events and calls questmanager CompleteTask() 
 public class ObjectiveConnector : MonoBehaviour
 {
     public ObjectiveMechanics objectiveMechanics;

@@ -2312,6 +2312,10 @@ PrefabInstance:
       propertyPath: brushSize
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 6708759530457291102, guid: c48a21124985637438e59ce7f47d0b8b, type: 3}
+      propertyPath: useBubbles
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7248982807996866227, guid: c48a21124985637438e59ce7f47d0b8b, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.23942873
@@ -2893,11 +2897,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -3299730051501495111, guid: 7336e4bcd0adcd9999720fa1c995208e, type: 3}
       propertyPath: activeTasks.Array.data[0].title
-      value: Mop
+      value: Mop lobby
       objectReference: {fileID: 0}
     - target: {fileID: -3299730051501495111, guid: 7336e4bcd0adcd9999720fa1c995208e, type: 3}
       propertyPath: activeTasks.Array.data[1].title
-      value: Clean stain
+      value: Clean Window
       objectReference: {fileID: 0}
     - target: {fileID: -3299730051501495111, guid: 7336e4bcd0adcd9999720fa1c995208e, type: 3}
       propertyPath: activeTasks.Array.data[0].taskType
@@ -3386,6 +3390,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91a59aa49abc38d489c1045a4d32241d, type: 3}
+--- !u!137 &574505601 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2174994484740004615, guid: 59a08871928efe64fae1c792e85e4953, type: 3}
+  m_PrefabInstance: {fileID: 992107053}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &577532650 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7248982807996866227, guid: c48a21124985637438e59ce7f47d0b8b, type: 3}
@@ -3744,15 +3753,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4949019333932935476, guid: cb9b791a7f6f2904bb0b16da06dcffe0, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.51828
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4949019333932935476, guid: cb9b791a7f6f2904bb0b16da06dcffe0, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.85039693
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4949019333932935476, guid: cb9b791a7f6f2904bb0b16da06dcffe0, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.51828
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4949019333932935476, guid: cb9b791a7f6f2904bb0b16da06dcffe0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4030,17 +4039,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4949019333932935476, guid: cb9b791a7f6f2904bb0b16da06dcffe0, type: 3}
   m_PrefabInstance: {fileID: 641522072}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &738411352 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8391937411778668681, guid: cb9b791a7f6f2904bb0b16da06dcffe0, type: 3}
-  m_PrefabInstance: {fileID: 641522072}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2077969071}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25cd6d3d18e5fb949a3abba1805a8ab0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Look
 --- !u!1001 &739135425
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4393,6 +4391,7 @@ MonoBehaviour:
   obstacleLayers:
     serializedVersion: 2
     m_Bits: 0
+  homeRoom: {fileID: 0}
 --- !u!1001 &785348579
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5100,6 +5099,7 @@ MonoBehaviour:
   obstacleLayers:
     serializedVersion: 2
     m_Bits: 512
+  homeRoom: {fileID: 0}
 --- !u!54 &884528938
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5574,7 +5574,7 @@ PrefabInstance:
     - target: {fileID: 299335327153276991, guid: 59a08871928efe64fae1c792e85e4953, type: 3}
       propertyPath: look
       value: 
-      objectReference: {fileID: 738411352}
+      objectReference: {fileID: 2077969084}
     - target: {fileID: 299335327153276991, guid: 59a08871928efe64fae1c792e85e4953, type: 3}
       propertyPath: cleaning
       value: 
@@ -5667,6 +5667,10 @@ PrefabInstance:
       propertyPath: dryingSpeed
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 4814420714613632661, guid: 59a08871928efe64fae1c792e85e4953, type: 3}
+      propertyPath: mopHeadRenderer
+      value: 
+      objectReference: {fileID: 574505601}
     - target: {fileID: 6398637334441952430, guid: 59a08871928efe64fae1c792e85e4953, type: 3}
       propertyPath: m_LocalScale.y
       value: 1.1
@@ -12290,6 +12294,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InputController
   playerCamera: {fileID: 641522073}
   rayRange: 2
+--- !u!114 &2077969084 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2460205999250996713, guid: cb9b791a7f6f2904bb0b16da06dcffe0, type: 3}
+  m_PrefabInstance: {fileID: 641522072}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2077969071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25cd6d3d18e5fb949a3abba1805a8ab0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Look
 --- !u!1 &2089354880 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7438774225169723525, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}

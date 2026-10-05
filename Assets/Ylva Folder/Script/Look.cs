@@ -75,7 +75,7 @@ public class Look : MonoBehaviour
         get
         {
             return cleaning != null &&
-                   cleaning.cleaningMode &&
+                   CleaningModeController.InCleaningMode &&
                    Mouse.current.rightButton.isPressed;
         }
     }

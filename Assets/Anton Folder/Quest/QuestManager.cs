@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//handles Task and quest logics, controls tasklist and calls QuestUI.Update 
 public class QuestManager : MonoBehaviour
 {
     public static QuestManager Instance;

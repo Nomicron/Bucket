@@ -154,21 +154,17 @@ public class MopPainter : ObjectiveMechanics
             cleaningMask.Apply();
 
             cleanedPixels = totalPixels;
+        Finish();
 
-            Debug.Log("Floor cleaned!");
+        Debug.Log("Floor cleaned!");
 
 
         }
 
-        cleaningMask.SetPixels(pixels);
-        cleaningMask.Apply();
-
-        cleanedPixels = totalPixels;
-        Finish();
-        Debug.Log("Floor cleaned!");
 
 
-    }
+
+    
 
     public float GetCleanPercentage()
     {
