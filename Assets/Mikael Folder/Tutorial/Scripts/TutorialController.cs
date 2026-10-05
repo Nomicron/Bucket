@@ -45,8 +45,6 @@ public class TutorialController : MonoBehaviour
 
         tutorialGUI.SetActive(true);
 
-        Time.timeScale = 0f;
-
         PauseController.SetPause(true);
     }
 
@@ -55,8 +53,6 @@ public class TutorialController : MonoBehaviour
         isOpen = false;
 
         tutorialGUI.SetActive(false);
-
-        Time.timeScale = 1f;
 
         PauseController.SetPause(false);
     }
