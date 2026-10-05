@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class PlacementZone : MonoBehaviour
 {
@@ -32,6 +34,17 @@ public class PlacementZone : MonoBehaviour
     int suspicionAmount = 0;
     [SerializeField]
     Character targetNPC;
+
+
+    [SerializeField]
+    AudioSource audioSource;
+    [SerializeField]
+    AudioClip successThrowSound;
+    [SerializeField]
+    AudioClip tooCloseSound;
+
+    [SerializeField] private VisualEffect dustEffect;
+    [SerializeField] private float destroyDelay = 3.0f;
     public bool AcceptsItem(string itemID) 
     {
         if (IsOccupied)
@@ -60,6 +73,7 @@ public class PlacementZone : MonoBehaviour
             }
             else
             {
+                OnCloseThrow(actualThrowDist);
                 Debug.Log($"Thrown, but too close! Distance: {actualThrowDist} (Min required: {minThrowDist})");
             }
         }
@@ -78,7 +92,7 @@ public class PlacementZone : MonoBehaviour
         {
             if (!isTrashCan) 
             {
-                Destroy(gameObject);
+                Destroy(gameObject,destroyDelay);
             }
         }
      
@@ -94,9 +108,45 @@ public class PlacementZone : MonoBehaviour
         trashVisual.localPosition = Vector3.Lerp(startPos, endPos, fillPercent);
         trashVisual.gameObject.SetActive(true);
     }
+
     private void OnSuccessfulThrow(float dist) 
     {
         Debug.Log($"Amazing throw. Distance : {dist}");
+        PlaySound(successThrowSound);
+        TriggerDustEffect();
+    }
+
+    private void OnCloseThrow(float dist)
+    {
+        PlaySound(tooCloseSound);
+        TriggerDustEffect();
+    }
+
+    private void TriggerDustEffect()
+    {
+        if (dustEffect == null) return;
+
+
+        dustEffect.Reinit();
+        dustEffect.Play();
+        Invoke(nameof(StopDustEffect), 0.25f);
+    }
+
+    private void StopDustEffect()
+    {
+        if (dustEffect != null)
+        {
+            dustEffect.Stop();
+        }
+    }
+    private void PlaySound(AudioClip clip)
+    {
+        if (audioSource == null || clip == null) return;
+
+        audioSource.Stop();
+
+        audioSource.clip = clip;
+        audioSource.Play();
     }
 
     void Start()
@@ -105,6 +155,7 @@ public class PlacementZone : MonoBehaviour
         {
             trashVisual.gameObject.SetActive(false);
         }
+        dustEffect.Stop();
     }
 
     // Update is called once per frame
