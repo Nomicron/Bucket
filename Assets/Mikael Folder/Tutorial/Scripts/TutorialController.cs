@@ -8,6 +8,7 @@ public class TutorialController : MonoBehaviour
     GameObject tutorialGUI;
 
     bool hasShownTutorial = false;
+    bool isOpen = false;
     void Start()
     {
         tutorialGUI.SetActive(false);
@@ -22,17 +23,41 @@ public class TutorialController : MonoBehaviour
         if(!hasShownTutorial && tutorialGUI != null && CleaningModeController.InCleaningMode) 
         {
             hasShownTutorial = true;
-            PauseController.SetPause(true);
-            tutorialGUI.SetActive(true);
+            OpenTutorial();
         }
-        else if (Keyboard.current.hKey.wasPressedThisFrame) 
+        if (Keyboard.current.hKey.wasPressedThisFrame) 
         {
-            tutorialGUI.SetActive(true);
+            if (!isOpen) 
+            {
+                hasShownTutorial = true;
+                OpenTutorial();
+            }
+            else 
+            {
+                CloseTutorial();
+            }
         }
+    }
+
+    public void OpenTutorial() 
+    {
+        isOpen = true;
+
+        tutorialGUI.SetActive(true);
+
+        Time.timeScale = 0f;
+
+        PauseController.SetPause(true);
     }
 
     public void CloseTutorial() 
     {
+        isOpen = false;
+
         tutorialGUI.SetActive(false);
+
+        Time.timeScale = 1f;
+
+        PauseController.SetPause(false);
     }
 }

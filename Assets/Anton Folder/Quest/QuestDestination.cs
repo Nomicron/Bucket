@@ -1,15 +1,16 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
-public class QuestDestination : MonoBehaviour
+public class QuestDestination : ObjectiveMechanics
 {
-    public string questId;
-
+    //public string questId;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            QuestManager.Instance.CompleteObjective(questId);
+           // QuestManager.Instance.CompleteQuest(questId);
+            Finish();
         }
+
     }
 }

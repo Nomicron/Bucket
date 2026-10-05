@@ -30,13 +30,15 @@ public class PickUpObject : MonoBehaviour
     [SerializeField] 
     LayerMask obstacleLayers;
 
-    [SerializeField]
     Vector3 throwStartPosition;
 
+    [SerializeField]
+    bool destroyObject = false;
     bool isHolding = false;
     bool isPlaced = false;
-    bool isThown = false;
-    float distance;
+    bool isThrown = false;
+
+    float dist;
 
     TempParent tempParent;
     Rigidbody rb;
@@ -44,12 +46,25 @@ public class PickUpObject : MonoBehaviour
     Collider[] playerColliders;
     PlacementZone currentZone;
 
+    // Added by Bob
+    [SerializeField] private roomScript homeRoom;
+
+    private Vector3 originalPos;
+    private Quaternion originalRotation;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         myCollider = GetComponent<Collider>();
         tempParent = TempParent.Instance;
-        playerColliders = tempParent.GetComponentsInParent<Collider>();
+
+        if (tempParent != null)
+        {
+            playerColliders = tempParent.GetComponentsInParent<Collider>();
+        }
+
+        originalPos = transform.position;
+        originalRotation = transform.rotation;
     }
 
     void Update()
@@ -65,7 +80,7 @@ public class PickUpObject : MonoBehaviour
 
             if (Mouse.current.rightButton.wasPressedThisFrame)
             {
-                isThown = true;
+                isThrown = true;
                 throwStartPosition = transform.position;
                 rb.AddForce(tempParent.transform.forward * throwForce);
                 Drop();
@@ -87,13 +102,14 @@ public class PickUpObject : MonoBehaviour
         {
             return; 
         }
-            distance = Vector3.Distance(transform.position, tempParent.transform.position);
-            if (distance <= maxDist)
+            dist = Vector3.Distance(transform.position, tempParent.transform.position);
+            if (dist <= maxDist)
             {
                 isHolding = true;
+                isThrown = false;
 
                 // Initialize holdDist to match current distance on pickup
-                holdDist = Mathf.Clamp(distance, minHoldDist, maxHoldDist);
+                holdDist = Mathf.Clamp(dist, minHoldDist, maxHoldDist);
 
                 rb.useGravity = false;
                 rb.detectCollisions = true;
@@ -110,8 +126,8 @@ public class PickUpObject : MonoBehaviour
 
     private void Hold()
     {
-        distance = Vector3.Distance(transform.position, tempParent.transform.position);
-        if (distance >= maxDist)
+        dist = Vector3.Distance(transform.position, tempParent.transform.position);
+        if (dist >= maxDist)
         {
             Drop();
             return;
@@ -120,13 +136,13 @@ public class PickUpObject : MonoBehaviour
         Vector3 origin = tempParent.transform.position;
         Vector3 direction = tempParent.transform.forward;
 
-        // Offset cast origin forward so it starts outside player's body collider
+
         Vector3 castOrigin = origin + direction * objectRad;
         float maxCastDist = Mathf.Max(0.01f, holdDist - objectRad);
 
         float targetDist = holdDist;
 
-        // Cast sphere only against Environment layers
+
         if (Physics.SphereCast(castOrigin, objectRad, direction, out RaycastHit hit, maxCastDist, obstacleLayers))
         {
             targetDist = objectRad + hit.distance;
@@ -134,12 +150,11 @@ public class PickUpObject : MonoBehaviour
 
         Vector3 targetPosition = origin + direction * targetDist;
 
-        // Smoothly push item toward target position without clipping inside walls/player
+
         Vector3 moveVelocity = (targetPosition - transform.position) * followSpeed;
         rb.linearVelocity = moveVelocity;
         rb.angularVelocity = Vector3.zero;
 
-        // Check for placement zones
         Collider[] hits = Physics.OverlapSphere(transform.position, snapRad, zoneLayer);
         foreach (Collider hitCollider in hits)
         {
@@ -200,20 +215,6 @@ public class PickUpObject : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (isPlaced || isHolding)
-        {
-            return;
-        }
-
-        PlacementZone zone = other.GetComponent<PlacementZone>();
-        if (zone != null && zone.AcceptsItem(itemID))
-        {
-            SnapToZone(zone);
-        }
-    }
-
     private void SnapToZone(PlacementZone zone)
     {
         isPlaced = true;
@@ -226,11 +227,50 @@ public class PickUpObject : MonoBehaviour
         rb.angularVelocity = Vector3.zero;
         rb.isKinematic = true;
 
-        float throwDist = 0;
-        if (isThown) 
+        zone.AddItem(isThrown, throwStartPosition, gameObject, destroyObject);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (isPlaced || isHolding)
         {
-            throwDist = Vector3.Distance(throwStartPosition, transform.position);
+            return;
         }
-        zone.AddItem(isThown, throwDist);
+
+        PlacementZone zone = other.GetComponent<PlacementZone>();
+        if (zone != null && zone.AcceptsItem(itemID))
+        {
+            SnapToZone(zone);
+        }
+    }  
+
+    //Added by Bob
+
+    private void OnTriggerExit(Collider other)
+    {
+        roomScript room = other.GetComponent<roomScript>();
+
+        if (room != null && room == homeRoom && !isPlaced)
+        {
+            RespawnObject();
+        }
+    }
+  
+    private void RespawnObject()
+    {
+        isHolding = false;
+
+        TogglePlayerCollisions(false);
+
+        rb.linearVelocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+
+        rb.isKinematic = false;
+        rb.useGravity = true;
+
+        transform.position = originalPos;
+        transform.rotation = originalRotation;
+
+        Debug.Log(gameObject.name + " returned to " + homeRoom.roomName);
     }
 }

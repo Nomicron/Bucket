@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Stain : MonoBehaviour
+public class Stain : ObjectiveMechanics
 {
     public StainType stainType;
 
@@ -20,8 +20,10 @@ public class Stain : MonoBehaviour
 
         if (currentStage >= cleaningStages.Length)
         {
+            Finish();
             Destroy(gameObject);
             return;
+            
         }
 
         spriteRenderer.sprite = cleaningStages[currentStage];
