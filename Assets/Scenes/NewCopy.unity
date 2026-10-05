@@ -7150,6 +7150,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60eecfdfe414daa4b96866be6b5eaaf7, type: 3}
+--- !u!114 &1324282536 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 404820574730866248, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}
+  m_PrefabInstance: {fileID: 1816961622}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf0aa7cc2c9d67083983a27ecb8fe97c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::QuestUI
 --- !u!1001 &1324891883
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9278,7 +9289,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestManager
   activeQuests: []
   activeTasks: []
-  questUI: {fileID: 0}
+  questUI: {fileID: 1324282536}
 --- !u!114 &1656066596
 MonoBehaviour:
   m_ObjectHideFlags: 0
