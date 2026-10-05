@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class lightControlScript : ObjectiveMechanics
+public class lightControlScript : MonoBehaviour
 {
     [SerializeField] private float interactionDistance = 3.0f;
     [SerializeField] RayController rayController;
@@ -40,7 +40,6 @@ public class lightControlScript : ObjectiveMechanics
             if (child.CompareTag("Lightsource"))
             {
                 child.gameObject.SetActive(!child.gameObject.activeSelf);
-                Finish();
             }
 
         }

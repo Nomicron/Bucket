@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PickUpObject : ObjectiveMechanics
+public class PickUpObject : MonoBehaviour
 {
     public string itemID;
 
@@ -228,7 +228,6 @@ public class PickUpObject : ObjectiveMechanics
         rb.isKinematic = true;
 
         zone.AddItem(isThrown, throwStartPosition, gameObject, destroyObject);
-        Finish();   // Task
     }
 
     private void OnTriggerEnter(Collider other)

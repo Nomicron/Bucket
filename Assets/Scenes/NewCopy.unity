@@ -3972,7 +3972,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   destroyObject: 0
-  homeRoom: {fileID: 1259449425}
+  homeRoom: {fileID: 1678500581}
 --- !u!1001 &785348579
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4032,7 +4032,7 @@ PrefabInstance:
     - target: {fileID: 7598645752877962649, guid: 935fb122a585b1f4284b383556e1bc8e, type: 3}
       propertyPath: homeRoom
       value: 
-      objectReference: {fileID: 1259449425}
+      objectReference: {fileID: 1678500581}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4612,7 +4612,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   destroyObject: 0
-  homeRoom: {fileID: 1259449425}
+  homeRoom: {fileID: 1678500581}
 --- !u!54 &884528938
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6651,22 +6651,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2222979861430016012, guid: 3b1b2931920e0284d9c1b5217ad91af4, type: 3}
   m_PrefabInstance: {fileID: 2498690758901327432}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1259449424 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 43579819992733843, guid: 20cc65c2144b5aa459c946ef6e59cd0c, type: 3}
-  m_PrefabInstance: {fileID: 7963517769835770124}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1259449425 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5339388639212983869, guid: 20cc65c2144b5aa459c946ef6e59cd0c, type: 3}
-  m_PrefabInstance: {fileID: 7963517769835770124}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b55e1a12b785ce347a8e74b9b77d5163, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::roomScript
 --- !u!1 &1265828817
 GameObject:
   m_ObjectHideFlags: 0
@@ -9397,6 +9381,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1678500579}
+  - component: {fileID: 1678500580}
+  - component: {fileID: 1678500581}
   m_Layer: 0
   m_Name: Lounge
   m_TagString: Untagged
@@ -9417,7 +9403,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1259449424}
   - {fileID: 737566695}
   - {fileID: 1278601071}
   - {fileID: 972389354}
@@ -9451,6 +9436,40 @@ Transform:
   - {fileID: 1017755876}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1678500580
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1678500578}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 10.93, y: 2.79, z: 4.8}
+  m_Center: {x: -4.96, y: 0.55, z: -7.98}
+--- !u!114 &1678500581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1678500578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b55e1a12b785ce347a8e74b9b77d5163, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::roomScript
+  roomName: lounge
 --- !u!1001 &1680122661
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10781,7 +10800,7 @@ PrefabInstance:
     - target: {fileID: 7598645752877962649, guid: 935fb122a585b1f4284b383556e1bc8e, type: 3}
       propertyPath: homeRoom
       value: 
-      objectReference: {fileID: 1259449425}
+      objectReference: {fileID: 1678500581}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11491,7 +11510,7 @@ PrefabInstance:
     - target: {fileID: 7598645752877962649, guid: 935fb122a585b1f4284b383556e1bc8e, type: 3}
       propertyPath: homeRoom
       value: 
-      objectReference: {fileID: 1259449425}
+      objectReference: {fileID: 1678500581}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11918,7 +11937,7 @@ PrefabInstance:
     - target: {fileID: 7598645752877962649, guid: 935fb122a585b1f4284b383556e1bc8e, type: 3}
       propertyPath: homeRoom
       value: 
-      objectReference: {fileID: 1259449425}
+      objectReference: {fileID: 1678500581}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12225,63 +12244,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ea5998f6d0f69c4d8f1b576e0b66070, type: 3}
---- !u!1001 &7963517769835770124
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1678500579}
-    m_Modifications:
-    - target: {fileID: 43579819992733843, guid: 20cc65c2144b5aa459c946ef6e59cd0c, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 43579819992733843, guid: 20cc65c2144b5aa459c946ef6e59cd0c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 43579819992733843, guid: 20cc65c2144b5aa459c946ef6e59cd0c, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 43579819992733843, guid: 20cc65c2144b5aa459c946ef6e59cd0c, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 43579819992733843, guid: 20cc65c2144b5aa459c946ef6e59cd0c, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 43579819992733843, guid: 20cc65c2144b5aa459c946ef6e59cd0c, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 43579819992733843, guid: 20cc65c2144b5aa459c946ef6e59cd0c, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 43579819992733843, guid: 20cc65c2144b5aa459c946ef6e59cd0c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 43579819992733843, guid: 20cc65c2144b5aa459c946ef6e59cd0c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 43579819992733843, guid: 20cc65c2144b5aa459c946ef6e59cd0c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9101087219675385519, guid: 20cc65c2144b5aa459c946ef6e59cd0c, type: 3}
-      propertyPath: m_Name
-      value: LoungeZone
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 20cc65c2144b5aa459c946ef6e59cd0c, type: 3}
 --- !u!1001 &8135870990933675782
 PrefabInstance:
   m_ObjectHideFlags: 0
