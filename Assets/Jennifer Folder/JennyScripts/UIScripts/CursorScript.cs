@@ -65,7 +65,7 @@ public class CursorScript : MonoBehaviour
                 currentTexture = textures[3];
                 return;
             }
-            else if (hit.collider.CompareTag("Clue"))
+            else if (hit.collider.CompareTag("Evidence"))
             {
                 //Spyglass cursor
                 currentTexture = textures[4];
