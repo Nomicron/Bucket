@@ -74,7 +74,6 @@ public class PlacementZone : MonoBehaviour
             else
             {
                 OnCloseThrow(actualThrowDist);
-                Debug.Log($"Thrown, but too close! Distance: {actualThrowDist} (Min required: {minThrowDist})");
             }
         }
 
