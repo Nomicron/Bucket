@@ -76,9 +76,12 @@ MonoBehaviour:
   m_AdditionalPlatformBuildSettings: []
   m_OverrideGlobalSceneList: 1
   m_Scenes:
-  - m_enabled: 1
-    m_path: Assets/Ylva Folder/NewCopy.unity
+  - m_enabled: 0
+    m_path: Assets/Scenes/NewCopy.unity
     m_guid: 43c55019abc14d54e9ca9f7856160445
+  - m_enabled: 1
+    m_path: Assets/Jennifer Folder/Scenes/TestAllScene.unity
+    m_guid: 085b5119c30e69f418ae538268f77d74
   m_HasScriptingDefines: 0
   m_ScriptingDefines: []
   m_PlayerSettingsYaml:
@@ -90,7 +93,7 @@ MonoBehaviour:
     - rid: 6589605803949555804
       type: {class: WindowsPlatformSettings, ns: UnityEditor.WindowsStandalone, asm: UnityEditor.WindowsStandalone.Extensions}
       data:
-        m_Development: 1
+        m_Development: 0
         m_ConnectProfiler: 0
         m_BuildWithDeepProfilingSupport: 0
         m_BuildWithCodeCoverage: 0
