@@ -45,6 +45,8 @@ public class PlacementZone : MonoBehaviour
 
     [SerializeField] private VisualEffect dustEffect;
     [SerializeField] private float destroyDelay = 3.0f;
+
+    Renderer renderZone;
     public bool AcceptsItem(string itemID) 
     {
         if (IsOccupied)
@@ -91,11 +93,12 @@ public class PlacementZone : MonoBehaviour
         {
             if (!isTrashCan) 
             {
-                Destroy(gameObject,destroyDelay);
+                Destroy(gameObject, destroyDelay);
             }
         }
      
     }
+
     private void UpdateTrashVisualPosition()
     {
         if (trashVisual == null) return;
@@ -148,8 +151,16 @@ public class PlacementZone : MonoBehaviour
         audioSource.Play();
     }
 
+    public void ShowZone(bool isVisable) 
+    {
+        renderZone.enabled = isVisable;
+    }
+
     void Start()
     {
+        renderZone = GetComponent<Renderer>();
+
+        ShowZone(false);
         if(trashVisual != null) 
         {
             trashVisual.gameObject.SetActive(false);
