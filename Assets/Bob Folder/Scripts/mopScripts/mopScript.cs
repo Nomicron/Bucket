@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
 public class mopScript : MonoBehaviour
 {
 
@@ -8,13 +9,16 @@ public class mopScript : MonoBehaviour
     [Header("References")]
     [SerializeField] private mopPhysicsScript mopPhysics;
 
-    private bool isWet = false;
-    private float wetnessLevel = 0f;
+    public bool isWet = false;
+    public float wetnessLevel = 0f;
 
+    [SerializeField] private Renderer mopHeadRenderer;
+    [SerializeField] private Gradient wetnessGradient;
 
     //Added by Ylva 
     [SerializeField] Cleaning cleaning;
     [SerializeField] Transform mopHead;
+    [SerializeField] float dryingSpeed = 0.1f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -22,7 +26,7 @@ public class mopScript : MonoBehaviour
         if (mopPhysics == null)
             mopPhysics = GetComponent<mopPhysicsScript>();
 
-
+        UpdateMopColor();
     }
 
     // Update is called once per frame
@@ -38,6 +42,8 @@ public class mopScript : MonoBehaviour
             isWet = true;
             wetnessLevel = 1f; // Set wetness level to maximum when entering water.
 
+            UpdateMopColor();
+
           //Increce the damping of the mop when it is wet.
             if (mopPhysics != null)
                 mopPhysics.SetWet(true);
@@ -47,6 +53,7 @@ public class mopScript : MonoBehaviour
         else if (other.CompareTag("Stain"))
         {
             // Mop entered a stain.
+            
         }
         else
             return;
@@ -69,7 +76,7 @@ public class mopScript : MonoBehaviour
 
         if (other.Raycast(ray, out RaycastHit hit, 0.3f))
         {
-            surface.CleanAtUV(hit.textureCoord);
+            surface.CleanAtUV(hit.textureCoord, hit.point);
         }
 
     //if (other.CompareTag("Stain") && isWet)
@@ -85,5 +92,27 @@ public class mopScript : MonoBehaviour
     {
         // Stop any continuous interaction if needed.
     }
-    
+
+    public void MopUseWater()
+    {
+        wetnessLevel -= dryingSpeed * Time.deltaTime;
+
+        wetnessLevel = Mathf.Clamp01(wetnessLevel);
+
+        UpdateMopColor();
+        if (wetnessLevel <= 0f)
+        {
+            wetnessLevel = 0f;
+            isWet = false;
+            Debug.Log("Mop is Dry");
+        }
+    }
+
+    private void UpdateMopColor()
+    {
+        Color color = wetnessGradient.Evaluate(wetnessLevel);
+
+        mopHeadRenderer.material.color = color;
+    }
+
 }

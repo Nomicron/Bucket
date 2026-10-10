@@ -16,7 +16,7 @@ public class mopAnchor : MonoBehaviour
         }
 
         // Only use horizontal player rotation.
-        Quaternion yawRotation = Quaternion.Euler(0f, player.eulerAngles.y, 0f);
+        Quaternion yawRotation = Quaternion.Euler(-0f, player.eulerAngles.y, 0f);
 
         // Follow player position.
         transform.position = player.position + yawRotation * offset;

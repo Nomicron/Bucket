@@ -6,7 +6,12 @@ public class mopMovement : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] Look look;
+    [SerializeField] private Transform mopBottom;
 
+    [Header("Mop Tilt")]
+    [SerializeField] private float centerTilt = 5f;
+    [SerializeField] private float maxForwardTilt = 30f;
+    [SerializeField] private float maxSideTilt = 20f;
 
     [Header("Movement")]
     [SerializeField] private float xSensitivity = 0.001f;
@@ -15,7 +20,7 @@ public class mopMovement : MonoBehaviour
     [SerializeField] private float maxXOffset = 2.5f;
     [SerializeField] private float maxZOffset = 1f;
 
-    [SerializeField] private float liftSpeed = 0.5f;
+    [SerializeField] private float liftSpeed = 0.1f;
     [SerializeField] private float maxYOffset = 0.5f;
 
 
@@ -78,7 +83,7 @@ public class mopMovement : MonoBehaviour
             return;
 
         // Middle mouse is used for looking around.
-        if (Mouse.current.middleButton.isPressed)
+        if (Mouse.current.rightButton.isPressed)
             return;
 
         float mouseX = look.MouseX;
@@ -88,17 +93,9 @@ public class mopMovement : MonoBehaviour
         currentXOffset += mouseX * xSensitivity;
         currentZOffset += mouseY * zSensitivity;
 
-        // Left mouse raises mop.
-        if (Mouse.current.leftButton.isPressed)
-        {
-            currentYOffset += liftSpeed * Time.deltaTime;
-        }
-
-        // Right mouse lowers mop.
-        if (Mouse.current.rightButton.isPressed)
-        {
-            currentYOffset -= liftSpeed * Time.deltaTime;
-        }
+        // Mouse wheel controls Y.
+        float scroll = Mouse.current.scroll.ReadValue().y;
+        currentYOffset += scroll * liftSpeed;
 
         // Clamp movement.
         currentXOffset = Mathf.Clamp(
@@ -127,14 +124,38 @@ public class mopMovement : MonoBehaviour
             Vector3.forward * currentZOffset;
 
         // Rotate mop based on horizontal X movement.
-        float normalizedHorizontal =
-            currentXOffset / maxXOffset;
+        // Remember where the bottom is before rotating.
+        float bottomHeight = mopBottom.position.y;
 
-        float angle =
-            -normalizedHorizontal * maxRotation;
+        // How far left/right are we?
+        float normalizedX = currentXOffset / maxXOffset;
 
+        // How far forward are we?
+        float normalizedZ = Mathf.Clamp01(currentZOffset / maxZOffset);
+
+        // Mop leans more toward player the farther away it is.
+        float forwardTilt = Mathf.Lerp(
+            centerTilt,
+            maxForwardTilt,
+            normalizedZ
+        );
+
+        // Mop also leans sideways depending on X position.
+        float sideTilt = -normalizedX * maxSideTilt;
+
+        // Apply tilt.
         transform.localRotation =
             startLocalRotation *
-            Quaternion.Euler(0f, 0f, angle);
+            Quaternion.Euler(
+                -forwardTilt,
+                0f,
+                sideTilt
+            );
+
+        // Rotation may have raised/lowered the mop head.
+        // Move the whole mop vertically to compensate.
+        float heightDifference = bottomHeight - mopBottom.position.y;
+
+        transform.position += Vector3.up * heightDifference;
     }
 }

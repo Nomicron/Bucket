@@ -182,7 +182,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -27.335999, y: 388}
+  m_AnchoredPosition: {x: 228, y: 388}
   m_SizeDelta: {x: 1665.3281, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1201615374355631581
@@ -1097,6 +1097,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   menuCanvas: {fileID: 2923759280068142434}
+  UINotebookOpen: {fileID: 0}
 --- !u!1 &2085684387675738720
 GameObject:
   m_ObjectHideFlags: 0
@@ -1478,8 +1479,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1488842062067132676}
   - {fileID: 4800367104062291276}
+  - {fileID: 1488842062067132676}
   m_Father: {fileID: 357769767477788939}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -3272,7 +3273,7 @@ GameObject:
   - component: {fileID: 7253971633444728856}
   - component: {fileID: 7601673419964819498}
   m_Layer: 5
-  m_Name: InventoryTab
+  m_Name: TrustTab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

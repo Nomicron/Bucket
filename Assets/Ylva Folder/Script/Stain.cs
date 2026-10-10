@@ -1,13 +1,13 @@
 using UnityEngine;
 
-public class Stain : MonoBehaviour
+public class Stain : ObjectiveMechanics
 {
     public StainType stainType;
 
     [SerializeField] Sprite[] cleaningStages;
 
     SpriteRenderer spriteRenderer;
-    int currentStage = 0;
+    public int currentStage = 0;
 
     void Start()
     {
@@ -20,8 +20,10 @@ public class Stain : MonoBehaviour
 
         if (currentStage >= cleaningStages.Length)
         {
+            Finish();
             Destroy(gameObject);
             return;
+            
         }
 
         spriteRenderer.sprite = cleaningStages[currentStage];

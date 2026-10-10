@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d4e1a26556f1fb42ba3b2309295cecd, type: 3}
+  m_Name: D0_Butler
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueData
+  lines:
+  - "Greetings Mr. Mopper. \u2018Tis a pleasure to make your acquaintance. My name is Cecil and I will be in charge of delegating your janitorial duties here on the SS Oval. "
+  - "Since it\u2019s your first day, all I ask you to do today is to take out the trash. While doing that, I also urge you to take a look around and get a feel for the boat layout and introduce yourself to the rest of the crew. You\u2019ll find all the cleaning supplies you\u2019ll need throughout your stay in the storage room on the bottom floor. "
+  - Do you have any questions?
+  options:
+  - {fileID: 11400000, guid: 5f5087298abc3e7459bddae934b74b32, type: 2}
+  - {fileID: 11400000, guid: 44b8d1073743d5d4488ffbde9dac1856, type: 2}
+  - {fileID: 11400000, guid: d1b583163b4205047b5c03a354330d8e, type: 2}

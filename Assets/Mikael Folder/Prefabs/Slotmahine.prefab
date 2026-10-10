@@ -74,7 +74,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: b9734d8b611b9ab46bdbd62d5f0c449a, type: 2}
     - target: {fileID: 919132149155446097, guid: f7a9c10892b3f89458ca8e69c08044ee, type: 3}
       propertyPath: m_Name
-      value: Slotmahine 1
+      value: Slotmahine
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f7a9c10892b3f89458ca8e69c08044ee, type: 3}
+      propertyPath: m_TagString
+      value: Openable
       objectReference: {fileID: 0}
     - target: {fileID: 7071182760956848314, guid: f7a9c10892b3f89458ca8e69c08044ee, type: 3}
       propertyPath: m_Materials.Array.size

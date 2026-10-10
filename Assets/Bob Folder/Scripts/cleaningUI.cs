@@ -5,7 +5,9 @@ public class cleaningUI : MonoBehaviour
 {
 
     public TextMeshProUGUI cleaningText;
+    public TextMeshProUGUI mopText;
     public Cleaning cleaning;
+    public mopScript mop;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -17,21 +19,33 @@ public class cleaningUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (cleaning.cleaningMode && cleaning.currentMopPainter != null)
+        if (CleaningModeController.InCleaningMode && cleaning.currentMopPainter != null)
         {
-            float percentage = cleaning.currentMopPainter.GetCleanPercentage() * 100f;
+            float cleaningPercentage = cleaning.currentMopPainter.GetCleanPercentage() * 100f;
 
-            cleaningText.text = $"Clean: {percentage:F0}%";
+            cleaningText.text = $"Clean: {cleaningPercentage:F0}%";
 
             if (cleaning.currentMopPainter.completed)
             {
                 cleaningText.text = "Floor is clean!";
             }
+
+            if (mop.isWet)
+            {
+                float wetPercentage = mop.wetnessLevel * 100f;
+
+                mopText.text = $"Mop wetness: {wetPercentage:F0}%";
+            }
+            else
+                mopText.text = "Mop is dry!";
         }
         else
         {
             cleaningText.text = "";
+            mopText.text = "";
         }
+
+        
 
     }
 }
