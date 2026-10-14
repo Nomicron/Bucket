@@ -4,12 +4,22 @@ using UnityEngine.UIElements;
 
 public class MoveObject : MonoBehaviour
 {
-    public enum SlideAxis 
+    public enum SlideAxis
     {
         Forward, Backward, Up, Down, Left, Right
     }
-    [SerializeField] 
-    SlideAxis slideDire = SlideAxis.Forward;
+    [SerializeField]
+    SlideAxis slideDir = SlideAxis.Forward;
+    public enum DoorOpenDirection 
+    {
+        Inwards, Outwards
+    }
+    [SerializeField]
+    DoorOpenDirection doorRotation = DoorOpenDirection.Inwards;
+    //InteractionRange
+    [SerializeField]
+    float maxDist = 3f;
+    float dist;
     [SerializeField]
     float slideDistance = 1f;
     [SerializeField]
@@ -17,8 +27,22 @@ public class MoveObject : MonoBehaviour
 
     Vector3 orignalPos;
     Vector3 targetPos;
+
     bool isMoved = false;
     bool isMoving = false;
+
+
+    //Door
+    [SerializeField]
+    float openAngle = 90;
+    [SerializeField]
+    float openSpeed = 2f;
+    [SerializeField]
+    bool isDoor = false;
+    bool isOpen = false;
+
+    Quaternion closedRotation;
+    Quaternion openRotation;
 
     Rigidbody rb;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -26,15 +50,18 @@ public class MoveObject : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
 
-        // Save orignal position
         orignalPos = transform.position;
-        // Calculate position based on object's forward direction
-        Vector3 direVec = GetDirectionVector();
-        targetPos = orignalPos + (direVec * slideDistance);
+
+        Vector3 dirVec = GetDirectionVector();
+        targetPos = orignalPos + (dirVec * slideDistance);
+
+        closedRotation = transform.rotation;
+        float doorRot = GetDoorRotaion();
+        openRotation = Quaternion.Euler(transform.eulerAngles + new Vector3(0, doorRot, 0));
     }
     private Vector3 GetDirectionVector()
     {
-        switch (slideDire)
+        switch (slideDir)
         {
             case SlideAxis.Forward:
                 return transform.forward;
@@ -52,21 +79,43 @@ public class MoveObject : MonoBehaviour
                 return transform.forward;
         }
     }
+    private float GetDoorRotaion() 
+    {
+        switch (doorRotation) 
+        {
+            case DoorOpenDirection.Inwards:
+                return openAngle;
+            case DoorOpenDirection.Outwards:
+                return -openAngle;
+            default:
+                return openAngle;
+        }
+    }
     private void OnMouseDown()
     {
-        if (isMoving) 
+        dist = Vector3.Distance(Camera.main.transform.position, transform.position);
+        if(dist <= maxDist) 
         {
-            return;
+            if (isMoving)
+            {
+                return;
+            }
+
+            isMoved = !isMoved;
+            StopAllCoroutines();
+            if (!isDoor)
+            {
+                StartCoroutine(SlideRoutine(isMoved ? targetPos : orignalPos));
+            }
+            else
+            {
+                StartCoroutine(DoorRoutine());
+            }
         }
-        // Toggle the state (if it's at home, move it out; if it's out, move it back)
-        isMoved = !isMoved;
-
-
-        StopAllCoroutines();
-        StartCoroutine(SlideRoutine(isMoved ? targetPos : orignalPos));
+    
     }
 
-    private IEnumerator SlideRoutine(Vector3 dest) 
+    private IEnumerator SlideRoutine(Vector3 dest)
     {
         isMoving = true;
         rb.isKinematic = true;
@@ -77,7 +126,7 @@ public class MoveObject : MonoBehaviour
         Vector3 startingPos = transform.position;
 
 
-        while(elapsedTime < totalTime)
+        while (elapsedTime < totalTime)
         {
             transform.position = Vector3.Lerp(startingPos, dest, elapsedTime / totalTime);
             elapsedTime += Time.deltaTime;
@@ -85,6 +134,25 @@ public class MoveObject : MonoBehaviour
         }
 
         transform.position = dest;
+        rb.isKinematic = false;
+        isMoving = false;
+    }
+
+    private IEnumerator DoorRoutine()
+    {
+        isMoving = true;
+        rb.isKinematic = true;
+
+        Quaternion targetRotation = isOpen ? closedRotation : openRotation;
+        isOpen = !isOpen;
+
+        while (Quaternion.Angle(transform.rotation, targetRotation) > 0.01f)
+        {
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * openSpeed);
+            yield return null;
+        }
+
+        transform.rotation = targetRotation;
         rb.isKinematic = false;
         isMoving = false;
     }
