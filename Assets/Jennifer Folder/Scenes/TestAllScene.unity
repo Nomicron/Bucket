@@ -2445,17 +2445,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6783652700796698452, guid: f4edb802a43f7ad4abade311b2cc97dc, type: 3}
   m_PrefabInstance: {fileID: 622259285}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &440749713 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6457763872356980516, guid: f4edb802a43f7ad4abade311b2cc97dc, type: 3}
-  m_PrefabInstance: {fileID: 622259285}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 135027583}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 843a52ee83244804aa9448d2dba2de2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::musicPlayerScript
 --- !u!114 &440749718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2468,7 +2457,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2af4ff80b8dbbbd48b8d4f35e07920f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectiveConnector
-  objectiveMechanics: {fileID: 440749713}
+  objectiveMechanics: {fileID: 0}
   id: 5
   type: 0
 --- !u!4 &512136321 stripped
@@ -4728,7 +4717,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2af4ff80b8dbbbd48b8d4f35e07920f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectiveConnector
-  objectiveMechanics: {fileID: 884528937}
+  objectiveMechanics: {fileID: 0}
   id: 6
   type: 1
 --- !u!1001 &904135131
@@ -10937,7 +10926,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2af4ff80b8dbbbd48b8d4f35e07920f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectiveConnector
-  objectiveMechanics: {fileID: 1872742562}
+  objectiveMechanics: {fileID: 0}
   id: 7
   type: 0
 --- !u!4 &1874556946 stripped
