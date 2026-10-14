@@ -3722,7 +3722,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4949019333932935476, guid: cb9b791a7f6f2904bb0b16da06dcffe0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8.682
+      value: 11.185
       objectReference: {fileID: 0}
     - target: {fileID: 4949019333932935476, guid: cb9b791a7f6f2904bb0b16da06dcffe0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4986,10 +4986,10 @@ MonoBehaviour:
   scrollSense: 0.25
   zoneLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
   obstacleLayers:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 0
   destroyObject: 0
   homeRoom: {fileID: 0}
 --- !u!54 &884528938
