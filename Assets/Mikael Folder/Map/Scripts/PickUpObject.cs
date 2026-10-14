@@ -111,11 +111,13 @@ public class PickUpObject : MonoBehaviour
                 // Initialize holdDist to match current distance on pickup
                 holdDist = Mathf.Clamp(dist, minHoldDist, maxHoldDist);
 
+              
                 rb.useGravity = false;
                 rb.detectCollisions = true;
                 rb.isKinematic = false;
 
                 TogglePlayerCollisions(ignore: true);
+                ToogleZone(true);
             }
     }
 
@@ -173,7 +175,7 @@ public class PickUpObject : MonoBehaviour
         if (isHolding)
         {
             isHolding = false;
-
+            ToogleZone(false);
             if (currentZone != null)
             {
                 SnapToZone(currentZone);
@@ -226,6 +228,7 @@ public class PickUpObject : MonoBehaviour
         rb.linearVelocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
         rb.isKinematic = true;
+     
 
         zone.AddItem(isThrown, throwStartPosition, gameObject, destroyObject);
     }
@@ -244,6 +247,14 @@ public class PickUpObject : MonoBehaviour
         }
     }  
 
+    private void ToogleZone(bool isVisable) 
+    {
+        PlacementZone zone = FindObjectOfType<PlacementZone>();
+
+        zone.ShowZone(isVisable);
+
+    }
+
     //Added by Bob
 
     private void OnTriggerExit(Collider other)
@@ -261,7 +272,7 @@ public class PickUpObject : MonoBehaviour
         isHolding = false;
 
         TogglePlayerCollisions(false);
-
+        ToogleZone(false);
         rb.linearVelocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
 
