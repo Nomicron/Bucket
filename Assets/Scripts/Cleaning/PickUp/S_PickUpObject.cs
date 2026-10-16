@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PickUpObject : MonoBehaviour
+public class PickUpObject : ObjectiveMechanics
 {
     public string itemID;
 
@@ -231,6 +231,7 @@ public class PickUpObject : MonoBehaviour
      
 
         zone.AddItem(isThrown, throwStartPosition, gameObject, destroyObject);
+        Finish();
     }
 
     private void OnTriggerEnter(Collider other)
