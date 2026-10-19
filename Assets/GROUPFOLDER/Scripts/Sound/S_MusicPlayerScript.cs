@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class musicPlayerScript : MonoBehaviour
+public class musicPlayerScript : ObjectiveMechanics
 {
     [SerializeField] private Camera playerCamera;
     [SerializeField] private float interactionDistance = 3.0f;
@@ -31,6 +31,7 @@ public class musicPlayerScript : MonoBehaviour
             audioSource.Play();
             musicDisk.StartPlaying();
             musicCrank.StartPlaying();
+            Finish();
         }
     }
 }
