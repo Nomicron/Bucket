@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class lightControlScript : MonoBehaviour
+public class lightControlScript : ObjectiveMechanics
 {
     [SerializeField] private float interactionDistance = 3.0f;
     [SerializeField] RayController rayController;
@@ -43,5 +43,6 @@ public class lightControlScript : MonoBehaviour
             }
 
         }
+        Finish();
     }
 }
