@@ -2045,17 +2045,41 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -6822343713258076425, guid: a91ed60fc265b6044b864f656861e804, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6822343713258076425, guid: a91ed60fc265b6044b864f656861e804, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 5b370860a1257904085231189f871add, type: 2}
+    - target: {fileID: -6822343713258076425, guid: a91ed60fc265b6044b864f656861e804, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 703a85c04473f3f4baab3298f7416cb5, type: 2}
+    - target: {fileID: -4171001361061973571, guid: a91ed60fc265b6044b864f656861e804, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: -4171001361061973571, guid: a91ed60fc265b6044b864f656861e804, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 0b7a72d95d8765a4e90d54f7d0ff475f, type: 2}
+    - target: {fileID: -4171001361061973571, guid: a91ed60fc265b6044b864f656861e804, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: b9734d8b611b9ab46bdbd62d5f0c449a, type: 2}
+    - target: {fileID: -3498542895623097685, guid: a91ed60fc265b6044b864f656861e804, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: -3498542895623097685, guid: a91ed60fc265b6044b864f656861e804, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: f0f3d1d72cdacaa4980c4822a1ee0b06, type: 2}
+    - target: {fileID: -3498542895623097685, guid: a91ed60fc265b6044b864f656861e804, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1910878742aa85342854ae8f752228a5, type: 2}
     - target: {fileID: -3118485859943255540, guid: a91ed60fc265b6044b864f656861e804, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -10996,6 +11020,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: b52272725d2320c8e8a1da8d1a25d5c3, type: 2}
     - target: {fileID: 2530434949138399636, guid: ae31bf0417fcb7da79db7480d3232363, type: 3}
+      propertyPath: 'm_Materials.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2100000, guid: aa1b4ae8f22b4884e9dbafd9fb4114db, type: 2}
+    - target: {fileID: 2530434949138399636, guid: ae31bf0417fcb7da79db7480d3232363, type: 3}
       propertyPath: 'm_Materials.Array.data[3]'
       value: 
       objectReference: {fileID: 2100000, guid: 3d813630cf74cf2b29fa45eb5a660acb, type: 2}
@@ -11776,9 +11804,17 @@ PrefabInstance:
       value: -116.043
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: b3c433c56c69ef245a1faf5719443a47, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: b3c433c56c69ef245a1faf5719443a47, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 6d62a58a66628674db525d92260bf305, type: 2}
+    - target: {fileID: -7511558181221131132, guid: b3c433c56c69ef245a1faf5719443a47, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 703a85c04473f3f4baab3298f7416cb5, type: 2}
     - target: {fileID: 919132149155446097, guid: b3c433c56c69ef245a1faf5719443a47, type: 3}
       propertyPath: m_Name
       value: PanExport (1)
@@ -11963,7 +11999,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b3c433c56c69ef245a1faf5719443a47, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.811
+      value: 0.827
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b3c433c56c69ef245a1faf5719443a47, type: 3}
       propertyPath: m_LocalPosition.z
@@ -11998,9 +12034,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: b3c433c56c69ef245a1faf5719443a47, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: b3c433c56c69ef245a1faf5719443a47, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 6d62a58a66628674db525d92260bf305, type: 2}
+    - target: {fileID: -7511558181221131132, guid: b3c433c56c69ef245a1faf5719443a47, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 703a85c04473f3f4baab3298f7416cb5, type: 2}
     - target: {fileID: 919132149155446097, guid: b3c433c56c69ef245a1faf5719443a47, type: 3}
       propertyPath: m_Name
       value: PanExport
@@ -15814,9 +15858,17 @@ PrefabInstance:
       value: -95.617
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: b3c433c56c69ef245a1faf5719443a47, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: b3c433c56c69ef245a1faf5719443a47, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 6d62a58a66628674db525d92260bf305, type: 2}
+    - target: {fileID: -7511558181221131132, guid: b3c433c56c69ef245a1faf5719443a47, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 703a85c04473f3f4baab3298f7416cb5, type: 2}
     - target: {fileID: 919132149155446097, guid: b3c433c56c69ef245a1faf5719443a47, type: 3}
       propertyPath: m_Name
       value: PanExport (2)
