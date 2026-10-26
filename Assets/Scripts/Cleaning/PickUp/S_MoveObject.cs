@@ -4,6 +4,9 @@ using UnityEngine.UIElements;
 
 public class MoveObject : MonoBehaviour
 {
+    [SerializeField]
+    string requireKeyID;
+
     public enum SlideAxis
     {
         Forward, Backward, Up, Down, Left, Right
@@ -31,7 +34,6 @@ public class MoveObject : MonoBehaviour
     bool isMoved = false;
     bool isMoving = false;
 
-
     //Door
     [SerializeField]
     float openAngle = 90;
@@ -40,6 +42,9 @@ public class MoveObject : MonoBehaviour
     [SerializeField]
     bool isDoor = false;
     bool isOpen = false;
+    [SerializeField]
+    bool isLocked = true;
+
 
     Quaternion closedRotation;
     Quaternion openRotation;
@@ -109,7 +114,10 @@ public class MoveObject : MonoBehaviour
             }
             else
             {
-                StartCoroutine(DoorRoutine());
+                if (!isLocked) 
+                {
+                    StartCoroutine(DoorRoutine());
+                }
             }
         }
     
@@ -124,7 +132,6 @@ public class MoveObject : MonoBehaviour
         float totalTime = length / (slideSpeed * 2f);
 
         Vector3 startingPos = transform.position;
-
 
         while (elapsedTime < totalTime)
         {
@@ -155,5 +162,20 @@ public class MoveObject : MonoBehaviour
         transform.rotation = targetRotation;
         rb.isKinematic = false;
         isMoving = false;
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        PickUpObject pickup = other.GetComponent<PickUpObject>();
+
+        if(pickup != null && pickup.isKey) 
+        {
+            if(string.IsNullOrEmpty(requireKeyID) || pickup.itemID == requireKeyID) 
+            {
+                isLocked = false;
+                Debug.Log("Door unlocked");
+
+            }
+        }
     }
 }
