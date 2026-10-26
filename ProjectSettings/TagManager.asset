@@ -3,12 +3,19 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - Lightsource
+  - Openable
+  - Stain
+  - Dirt
+  - Water
+  - Evidence
+  - Pickup
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - PlacementZone
   - Water
   - UI
   - 
