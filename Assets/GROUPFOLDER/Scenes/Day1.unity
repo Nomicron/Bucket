@@ -8413,6 +8413,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   destroyObject: 0
+  isKey: 0
   homeRoom: {fileID: 0}
 --- !u!1001 &785348579
 PrefabInstance:
@@ -9199,6 +9200,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   destroyObject: 0
+  isKey: 0
   homeRoom: {fileID: 1913427049}
 --- !u!54 &884528938
 Rigidbody:
@@ -11546,6 +11548,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: P_Chandelier (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5525418030253762001, guid: 0c22d77d3ce8b714c8891ac0f237c28d, type: 3}
+      propertyPath: playerCamera
+      value: 
+      objectReference: {fileID: 641522073}
+    - target: {fileID: 5525418030253762001, guid: 0c22d77d3ce8b714c8891ac0f237c28d, type: 3}
+      propertyPath: rayController
+      value: 
+      objectReference: {fileID: 2077969079}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14190,6 +14200,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: P_Chandelier
       objectReference: {fileID: 0}
+    - target: {fileID: 5525418030253762001, guid: 0c22d77d3ce8b714c8891ac0f237c28d, type: 3}
+      propertyPath: playerCamera
+      value: 
+      objectReference: {fileID: 641522073}
+    - target: {fileID: 5525418030253762001, guid: 0c22d77d3ce8b714c8891ac0f237c28d, type: 3}
+      propertyPath: rayController
+      value: 
+      objectReference: {fileID: 2077969079}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -23259,6 +23277,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1401064599}
     m_Modifications:
+    - target: {fileID: 4723793192903691004, guid: 329f9fd0801e49f4f99f2c7b22a609af, type: 3}
+      propertyPath: playerCamera
+      value: 
+      objectReference: {fileID: 641522073}
+    - target: {fileID: 4723793192903691004, guid: 329f9fd0801e49f4f99f2c7b22a609af, type: 3}
+      propertyPath: rayController
+      value: 
+      objectReference: {fileID: 2077969079}
     - target: {fileID: 5883710327621110649, guid: 329f9fd0801e49f4f99f2c7b22a609af, type: 3}
       propertyPath: m_Name
       value: BigCanlde (2)
