@@ -251,13 +251,16 @@ public class PickUpObject : ObjectiveMechanics
         {
             SnapToZone(zone);
         }
-    }  
+    }
 
-    private void ToogleZone(bool isVisable) 
+    private void ToogleZone(bool isVisable)
     {
-        PlacementZone zone = FindObjectOfType<PlacementZone>();
+        PlacementZone[] zones = FindObjectsByType<PlacementZone>();
 
-        zone.ShowZone(isVisable);
+        foreach (PlacementZone zone in zones)
+        {
+            zone.ShowZone(isVisable && zone.AcceptsItem(itemID));
+        }
 
     }
 
