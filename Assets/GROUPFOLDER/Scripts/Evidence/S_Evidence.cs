@@ -4,10 +4,7 @@ using UnityEngine.InputSystem;
 
 public class Evidence : MonoBehaviour
 {
-    public string name;
-    public string description;
+    public string evidenceName;
+    [TextArea] public string description;
+    public GameObject image;
 }
-
-public class Wrench : Evidence { }
-
-public class Tie : Evidence { }
