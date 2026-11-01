@@ -37,6 +37,8 @@ public class PickUpObject : ObjectiveMechanics
     bool isHolding = false;
     bool isPlaced = false;
     bool isThrown = false;
+    [SerializeField]
+    public bool isKey = false;
 
     float dist;
 
@@ -85,6 +87,7 @@ public class PickUpObject : ObjectiveMechanics
                 rb.AddForce(tempParent.transform.forward * throwForce);
                 Drop();
             }
+    
         }
     }
 
@@ -117,7 +120,7 @@ public class PickUpObject : ObjectiveMechanics
                 rb.isKinematic = false;
 
                 TogglePlayerCollisions(ignore: true);
-                ToogleZone(true);
+
             }
     }
 
@@ -157,6 +160,8 @@ public class PickUpObject : ObjectiveMechanics
         rb.linearVelocity = moveVelocity;
         rb.angularVelocity = Vector3.zero;
 
+        ToogleZone(true);
+
         Collider[] hits = Physics.OverlapSphere(transform.position, snapRad, zoneLayer);
         foreach (Collider hitCollider in hits)
         {
@@ -175,7 +180,6 @@ public class PickUpObject : ObjectiveMechanics
         if (isHolding)
         {
             isHolding = false;
-            ToogleZone(false);
             if (currentZone != null)
             {
                 SnapToZone(currentZone);
@@ -185,6 +189,7 @@ public class PickUpObject : ObjectiveMechanics
                 rb.isKinematic = false;
                 rb.useGravity = true;
             }
+            ToogleZone(false);
         }
     }
 
@@ -246,13 +251,16 @@ public class PickUpObject : ObjectiveMechanics
         {
             SnapToZone(zone);
         }
-    }  
+    }
 
-    private void ToogleZone(bool isVisable) 
+    private void ToogleZone(bool isVisable)
     {
-        PlacementZone zone = FindObjectOfType<PlacementZone>();
+        PlacementZone[] zones = FindObjectsByType<PlacementZone>();
 
-        zone.ShowZone(isVisable);
+        foreach (PlacementZone zone in zones)
+        {
+            zone.ShowZone(isVisable && zone.AcceptsItem(itemID));
+        }
 
     }
 
