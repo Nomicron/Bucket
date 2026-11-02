@@ -6525,7 +6525,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7918215289429029752, guid: e4d9eb713a5571c4396545ded5a340b2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1715464999}
   m_SourcePrefab: {fileID: 100100000, guid: e4d9eb713a5571c4396545ded5a340b2, type: 3}
 --- !u!1 &360876388
 GameObject:
@@ -30432,6 +30435,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3157271528136281760, guid: 3611a2ebe9968824ea0691d0c7e3f3ba, type: 3}
   m_PrefabInstance: {fileID: 1699792943}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1715464994 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7918215289429029752, guid: e4d9eb713a5571c4396545ded5a340b2, type: 3}
+  m_PrefabInstance: {fileID: 359843280}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1715464999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1715464994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51dec1e1e91c8dca18043540ff46abcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::S_Inspect
+  inspectTitle: Painting
+  inspectDescription: 'A beautiful painting which was made in 1905 by Lord Lang the second. '
 --- !u!1 &1716840244
 GameObject:
   m_ObjectHideFlags: 0
