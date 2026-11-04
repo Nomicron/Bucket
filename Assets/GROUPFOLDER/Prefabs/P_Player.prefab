@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 1581418616955147592}
   - component: {fileID: 4416507322818299266}
   - component: {fileID: 2460205999250996713}
+  - component: {fileID: -5863848905524985424}
+  - component: {fileID: 5287435739880944082}
   m_Layer: 0
   m_Name: P_Player
   m_TagString: Untagged
@@ -128,6 +130,7 @@ MonoBehaviour:
   rayController: {fileID: 0}
   currentMopPainter: {fileID: 0}
   hasMop: 0
+  madeBed: {fileID: 0}
 --- !u!114 &4416507322818299266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,6 +161,33 @@ MonoBehaviour:
   mouseSensitivity: 50
   cleaning: {fileID: 1581418616955147592}
   canLook: 1
+--- !u!114 &-5863848905524985424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3034168949646643917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f607067c1d9f60f4f9989e3cc02815f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RayController
+  playerCamera: {fileID: 726714372861361590}
+  rayRange: 2
+--- !u!114 &5287435739880944082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3034168949646643917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebf2b11f0973b2c40aef482e618804a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::S_EvidencePicker
+  rayController: {fileID: -5863848905524985424}
 --- !u!1 &3140415577431197755
 GameObject:
   m_ObjectHideFlags: 0
