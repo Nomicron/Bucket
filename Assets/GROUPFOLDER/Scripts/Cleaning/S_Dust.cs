@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.VFX;
 
-public class dustScript : MonoBehaviour
+public class dustScript : ObjectiveMechanics
 {
     [SerializeField] private VisualEffect dustEffect;
     [SerializeField] private float interactionDistance = 3.0f;
@@ -35,6 +35,7 @@ public class dustScript : MonoBehaviour
                 if (hit.collider.gameObject == gameObject)
                 {
                     ExplodeIntoDust();
+                    Finish();
                 }
             }
         }
