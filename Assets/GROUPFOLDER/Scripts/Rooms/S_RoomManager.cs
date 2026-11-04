@@ -75,5 +75,16 @@ public class roomManager : MonoBehaviour
             }
         }
     }
+
+    public void CheckRoomTasks()
+    {
+        foreach (var room in roomList)
+        {
+            if (room.questsInRoom.Count == 0)
+                room.cleanLevel = 100f;
+            else
+                room.cleanLevel = 0f;
+        }
+    }
 }
 

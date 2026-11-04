@@ -28,6 +28,7 @@ public class QuestManager : MonoBehaviour
         foreach (Task task in allTasks)
         {
             AddToLists(task);
+            roomManager.CheckRoomTasks();
             roomManager.AddTasks(task);
 
             if (task.state == TaskState.NotStarted)
