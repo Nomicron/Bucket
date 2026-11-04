@@ -29,16 +29,16 @@ public class CursorScript : MonoBehaviour
         ChangeCursor();
     }
 
-    public void ChangeCursor() 
+    public void ChangeCursor()
     {
-        if (rayController.TryGetHit(out RaycastHit hit)) 
+        if (rayController.TryGetHit(out RaycastHit hit))
         {
             if (hit.collider.CompareTag("Pickup"))
             {
                 //Hand open cursor
                 currentTexture = textures[1];
 
-                if (Mouse.current.leftButton.isPressed) 
+                if (Mouse.current.leftButton.isPressed)
                 {
                     //Hand closed cursor
                     currentTexture = textures[2];
@@ -46,7 +46,7 @@ public class CursorScript : MonoBehaviour
 
                 return;
             }
-            if (hit.collider.CompareTag("Openable")) 
+            if (hit.collider.CompareTag("Openable"))
             {
                 //Hand pointing cursor
                 currentTexture = textures[0];
@@ -71,21 +71,21 @@ public class CursorScript : MonoBehaviour
                 currentTexture = textures[4];
                 return;
             }
-            else if (hit.collider.CompareTag("Stain")) 
+            else if (hit.collider.CompareTag("Stain"))
             {
                 hitStain = hit.collider.GetComponent<Stain>();
 
-                if (hitStain != null) 
+                if (hitStain != null)
                 {
-                    if (!CleaningModeController.InCleaningMode) 
+                    if (!CleaningModeController.InCleaningMode)
                     {
                         currentTexture = textures[5];
                     }
-                    else if (hitStain.stainType == StainType.Blood) 
+                    else if (hitStain.stainType == StainType.Blood)
                     {
                         currentTexture = textures[6 + hitStain.currentStage];
                     }
-                    else 
+                    else
                     {
                         currentTexture = null;
                     }
@@ -98,15 +98,15 @@ public class CursorScript : MonoBehaviour
         currentTexture = null;
     }
 
-    public void LockCursor() 
+    public void LockCursor()
     {
-        if (PauseController.IsGamePaused) 
+        if (PauseController.IsGamePaused)
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             currentTexture = textures[0];
         }
-        else if (CleaningModeController.InCleaningMode && currentTexture != null) 
+        else if (CleaningModeController.InCleaningMode && currentTexture != null)
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = false;
@@ -118,9 +118,9 @@ public class CursorScript : MonoBehaviour
         }
     }
 
-    void OnGUI() 
+    void OnGUI()
     {
-        if (currentTexture != null && !PauseController.IsGamePaused) 
+        if (currentTexture != null && !PauseController.IsGamePaused)
         {
             Vector2 mousePos = Mouse.current.position.ReadValue();
 
