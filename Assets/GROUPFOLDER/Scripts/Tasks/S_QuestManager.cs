@@ -6,8 +6,13 @@ public class QuestManager : MonoBehaviour
 {
     public static QuestManager Instance;
 
+    [SerializeField] public roomManager roomManager;
+
     [SerializeField] public List<Quest> activeQuests = new List<Quest>();
-    [SerializeField] public List<Task> activeTasks = new List<Task>();
+    [SerializeField] public List<Task> allTasks = new List<Task>();
+
+     public List<Task> activeTasks = new List<Task>();
+    public List<Task> cleaningTasks = new List<Task>();
 
     public QuestUI questUI;
 
@@ -20,11 +25,20 @@ public class QuestManager : MonoBehaviour
     private void Start()
     {
 
-        foreach (Task task in activeTasks)
+        foreach (Task task in allTasks)
         {
+            AddToLists(task);
+            roomManager.AddTasks(task);
+
             if (task.state == TaskState.NotStarted)
                 task.state = TaskState.InProgress;
+
         }
+        //foreach (Task task in activeTasks)
+        //{
+        //    if (!task.isActiveTask)
+        //        activeTasks.Remove(task);
+        //}
 
         questUI.UpdateUI();
 
@@ -66,12 +80,55 @@ public class QuestManager : MonoBehaviour
 
     public void CompleteTask(string taskId)
     {
-        Task t = activeTasks.Find(x => x.id == taskId);
+        Task t = allTasks.Find(x => x.id == taskId);
         if (t != null && t.state == TaskState.InProgress)
         {
             t.state = TaskState.ObjectiveCompleted;
+            roomManager.RemoveTask(t);
             questUI.UpdateUI();
             // Debug.Log($"Task completed for: {t.title}. Return to the quest giver!");
         }
     }
+
+    private void AddToLists(Task task) 
+    {
+        if(task.isActiveTask && !activeTasks.Contains(task))
+        {
+            activeTasks.Add(task);
+        }
+
+        if(task.isCleaningTask && !cleaningTasks.Contains(task))
+        {
+            cleaningTasks.Add(task);
+        }
+
+    }
+
+    //private void AddRoomTask(string roomName)
+    //{
+    //    questsInRoom.Clear();
+    //    foreach (Task task in activeTasks)
+    //    {
+    //        if (task.room != null && task.room.roomName == roomName && task.state != TaskState.ObjectiveCompleted)
+    //        {
+    //            questsInRoom.Add(task);
+    //        }
+    //    }
+    //}
+    //private void CompleteRoom(string roomName) 
+    //{ 
+    //    for(int i = 0; i < activeTasks.Count; i++)
+    //    {
+    //        Task task = activeTasks[i];
+    //        if (task.room != null && task.room.roomName == roomName)
+    //        {
+    //            if (task.state != TaskState.ObjectiveCompleted)
+    //            {
+    //                Debug.Log($"Completing task: {task.title} for room: {roomName}");
+    //                return;
+    //            }
+    //        }
+    //    }
+
+    //}
 }

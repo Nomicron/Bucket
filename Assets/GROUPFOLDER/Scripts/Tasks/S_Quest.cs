@@ -32,4 +32,7 @@ public class Task
     public string title;
     [TextArea] public string description;
     public TaskState state = TaskState.NotStarted;
+    public roomScript room;
+    public bool isCleaningTask;
+    public bool isActiveTask;
 }
