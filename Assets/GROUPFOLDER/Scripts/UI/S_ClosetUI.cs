@@ -20,17 +20,17 @@ public class ClosetUIScript : MonoBehaviour
         OpenCloset();
     }
 
-    void OpenCloset() 
+    void OpenCloset()
     {
-        if (Keyboard.current.cKey.wasPressedThisFrame) 
+        if (Keyboard.current.cKey.wasPressedThisFrame)
         {
-            if (!PauseController.IsGamePaused) 
+            if (!PauseController.IsGamePaused)
             {
                 PauseController.SetPause(true);
                 closet.SetActive(true);
                 UIOpenCloset.SetActive(true);
             }
-            else if (PauseController.IsGamePaused) 
+            else if (PauseController.IsGamePaused)
             {
                 PauseController.SetPause(false);
                 closet.SetActive(false);
