@@ -24061,7 +24061,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4999291925916317149, guid: 025a2621f63ba5a41be2baab05eace08, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8.22
+      value: 8.213
       objectReference: {fileID: 0}
     - target: {fileID: 4999291925916317149, guid: 025a2621f63ba5a41be2baab05eace08, type: 3}
       propertyPath: m_LocalRotation.w
@@ -30241,7 +30241,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3157271528136281760, guid: 3611a2ebe9968824ea0691d0c7e3f3ba, type: 3}
   m_PrefabInstance: {fileID: 1699792943}
   m_PrefabAsset: {fileID: 0}
-
 --- !u!1 &1715464994 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7918215289429029752, guid: e4d9eb713a5571c4396545ded5a340b2, type: 3}
@@ -30292,7 +30291,7 @@ Transform:
   m_LocalScale: {x: 110.098625, y: 110.098625, z: 110.098625}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 450595814}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1716840246
 MeshRenderer:
@@ -39805,3 +39804,4 @@ SceneRoots:
   - {fileID: 216484248}
   - {fileID: 1063841022}
   - {fileID: 1140263453}
+  - {fileID: 1716840245}
