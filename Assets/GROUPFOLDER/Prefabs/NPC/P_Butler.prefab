@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 4893606495415117309}
   - component: {fileID: 5330226211819293547}
   - component: {fileID: 4246153657811389346}
-  - component: {fileID: 4089969122483355920}
   m_Layer: 0
   m_Name: P_Butler
   m_TagString: Untagged
@@ -152,24 +151,7 @@ MonoBehaviour:
   description: The ships butler
   sprite: {fileID: -2575802120332324317, guid: 71da069d56fc4124a95a6225168df047, type: 3}
   dialogueData:
-  - {fileID: 11400000, guid: 1c3c85151ae00c1479afa034c365e7d9, type: 2}
-  maxSuspicion: 100
-  onSuspicionChanged:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &4089969122483355920
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3728618397904662368}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 872e43252c84a4a48a3906ea90183293, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NPCSuspicionProfile
-  npcName: Cecil Harding
+  - {fileID: 11400000, guid: 761fdc18675c9fc47b00c8f1255dd514, type: 2}
   maxSuspicion: 100
   onSuspicionChanged:
     m_PersistentCalls:
