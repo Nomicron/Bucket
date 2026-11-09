@@ -105,7 +105,7 @@ public class MoveObject : MonoBehaviour
             {
                 return;
             }
-
+            CheckHasKey();
             isMoved = !isMoved;
             StopAllCoroutines();
             if (!isDoor)
@@ -121,6 +121,23 @@ public class MoveObject : MonoBehaviour
             }
         }
     
+    }
+
+    void CheckHasKey() 
+    {
+        if(isDoor && isLocked) 
+        {
+            if (KeyInventoryManager.Instance != null && KeyInventoryManager.Instance.HasKey(requireKeyID)) 
+            {
+                isLocked = false;
+                Debug.Log($"Door unlocked using key: {requireKeyID}");
+            }
+            else 
+            {
+                Debug.Log("You dont have the key for this door");
+                return;
+            }
+        }
     }
 
     private IEnumerator SlideRoutine(Vector3 dest)
@@ -164,18 +181,18 @@ public class MoveObject : MonoBehaviour
         isMoving = false;
     }
 
-    public void OnTriggerEnter(Collider other)
-    {
-        PickUpObject pickup = other.GetComponent<PickUpObject>();
+    //public void OnTriggerEnter(Collider other)
+    //{
+    //    PickUpObject pickup = other.GetComponent<PickUpObject>();
 
-        if(pickup != null && pickup.isKey) 
-        {
-            if(string.IsNullOrEmpty(requireKeyID) || pickup.itemID == requireKeyID) 
-            {
-                isLocked = false;
-                Debug.Log("Door unlocked");
+    //    if(pickup != null && pickup.isKey) 
+    //    {
+    //        if(string.IsNullOrEmpty(requireKeyID) || pickup.itemID == requireKeyID) 
+    //        {
+    //            isLocked = false;
+    //            Debug.Log("Door unlocked");
 
-            }
-        }
-    }
+    //        }
+    //    }
+    //}
 }
