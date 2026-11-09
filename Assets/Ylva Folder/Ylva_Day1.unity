@@ -9359,7 +9359,10 @@ PrefabInstance:
     - {fileID: 6930182227307403554, guid: 18c8e95ccfff4474cbe8d48cd465545d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1045338288334799785, guid: 18c8e95ccfff4474cbe8d48cd465545d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2010490371}
   m_SourcePrefab: {fileID: 100100000, guid: 18c8e95ccfff4474cbe8d48cd465545d, type: 3}
 --- !u!224 &549129252 stripped
 RectTransform:
@@ -9785,7 +9788,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7352772002598137317, guid: 91a59aa49abc38d489c1045a4d32241d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2134918085}
   m_SourcePrefab: {fileID: 100100000, guid: 91a59aa49abc38d489c1045a4d32241d, type: 3}
 --- !u!4 &576278038 stripped
 Transform:
@@ -17757,10 +17763,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3728618397904662368, guid: 9a74ed30bded34e4496dd023ddea703c, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1459294725}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a74ed30bded34e4496dd023ddea703c, type: 3}
 --- !u!4 &1079369639 stripped
 Transform:
@@ -18523,7 +18526,7 @@ PrefabInstance:
       objectReference: {fileID: 1656066603}
     - target: {fileID: 1198000835850019526, guid: f6d9de4af2df1134596c04e7171325d1, type: 3}
       propertyPath: allTasks.Array.size
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1198000835850019526, guid: f6d9de4af2df1134596c04e7171325d1, type: 3}
       propertyPath: activeTasks.Array.size
@@ -18550,6 +18553,14 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1198000835850019526, guid: f6d9de4af2df1134596c04e7171325d1, type: 3}
+      propertyPath: allTasks.Array.data[5].id
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1198000835850019526, guid: f6d9de4af2df1134596c04e7171325d1, type: 3}
+      propertyPath: allTasks.Array.data[6].id
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1198000835850019526, guid: f6d9de4af2df1134596c04e7171325d1, type: 3}
       propertyPath: allTasks.Array.data[0].room
       value: 
       objectReference: {fileID: 547823677}
@@ -18567,6 +18578,14 @@ PrefabInstance:
       objectReference: {fileID: 1913427049}
     - target: {fileID: 1198000835850019526, guid: f6d9de4af2df1134596c04e7171325d1, type: 3}
       propertyPath: allTasks.Array.data[4].room
+      value: 
+      objectReference: {fileID: 1913427049}
+    - target: {fileID: 1198000835850019526, guid: f6d9de4af2df1134596c04e7171325d1, type: 3}
+      propertyPath: allTasks.Array.data[5].room
+      value: 
+      objectReference: {fileID: 1913427049}
+    - target: {fileID: 1198000835850019526, guid: f6d9de4af2df1134596c04e7171325d1, type: 3}
+      propertyPath: allTasks.Array.data[6].room
       value: 
       objectReference: {fileID: 1913427049}
     - target: {fileID: 1198000835850019526, guid: f6d9de4af2df1134596c04e7171325d1, type: 3}
@@ -18590,6 +18609,14 @@ PrefabInstance:
       value: Light the fireplace
       objectReference: {fileID: 0}
     - target: {fileID: 1198000835850019526, guid: f6d9de4af2df1134596c04e7171325d1, type: 3}
+      propertyPath: allTasks.Array.data[5].title
+      value: LoungeDust1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1198000835850019526, guid: f6d9de4af2df1134596c04e7171325d1, type: 3}
+      propertyPath: allTasks.Array.data[6].title
+      value: Clean table in Lounge
+      objectReference: {fileID: 0}
+    - target: {fileID: 1198000835850019526, guid: f6d9de4af2df1134596c04e7171325d1, type: 3}
       propertyPath: activeTasks.Array.data[0].room
       value: 
       objectReference: {fileID: 547823677}
@@ -18610,19 +18637,31 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1913427049}
     - target: {fileID: 1198000835850019526, guid: f6d9de4af2df1134596c04e7171325d1, type: 3}
+      propertyPath: allTasks.Array.data[0].isActiveTask
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1198000835850019526, guid: f6d9de4af2df1134596c04e7171325d1, type: 3}
       propertyPath: allTasks.Array.data[1].isActiveTask
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1198000835850019526, guid: f6d9de4af2df1134596c04e7171325d1, type: 3}
       propertyPath: allTasks.Array.data[2].isActiveTask
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1198000835850019526, guid: f6d9de4af2df1134596c04e7171325d1, type: 3}
       propertyPath: allTasks.Array.data[3].isActiveTask
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1198000835850019526, guid: f6d9de4af2df1134596c04e7171325d1, type: 3}
       propertyPath: allTasks.Array.data[4].isActiveTask
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1198000835850019526, guid: f6d9de4af2df1134596c04e7171325d1, type: 3}
+      propertyPath: allTasks.Array.data[5].isActiveTask
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1198000835850019526, guid: f6d9de4af2df1134596c04e7171325d1, type: 3}
+      propertyPath: allTasks.Array.data[6].isActiveTask
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1198000835850019526, guid: f6d9de4af2df1134596c04e7171325d1, type: 3}
@@ -18636,6 +18675,14 @@ PrefabInstance:
     - target: {fileID: 1198000835850019526, guid: f6d9de4af2df1134596c04e7171325d1, type: 3}
       propertyPath: allTasks.Array.data[2].isCleaningTask
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1198000835850019526, guid: f6d9de4af2df1134596c04e7171325d1, type: 3}
+      propertyPath: allTasks.Array.data[5].isCleaningTask
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1198000835850019526, guid: f6d9de4af2df1134596c04e7171325d1, type: 3}
+      propertyPath: allTasks.Array.data[6].isCleaningTask
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1198000835850019526, guid: f6d9de4af2df1134596c04e7171325d1, type: 3}
       propertyPath: activeTasks.Array.data[1].isActiveTask
@@ -25071,28 +25118,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.029899638, y: 0.029834103, z: 0.028691804}
   m_Center: {x: 0, y: -4.656613e-10, z: 0}
---- !u!1 &1459294711 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3728618397904662368, guid: 9a74ed30bded34e4496dd023ddea703c, type: 3}
-  m_PrefabInstance: {fileID: 1077707796}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1459294725
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1459294711}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2de2040aa8a5b23749bd941e34ae0459, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::QuestGiver
-  quest:
-    id: 6
-    title: Place the vase on the table, then return to the butler
-    description: 
-    state: 0
 --- !u!1 &1461383723
 GameObject:
   m_ObjectHideFlags: 0
@@ -34430,6 +34455,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 935fb122a585b1f4284b383556e1bc8e, type: 3}
+--- !u!1 &2010490367 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1045338288334799785, guid: 18c8e95ccfff4474cbe8d48cd465545d, type: 3}
+  m_PrefabInstance: {fileID: 549129251}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2010490368 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5217943086975199143, guid: 18c8e95ccfff4474cbe8d48cd465545d, type: 3}
+  m_PrefabInstance: {fileID: 549129251}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2010490367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa5f599a29966e64aaac49504bfd4f7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::dustScript
+--- !u!114 &2010490371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2010490367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2af4ff80b8dbbbd48b8d4f35e07920f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectiveConnector
+  objectiveMechanics: {fileID: 2010490368}
+  id: 8
+  type: 0
 --- !u!1 &2011846234
 GameObject:
   m_ObjectHideFlags: 0
@@ -36479,6 +36535,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2222979861430016012, guid: 3b1b2931920e0284d9c1b5217ad91af4, type: 3}
   m_PrefabInstance: {fileID: 2131643327}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2134918080 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7352772002598137317, guid: 91a59aa49abc38d489c1045a4d32241d, type: 3}
+  m_PrefabInstance: {fileID: 573272679}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2134918081 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5592891157001500304, guid: 91a59aa49abc38d489c1045a4d32241d, type: 3}
+  m_PrefabInstance: {fileID: 573272679}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2134918080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4edb5d09facecf444ad33f1faace7303, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Stain
+--- !u!114 &2134918085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2134918080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2af4ff80b8dbbbd48b8d4f35e07920f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectiveConnector
+  objectiveMechanics: {fileID: 2134918081}
+  id: 9
+  type: 0
 --- !u!1 &2134925554
 GameObject:
   m_ObjectHideFlags: 0

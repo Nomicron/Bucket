@@ -5395,7 +5395,7 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5683306438114798648}
-  m_CullTransparentMesh: 1
+  m_CullTransparentMesh: 0
 --- !u!114 &8424705342466206134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5409,14 +5409,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 126079067318380647, guid: 0fbe1054724942249a9e46107bb49dad, type: 3}
+  m_Sprite: {fileID: 4121409181084731807, guid: 9106e34392803ec46b41286f99010385, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7005,10 +7005,10 @@ RectTransform:
   - {fileID: 6532206141523399938}
   m_Father: {fileID: 6292653572092373479}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 230.0287, y: -137.452}
+  m_SizeDelta: {x: 460.0574, y: 274.904}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6400901528204472678
 CanvasRenderer:
