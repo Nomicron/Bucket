@@ -14,7 +14,7 @@ public class S_CleanLevelUI : MonoBehaviour
     // Update is called once per frame
    public void UpdateUI(float cleanLevel, roomScript room)
     {
-        cleanLeveltext.text = room.roomName + ", Clean Level: " + cleanLevel.ToString() + "%";
+        cleanLeveltext.text = $"{room.roomName}" + ", Clean Level: " + $"{cleanLevel:F2}" + "%";
         //Debug.Log("Clean Level updated to: " + cleanLevel.ToString() + " in room: " + room.roomName);
     }
 }
