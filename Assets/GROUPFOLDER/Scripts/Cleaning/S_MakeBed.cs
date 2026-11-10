@@ -1,29 +1,44 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class MakeBed : MonoBehaviour
+public class MakeBed : ObjectiveMechanics
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    [SerializeField] private GameObject bed;
-    [SerializeField] private RayController ray;
+    [SerializeField] private GameObject unmadeBed;
+    [SerializeField] private GameObject madeBed;
 
-    MeshFilter meshFilter;
-    void Start()
+    [SerializeField] private RayController rayController;
+
+    private bool isMade = false;
+
+    private void Update()
     {
-        meshFilter = bed.GetComponent<MeshFilter>();
+        if (isMade)
+            return;
+
+        if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
+        {
+            TryMakeBed();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void TryMakeBed()
     {
-        //if(ray.TryGetComponent<Bed>(out Bed bedComponent))
-        //{
-        //    if (bedComponent != null)
-        //    {
-        //        if (Input.GetKeyDown(KeyCode.E))
-        //        {
-        //          bedComponent.MakeBed();
-        //        }
-        //    }
-        //}
+        if (rayController.TryGetHit(out RaycastHit hit))
+        {
+            MakeBed bed = hit.collider.GetComponentInParent<MakeBed>();
+
+            if (bed == this)
+            {
+                MakeTheBed();
+            }
+        }
+    }
+
+    private void MakeTheBed()
+    {
+        unmadeBed.SetActive(false);
+        madeBed.SetActive(true);
+        Finish();
+        isMade = true;
     }
 }
