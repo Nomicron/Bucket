@@ -20,7 +20,7 @@ public class Cleaning : MonoBehaviour
 
     //private bool isClean = false; 
 
-    [SerializeField] GameObject madeBed;
+   // [SerializeField] GameObject madeBed;
     private void Start()
     {
         ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward
@@ -131,16 +131,16 @@ public class Cleaning : MonoBehaviour
                 lookScript.canLook = false;
 
                 break;
-            //case StainType.Bed:
+            case StainType.Bed:
 
-            //    stain.gameObject.SetActive(false);
-            //    madeBed.SetActive(true);
+                //stain.gameObject.SetActive(false);
+                //madeBed.SetActive(true);
 
-            //    ExitCleaningMode();
+                //ExitCleaningMode();
 
 
-            //    break;
-   
+                break;
+
         }
     }
 }

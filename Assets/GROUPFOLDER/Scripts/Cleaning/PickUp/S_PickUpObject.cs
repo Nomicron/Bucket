@@ -176,7 +176,7 @@ public class PickUpObject : ObjectiveMechanics
 
         ToogleZone(true);
 
-        Collider[] hits = Physics.OverlapSphere(transform.position, snapRad, zoneLayer);
+        Collider[] hits = Physics.OverlapSphere(transform.position, snapRad, zoneLayer, QueryTriggerInteraction.Collide);
         foreach (Collider hitCollider in hits)
         {
             PlacementZone zone = hitCollider.GetComponent<PlacementZone>();
