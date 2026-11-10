@@ -131,12 +131,15 @@ public class Cleaning : MonoBehaviour
                 lookScript.canLook = false;
 
                 break;
-            case StainType.Bed:
+            //case StainType.Bed:
 
-                stain.gameObject.SetActive(false);
-                madeBed.SetActive(true);
+            //    stain.gameObject.SetActive(false);
+            //    madeBed.SetActive(true);
 
-                break;
+            //    ExitCleaningMode();
+
+
+            //    break;
    
         }
     }
