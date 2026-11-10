@@ -40,10 +40,20 @@ public class Movement : MonoBehaviour
             // Ignore vertical movement
             movementVector.y = 0;
 
+
+            Vector3 velocity = movementVector * Time.fixedDeltaTime * movementSpeed;
+
+            velocity.y = rigidbody.linearVelocity.y;
+
             // Apply velocity
-            rigidbody.linearVelocity =
-                movementVector * Time.fixedDeltaTime * movementSpeed;
+            rigidbody.linearVelocity = velocity;
+
         }
+    }
+
+    void FixedUpdate()
+    {
+        
     }
     private void OnMovement(InputValue input) 
     {

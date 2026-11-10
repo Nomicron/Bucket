@@ -5,17 +5,17 @@ public class PickUpObject : ObjectiveMechanics
 {
     public string itemID;
 
-    [SerializeField] 
+    [SerializeField]
     float throwForce = 600f;
-    [SerializeField] 
+    [SerializeField]
     float maxDist = 3f;
-    [SerializeField] 
+    [SerializeField]
     float snapRad = 0.5f;
-    [SerializeField] 
+    [SerializeField]
     float holdDist = 2f;
-    [SerializeField] 
+    [SerializeField]
     float objectRad = 0.25f; // Radius of the object to prevent clipping edges
-    [SerializeField] 
+    [SerializeField]
     float followSpeed = 20f;    // Speed at which object follows the hold point
 
     [SerializeField]
@@ -25,9 +25,9 @@ public class PickUpObject : ObjectiveMechanics
     [SerializeField]
     float scrollSense = 0.25f;
 
-    [SerializeField] 
+    [SerializeField]
     LayerMask zoneLayer;
-    [SerializeField] 
+    [SerializeField]
     LayerMask obstacleLayers;
 
     Vector3 throwStartPosition;
@@ -56,7 +56,10 @@ public class PickUpObject : ObjectiveMechanics
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        if (!isKey)
+        {
+            rb = GetComponent<Rigidbody>();
+        }
         myCollider = GetComponent<Collider>();
         tempParent = TempParent.Instance;
 
@@ -87,7 +90,7 @@ public class PickUpObject : ObjectiveMechanics
                 rb.AddForce(tempParent.transform.forward * throwForce);
                 Drop();
             }
-    
+
         }
     }
 
@@ -101,12 +104,23 @@ public class PickUpObject : ObjectiveMechanics
 
     private void OnMouseDown()
     {
-        if (isPlaced) 
+        if (isPlaced)
         {
-            return; 
+            return;
         }
-            dist = Vector3.Distance(transform.position, tempParent.transform.position);
-            if (dist <= maxDist)
+        dist = Vector3.Distance(transform.position, tempParent.transform.position);
+        if (dist <= maxDist)
+        {
+
+            if (isKey)
+            {
+                if (KeyInventoryManager.Instance != null)
+                {
+                    KeyInventoryManager.Instance.AddKey(itemID);
+                }
+                Destroy(gameObject);
+            }
+            else
             {
                 isHolding = true;
                 isThrown = false;
@@ -114,14 +128,14 @@ public class PickUpObject : ObjectiveMechanics
                 // Initialize holdDist to match current distance on pickup
                 holdDist = Mathf.Clamp(dist, minHoldDist, maxHoldDist);
 
-              
                 rb.useGravity = false;
                 rb.detectCollisions = true;
                 rb.isKinematic = false;
 
                 TogglePlayerCollisions(ignore: true);
-
             }
+
+        }
     }
 
     private void OnMouseUp()
@@ -195,15 +209,15 @@ public class PickUpObject : ObjectiveMechanics
 
     private void TogglePlayerCollisions(bool ignore)
     {
-        if (myCollider == null) 
+        if (myCollider == null)
         {
-            return; 
+            return;
         }
 
         // Refresh player colliders if not cached yet
         if (playerColliders == null || playerColliders.Length == 0)
         {
-            if (tempParent != null) 
+            if (tempParent != null)
             {
                 playerColliders = tempParent.GetComponentsInParent<Collider>();
             }
@@ -233,7 +247,7 @@ public class PickUpObject : ObjectiveMechanics
         rb.linearVelocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
         rb.isKinematic = true;
-     
+
 
         zone.AddItem(isThrown, throwStartPosition, gameObject, destroyObject);
         Finish();
@@ -275,7 +289,7 @@ public class PickUpObject : ObjectiveMechanics
             RespawnObject();
         }
     }
-  
+
     private void RespawnObject()
     {
         isHolding = false;

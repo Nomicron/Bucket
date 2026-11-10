@@ -28,6 +28,7 @@ public class QuestManager : MonoBehaviour
         foreach (Task task in allTasks)
         {
             AddToLists(task);
+            //roomManager.CheckRoomTasks();
             roomManager.AddTasks(task);
 
             if (task.state == TaskState.NotStarted)
@@ -39,7 +40,7 @@ public class QuestManager : MonoBehaviour
         //    if (!task.isActiveTask)
         //        activeTasks.Remove(task);
         //}
-
+        roomManager.CheckRoomTasks();
         questUI.UpdateUI();
 
     }
@@ -131,4 +132,5 @@ public class QuestManager : MonoBehaviour
     //    }
 
     //}
+
 }

@@ -8,6 +8,10 @@ public class roomScript : MonoBehaviour
 
     [SerializeField] public List<Task> questsInRoom = new List<Task>();
 
+    private void Start()
+    {
+        
+    }
 
     private void OnTriggerEnter(Collider other)
     {
