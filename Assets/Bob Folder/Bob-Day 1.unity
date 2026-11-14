@@ -6961,6 +6961,10 @@ PrefabInstance:
       value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 6708759530457291102, guid: c48a21124985637438e59ce7f47d0b8b, type: 3}
+      propertyPath: requiredCleanAmount
+      value: 0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 6708759530457291102, guid: c48a21124985637438e59ce7f47d0b8b, type: 3}
       propertyPath: bubbleVFXPrefabs.Array.size
       value: 4
       objectReference: {fileID: 0}
@@ -16586,7 +16590,7 @@ PrefabInstance:
       objectReference: {fileID: 738411343}
     - target: {fileID: 4814420714613632661, guid: 59a08871928efe64fae1c792e85e4953, type: 3}
       propertyPath: dryingSpeed
-      value: 0.1
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 6398637334441952430, guid: 59a08871928efe64fae1c792e85e4953, type: 3}
       propertyPath: m_LocalScale.y
