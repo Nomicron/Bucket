@@ -12,7 +12,7 @@ public class Cleaning : MonoBehaviour
     public MopPainter currentMopPainter;
 
     Ray ray;
-
+    private Vector3 cleaningStartPosition;
     float scrubAmount;
     //public bool cleaningMode = false;
     Stain currentStain;
@@ -29,10 +29,26 @@ public class Cleaning : MonoBehaviour
     void Update()
     {
 
-        if (CleaningModeController.InCleaningMode && currentStain != null)
+        //if (CleaningModeController.InCleaningMode && currentStain != null)
+        //{
+        //    HandleCleaning(currentStain.stainType);
+        //}
+        if (!CleaningModeController.InCleaningMode)
+            return;
+
+        // The cleaning object may have been destroyed when completed.
+        if (currentStain == null)
         {
-            HandleCleaning(currentStain.stainType);
+            ExitCleaningMode();
+            return;
         }
+
+        CheckCleaningDistance();
+
+        if (!CleaningModeController.InCleaningMode)
+            return;
+
+        HandleCleaning(currentStain.stainType);
 
     }
     private void OnInteract(InputValue input)
@@ -49,33 +65,62 @@ public class Cleaning : MonoBehaviour
             TryEnterCleaningMode();
         }
     }
+    private void OnEscape(InputValue input)
+    {
+        if (!input.isPressed)
+            return;
+
+        if (CleaningModeController.InCleaningMode)
+        {
+            ExitCleaningMode();
+        }
+    }
+
+    private void CleaningObjectiveFinished(ObjectiveMechanics mechanic)
+    {
+        ExitCleaningMode();
+    }
 
     void TryEnterCleaningMode()
     {
 
-      //Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
-
-        if (rayController.TryGetComponent<Stain>(out Stain stain))
+        if (rayController.TryGetHit(out RaycastHit hit))
         {
+            Stain stain = hit.collider.GetComponent<Stain>();
+
             if (stain != null)
             {
                 currentStain = stain;
-
                 currentMopPainter = stain.GetComponent<MopPainter>();
+
+
+                // Remember where cleaning started.
+                cleaningStartPosition = hit.point;
+
+                if (currentMopPainter != null)
+                {
+                    if (currentMopPainter.completed)
+                        return;
+
+                    currentMopPainter.OnFinished += CleaningObjectiveFinished;
+                    currentMopPainter.SpawnBucket();
+                }
 
                 scrubAmount = 0;
 
-                //cleaningMode = true;
                 CleaningModeController.SetCleaningMode(true);
-
-                //PauseController.SetPause(true);
             }
         }
     }
 
     void ExitCleaningMode()
     {
-       // cleaningMode = false;
+        if (currentMopPainter != null)
+        {
+            currentMopPainter.OnFinished -= CleaningObjectiveFinished;
+            currentMopPainter.RemoveBucket();
+        }
+        // cleaningMode = false;
         CleaningModeController.SetCleaningMode(false);
         currentStain = null;
         currentMopPainter = null;
@@ -98,6 +143,7 @@ public class Cleaning : MonoBehaviour
             case StainType.Blood:
 
                 lookScript.canLook = false;
+                //PauseController.SetPause(true);
 
                 if (!Mouse.current.leftButton.isPressed)
                 {
@@ -141,6 +187,23 @@ public class Cleaning : MonoBehaviour
 
                 break;
 
+        }
+    }
+    private void CheckCleaningDistance()
+    {
+        Vector3 playerPosition = playerCamera.transform.position;
+
+        // Ignore vertical height.
+        playerPosition.y = cleaningStartPosition.y;
+
+        float distance = Vector3.Distance(
+            playerPosition,
+            cleaningStartPosition
+        );
+
+        if (distance > cleaningRange)
+        {
+            ExitCleaningMode();
         }
     }
 }

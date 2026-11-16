@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f6b7d20ce9f25a428e81beab6c7739c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MopPainter
-  requiredCleanAmount: 0.9
+  requiredCleanAmount: 0.95
   textureResolution: 256
   brushSize: 10
   mop: {fileID: 0}
@@ -173,6 +173,6 @@ MonoBehaviour:
   - {fileID: 2194083401130123038, guid: 5d0ef221300de1e45a997f36deb3120a, type: 3}
   - {fileID: 2194083401130123038, guid: 5d0ef221300de1e45a997f36deb3120a, type: 3}
   - {fileID: 2194083401130123038, guid: 5d0ef221300de1e45a997f36deb3120a, type: 3}
-  bubbleInterval: 0.2
-  bubbleLifetime: 1.2
+  bubbleInterval: 0.025
+  bubbleLifetime: 0.8
   completed: 0
