@@ -93,6 +93,12 @@ public class CursorScript : MonoBehaviour
 
                 return;
             }
+            else if (hit.collider.CompareTag("CleaningMode")) 
+            {
+                //E cursor
+                currentTexture = textures[9];
+                return;
+            }
         }
 
         currentTexture = null;
