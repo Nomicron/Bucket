@@ -80,13 +80,6 @@ public class mopScript : MonoBehaviour
             surface.CleanAtUV(hit.textureCoord, hit.point);
         }
 
-    //if (other.CompareTag("Stain") && isWet)
-    //{
-
-    //    // Cleaning logic here.
-    //    // Clean continuously while touching stain.
-    //    //Make it  so that the wetness level decreces.
-    //}
     }
 
     public void HandleTriggerExit(Collider other)

@@ -4314,6 +4314,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Greystain
       objectReference: {fileID: 0}
+    - target: {fileID: 2480260225066831523, guid: 6030f491a88e17f4799c43478dc41929, type: 3}
+      propertyPath: m_TagString
+      value: CleaningMode
+      objectReference: {fileID: 0}
     - target: {fileID: 4734263452323160041, guid: 6030f491a88e17f4799c43478dc41929, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.242425
@@ -6887,6 +6891,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: P_Brownstain
       objectReference: {fileID: 0}
+    - target: {fileID: 7352772002598137317, guid: 91a59aa49abc38d489c1045a4d32241d, type: 3}
+      propertyPath: m_TagString
+      value: CleaningMode
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7591,7 +7599,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4649470925695854434, guid: c48a21124985637438e59ce7f47d0b8b, type: 3}
       propertyPath: m_TagString
-      value: Stain
+      value: CleaningMode
       objectReference: {fileID: 0}
     - target: {fileID: 6708759530457291102, guid: c48a21124985637438e59ce7f47d0b8b, type: 3}
       propertyPath: mop
@@ -10787,6 +10795,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Brownstain
       objectReference: {fileID: 0}
+    - target: {fileID: 7352772002598137317, guid: 91a59aa49abc38d489c1045a4d32241d, type: 3}
+      propertyPath: m_TagString
+      value: CleaningMode
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12593,7 +12605,7 @@ PrefabInstance:
     - target: {fileID: 4416507322818299266, guid: cb9b791a7f6f2904bb0b16da06dcffe0, type: 3}
       propertyPath: mop
       value: 
-      objectReference: {fileID: 1419655770}
+      objectReference: {fileID: 165554291698614080}
     - target: {fileID: 4416507322818299266, guid: cb9b791a7f6f2904bb0b16da06dcffe0, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -16850,7 +16862,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4649470925695854434, guid: c48a21124985637438e59ce7f47d0b8b, type: 3}
       propertyPath: m_TagString
-      value: Stain
+      value: CleaningMode
       objectReference: {fileID: 0}
     - target: {fileID: 5116069045293418330, guid: c48a21124985637438e59ce7f47d0b8b, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -16865,6 +16877,10 @@ PrefabInstance:
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6708759530457291102, guid: c48a21124985637438e59ce7f47d0b8b, type: 3}
+      propertyPath: bucketPrefab
+      value: 
+      objectReference: {fileID: 7861372692405970687, guid: 60eecfdfe414daa4b96866be6b5eaaf7, type: 3}
+    - target: {fileID: 6708759530457291102, guid: c48a21124985637438e59ce7f47d0b8b, type: 3}
       propertyPath: bubbleInterval
       value: 0.025
       objectReference: {fileID: 0}
@@ -16872,6 +16888,10 @@ PrefabInstance:
       propertyPath: bubbleLifetime
       value: 0.8
       objectReference: {fileID: 0}
+    - target: {fileID: 6708759530457291102, guid: c48a21124985637438e59ce7f47d0b8b, type: 3}
+      propertyPath: bucketSpawnPoint
+      value: 
+      objectReference: {fileID: 1199963126}
     - target: {fileID: 6708759530457291102, guid: c48a21124985637438e59ce7f47d0b8b, type: 3}
       propertyPath: requiredCleanAmount
       value: 0.95
@@ -19081,15 +19101,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6471570704660207379, guid: 59a08871928efe64fae1c792e85e4953, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.23724
+      value: -11.46
       objectReference: {fileID: 0}
     - target: {fileID: 6471570704660207379, guid: 59a08871928efe64fae1c792e85e4953, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.54531
+      value: -0.46
       objectReference: {fileID: 0}
     - target: {fileID: 6471570704660207379, guid: 59a08871928efe64fae1c792e85e4953, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 7.92924
+      value: 10.63
       objectReference: {fileID: 0}
     - target: {fileID: 6471570704660207379, guid: 59a08871928efe64fae1c792e85e4953, type: 3}
       propertyPath: m_LocalRotation.w
@@ -23032,6 +23052,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1192695784}
   m_Mesh: {fileID: 5302568919011541938, guid: 26aa6fedbde88d747841ebb4436cb23b, type: 3}
+--- !u!4 &1199963126 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 935094635981609727, guid: c48a21124985637438e59ce7f47d0b8b, type: 3}
+  m_PrefabInstance: {fileID: 863336138}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1202318101
 GameObject:
   m_ObjectHideFlags: 0
@@ -27911,11 +27936,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4999291925916317149, guid: 025a2621f63ba5a41be2baab05eace08, type: 3}
   m_PrefabInstance: {fileID: 1414938625}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1419655770 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 165554292317414765, guid: 59a08871928efe64fae1c792e85e4953, type: 3}
-  m_PrefabInstance: {fileID: 992107053}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1420448504
 PrefabInstance:
@@ -41684,6 +41704,11 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &165554291698614080 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 165554292317414765, guid: 59a08871928efe64fae1c792e85e4953, type: 3}
+  m_PrefabInstance: {fileID: 992107053}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &218304130669084701
 PrefabInstance:
   m_ObjectHideFlags: 0
