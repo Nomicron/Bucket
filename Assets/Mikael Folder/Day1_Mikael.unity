@@ -14489,13 +14489,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 165505548}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 51dec1e1e91c8dca18043540ff46abcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Inspectable
-  inspectTitle: Freshly baked cupcakes
-  inspectDescription: Looks delicious
+  rayController: {fileID: 0}
+  evidence: {fileID: 0}
 --- !u!1 &753772245
 GameObject:
   m_ObjectHideFlags: 0
@@ -18337,8 +18337,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51dec1e1e91c8dca18043540ff46abcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Inspectable
-  inspectTitle: Key
-  inspectDescription: Old key, I wonder where it goes...
+  rayController: {fileID: 0}
+  evidence: {fileID: 0}
 --- !u!1 &961225783
 GameObject:
   m_ObjectHideFlags: 0
@@ -19890,6 +19890,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 150388811801281313, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 517458710424916643, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 650630634403175249, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}
       propertyPath: m_text
       value: 'To clean the dirt from the floor, the mop will have to be wet. During cleaning process the mop will dry, so we have provided you a bucket to wet the mop again. '
@@ -19897,6 +19905,10 @@ PrefabInstance:
     - target: {fileID: 891183203649472732, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1041605740853393869, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1371768809198714080, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}
       propertyPath: mop
@@ -19950,6 +19962,34 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3163844618791571444, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}
+      propertyPath: m_fontColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3163844618791571444, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3163844618791571444, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3163844618791571444, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3163844618791571444, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278190080
+      objectReference: {fileID: 0}
+    - target: {fileID: 3163844618791571444, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}
+      propertyPath: m_TextStyleHashCode
+      value: -1183493901
+      objectReference: {fileID: 0}
+    - target: {fileID: 3256068582545435339, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3700842646796382694, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}
       propertyPath: m_FontData.m_MinSize
       value: 4
@@ -19986,9 +20026,69 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4047694446239565470, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4495908455867243873, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4825185359581766262, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -463
+      objectReference: {fileID: 0}
+    - target: {fileID: 5356090407402229575, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5356090407402229575, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5356090407402229575, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5356090407402229575, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5356090407402229575, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5356090407402229575, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5368045421904768488, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5795480027026091868, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5795480027026091868, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5795480027026091868, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5795480027026091868, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5795480027026091868, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5795480027026091868, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5888466098998687590, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}
       propertyPath: m_IsActive
@@ -19997,6 +20097,30 @@ PrefabInstance:
     - target: {fileID: 6261400868613260353, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}
       propertyPath: m_text
       value: Hold down the right mouse button to look around, while in cleaning mode.
+      objectReference: {fileID: 0}
+    - target: {fileID: 6354811681292574555, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6354811681292574555, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6354811681292574555, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6354811681292574555, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6354811681292574555, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6354811681292574555, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6832678992957629286, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}
       propertyPath: m_AnchorMax.y
@@ -20058,6 +20182,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: NewUI
       objectReference: {fileID: 0}
+    - target: {fileID: 7480671584284141656, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7480671584284141656, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7480671584284141656, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7480671584284141656, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7480671584284141656, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7480671584284141656, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7798013914003176096, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -607
@@ -20077,6 +20225,14 @@ PrefabInstance:
     - target: {fileID: 8299426604211203037, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}
       propertyPath: m_FontData.m_FontSize
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8374769743696004119, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8408675822188699213, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8546839523609915875, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -20327,13 +20483,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1073164706}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 51dec1e1e91c8dca18043540ff46abcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Inspectable
-  inspectTitle: SS Oval
-  inspectDescription: A great painting of a great ship
+  rayController: {fileID: 0}
+  evidence: {fileID: 0}
 --- !u!65 &1073164712
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25850,13 +26006,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1323132037}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 51dec1e1e91c8dca18043540ff46abcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Inspectable
-  inspectTitle: Slot Machine
-  inspectDescription: Feeling lucky?
+  rayController: {fileID: 0}
+  evidence: {fileID: 0}
 --- !u!1001 &1324891883
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31544,7 +31700,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4069905310774004745, guid: 380b3a6ec94dac14f91c0e56ab3f19a9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4983422749569853354, guid: 380b3a6ec94dac14f91c0e56ab3f19a9, type: 3}
       propertyPath: m_Layer
@@ -31561,6 +31717,10 @@ PrefabInstance:
     - target: {fileID: 6130762105774236756, guid: 380b3a6ec94dac14f91c0e56ab3f19a9, type: 3}
       propertyPath: m_Layer
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6130762105774236756, guid: 380b3a6ec94dac14f91c0e56ab3f19a9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6168119307898301588, guid: 380b3a6ec94dac14f91c0e56ab3f19a9, type: 3}
       propertyPath: m_Volume
@@ -31905,13 +32065,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1626655753}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 51dec1e1e91c8dca18043540ff46abcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Inspectable
-  inspectTitle: Broken clock
-  inspectDescription: I think it has stopped
+  rayController: {fileID: 0}
+  evidence: {fileID: 0}
 --- !u!1 &1628083230
 GameObject:
   m_ObjectHideFlags: 0
@@ -34616,13 +34776,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1715464994}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 51dec1e1e91c8dca18043540ff46abcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::S_Inspect
-  inspectTitle: Painting
-  inspectDescription: 'A beautiful painting which was made in 1905 by Lord Lang the second. '
+  rayController: {fileID: 0}
+  evidence: {fileID: 0}
 --- !u!1 &1716840244
 GameObject:
   m_ObjectHideFlags: 0
@@ -39595,13 +39755,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1452568322}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 51dec1e1e91c8dca18043540ff46abcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Inspectable
-  inspectTitle: Barrel
-  inspectDescription: Potatoes or tomatoes?
+  rayController: {fileID: 0}
+  evidence: {fileID: 0}
 --- !u!1 &2077949260 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3417797419836910100, guid: d4f1817bda1ac86499a5d6944d90cbf0, type: 3}
@@ -41645,13 +41805,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 355573104}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 51dec1e1e91c8dca18043540ff46abcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Inspectable
-  inspectTitle: Fridge
-  inspectDescription: Needs a restocking
+  rayController: {fileID: 0}
+  evidence: {fileID: 0}
 --- !u!4 &543450652178799720
 Transform:
   m_ObjectHideFlags: 0
@@ -42036,9 +42196,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4074905509494282238, guid: c307e7ea9ea0d3049acf824967e2ac7b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6268310549380251504, guid: c307e7ea9ea0d3049acf824967e2ac7b, type: 3}
       propertyPath: m_Name
       value: P_NewTrashCan_TrashCover
+      objectReference: {fileID: 0}
+    - target: {fileID: 6268310549380251504, guid: c307e7ea9ea0d3049acf824967e2ac7b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6752676600620574154, guid: c307e7ea9ea0d3049acf824967e2ac7b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -42762,13 +42930,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1637967784}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 51dec1e1e91c8dca18043540ff46abcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Inspectable
-  inspectTitle: Barrel
-  inspectDescription: Potatoes or tomatoes?
+  rayController: {fileID: 0}
+  evidence: {fileID: 0}
 --- !u!1001 &4437276055949899260
 PrefabInstance:
   m_ObjectHideFlags: 0
