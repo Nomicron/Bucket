@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using System.Collections;
 
 public class Cleaning : MonoBehaviour
 {
@@ -18,11 +17,10 @@ public class Cleaning : MonoBehaviour
     //public bool cleaningMode = false;
     Stain currentStain;
     public bool hasMop = false;
-    private bool mopRestarted = false;
 
     //private bool isClean = false; 
 
-    // [SerializeField] GameObject madeBed;
+   // [SerializeField] GameObject madeBed;
     private void Start()
     {
         ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward
@@ -128,7 +126,6 @@ public class Cleaning : MonoBehaviour
         currentMopPainter = null;
 
         lookScript.canLook = true;
-        mopRestarted = false;
         hasMop = false;
 
         PauseController.SetPause(false);
@@ -176,14 +173,8 @@ public class Cleaning : MonoBehaviour
 
             case StainType.Dirt:
 
-                //hasMop = true;
+                hasMop = true;
                 lookScript.canLook = false;
-
-                if (!mopRestarted)
-                {
-                    mopRestarted = true;
-                    StartCoroutine(RestartMop());
-                }
 
                 break;
             case StainType.Bed:
@@ -214,22 +205,6 @@ public class Cleaning : MonoBehaviour
         {
             ExitCleaningMode();
         }
-    }
-    private IEnumerator RestartMop()
-    {
-        // First activation.
-        hasMop = true;
-
-        // Let Unity process one frame.
-        yield return null;
-
-        // Disable mop again.
-        hasMop = false;
-
-        yield return null;
-
-        // Enable it a second time.
-        hasMop = true;
     }
 }
 public enum StainType

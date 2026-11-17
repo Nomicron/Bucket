@@ -27,13 +27,6 @@ public class mopMovement : MonoBehaviour
     [Header("Rotation")]
     [SerializeField] private float maxRotation = 20f;
 
-    [Header("Collision")]
-    [SerializeField] private LayerMask collisionMask;
-    [SerializeField] private float collisionRadius = 0.08f;
-    [SerializeField] private float collisionSkin = 0.005f;
-
-    private Vector3 mopBottomLocalPoint;
-
     private Vector3 startLocalPosition;
     private Quaternion startLocalRotation;
 
@@ -45,8 +38,6 @@ public class mopMovement : MonoBehaviour
     {
         startLocalPosition = transform.localPosition;
         startLocalRotation = transform.localRotation;
-        currentYOffset = maxYOffset;
-        mopBottomLocalPoint = transform.InverseTransformPoint(mopBottom.position);
     }
 
     private void Update()
@@ -92,7 +83,7 @@ public class mopMovement : MonoBehaviour
             -maxZOffset,
             maxZOffset
         );
-        
+
         // Apply final position.
         transform.localPosition =
             startLocalPosition +
