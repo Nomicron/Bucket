@@ -164,7 +164,7 @@ public class MopPainter : ObjectiveMechanics
 
         Debug.Log("Floor cleaned!");
 
-
+        tag = "Untagged";
         }
 
 

@@ -4089,6 +4089,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Greystain
       objectReference: {fileID: 0}
+    - target: {fileID: 2480260225066831523, guid: 6030f491a88e17f4799c43478dc41929, type: 3}
+      propertyPath: m_TagString
+      value: CleaningMode
+      objectReference: {fileID: 0}
     - target: {fileID: 4734263452323160041, guid: 6030f491a88e17f4799c43478dc41929, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.242425
@@ -6251,6 +6255,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5371789157711768067, guid: ae92d91394719e4499a881c59d084f9d, type: 3}
   m_PrefabInstance: {fileID: 293818014}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &295337054 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 935094635981609727, guid: c48a21124985637438e59ce7f47d0b8b, type: 3}
+  m_PrefabInstance: {fileID: 863336138}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &296264191
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6970,6 +6979,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: P_Brownstain
       objectReference: {fileID: 0}
+    - target: {fileID: 7352772002598137317, guid: 91a59aa49abc38d489c1045a4d32241d, type: 3}
+      propertyPath: m_TagString
+      value: CleaningMode
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7630,7 +7643,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4649470925695854434, guid: c48a21124985637438e59ce7f47d0b8b, type: 3}
       propertyPath: m_TagString
-      value: Stain
+      value: CleaningMode
       objectReference: {fileID: 0}
     - target: {fileID: 6708759530457291102, guid: c48a21124985637438e59ce7f47d0b8b, type: 3}
       propertyPath: mop
@@ -10971,6 +10984,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Brownstain
       objectReference: {fileID: 0}
+    - target: {fileID: 7352772002598137317, guid: 91a59aa49abc38d489c1045a4d32241d, type: 3}
+      propertyPath: m_TagString
+      value: CleaningMode
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12959,6 +12976,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1581418616955147592, guid: cb9b791a7f6f2904bb0b16da06dcffe0, type: 3}
+      propertyPath: questText
+      value: 
+      objectReference: {fileID: 1063841023}
     - target: {fileID: 1581418616955147592, guid: cb9b791a7f6f2904bb0b16da06dcffe0, type: 3}
       propertyPath: cleaningRange
       value: 5
@@ -17209,7 +17230,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4649470925695854434, guid: c48a21124985637438e59ce7f47d0b8b, type: 3}
       propertyPath: m_TagString
-      value: Stain
+      value: CleaningMode
       objectReference: {fileID: 0}
     - target: {fileID: 5116069045293418330, guid: c48a21124985637438e59ce7f47d0b8b, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -17224,6 +17245,10 @@ PrefabInstance:
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6708759530457291102, guid: c48a21124985637438e59ce7f47d0b8b, type: 3}
+      propertyPath: bucketPrefab
+      value: 
+      objectReference: {fileID: 7861372692405970687, guid: 60eecfdfe414daa4b96866be6b5eaaf7, type: 3}
+    - target: {fileID: 6708759530457291102, guid: c48a21124985637438e59ce7f47d0b8b, type: 3}
       propertyPath: bubbleInterval
       value: 0.025
       objectReference: {fileID: 0}
@@ -17231,6 +17256,10 @@ PrefabInstance:
       propertyPath: bubbleLifetime
       value: 0.8
       objectReference: {fileID: 0}
+    - target: {fileID: 6708759530457291102, guid: c48a21124985637438e59ce7f47d0b8b, type: 3}
+      propertyPath: bucketSpawnPoint
+      value: 
+      objectReference: {fileID: 295337054}
     - target: {fileID: 6708759530457291102, guid: c48a21124985637438e59ce7f47d0b8b, type: 3}
       propertyPath: requiredCleanAmount
       value: 0.95

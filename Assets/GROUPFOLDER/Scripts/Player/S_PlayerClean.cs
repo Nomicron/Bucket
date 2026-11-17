@@ -20,7 +20,8 @@ public class Cleaning : MonoBehaviour
     public bool hasMop = false;
     private bool mopRestarted = false;
     //private bool isClean = false; 
-
+    //[SerializeField] QuestUI questText;
+    //[SerializeField] S_CleanLevelUI cleanLevelText;
     // [SerializeField] GameObject madeBed;
     private void Start()
     {
@@ -110,6 +111,9 @@ public class Cleaning : MonoBehaviour
                 scrubAmount = 0;
 
                 CleaningModeController.SetCleaningMode(true);
+                //PauseController.SetPause(true);
+                //questText.ShowText(false);
+                //cleanLevelText.ShowText(false);
             }
         }
     }
@@ -131,6 +135,8 @@ public class Cleaning : MonoBehaviour
         hasMop = false;
 
         PauseController.SetPause(false);
+        //questText.ShowText(true);
+        //cleanLevelText.ShowText(true);
     }
 
     void HandleCleaning(StainType stainType)

@@ -6,8 +6,7 @@ using System.Linq;
 public class QuestUI : MonoBehaviour
 {
     public TextMeshProUGUI questListText;
-
-    public void HideText(bool status)
+    public void ShowText(bool status)
     {
         questListText.gameObject.SetActive(status);
     }
