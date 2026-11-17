@@ -42,8 +42,8 @@ public class mopPhysicsScript : MonoBehaviour
     private bool initialized;
 
     private float damping;
-
-    private void Start()
+    //private bool resetSimulationRequested;
+    private void Awake()
     {
         Initialize();
     }
@@ -108,10 +108,7 @@ public class mopPhysicsScript : MonoBehaviour
         if (dt <= 0f)
             return;
 
-        //FollowParentMovement();
-
         Simulate(dt);
-
         ApplyToBones();
     }
 
@@ -369,5 +366,32 @@ public class mopPhysicsScript : MonoBehaviour
     public void SetWet(bool wet)
     {
         damping = wet ? wetDamping : dryDamping;
+    }
+
+    private void OnEnable()
+    {
+        if (!initialized)
+            Initialize();
+
+        ResetSimulation();
+    }
+
+    private void ResetSimulation()
+    {
+        if (!initialized)
+            return;
+
+        // Restore the imported/rest pose first.
+        for (int i = 0; i < bones.Length - 1; i++)
+        {
+            bones[i].localRotation = restRotations[i];
+        }
+
+        // Now rebuild the Verlet state from that clean pose.
+        for (int i = 0; i < bones.Length; i++)
+        {
+            positions[i] = bones[i].position;
+            previousPositions[i] = bones[i].position;
+        }
     }
 }

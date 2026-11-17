@@ -14,6 +14,9 @@ public class MopController : MonoBehaviour
 
     void Update()
     {
-        mop.SetActive(cleanScript.hasMop);
+        if (mop.activeSelf != cleanScript.hasMop)
+        {
+            mop.SetActive(cleanScript.hasMop);
+        }
     }
 }
