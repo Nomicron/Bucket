@@ -103,7 +103,7 @@ public class MenuController : MonoBehaviour
         UpdatePause();
     }
 
-    void CloseTutorial()
+    public void CloseTutorial()
     {
         tutorialOpen = false;
 
