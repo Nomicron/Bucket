@@ -106,7 +106,7 @@ public class MenuController : MonoBehaviour
         UpdatePause();
     }
 
-    void CloseTutorial()
+    public void CloseTutorial()
     {
         S_UIManager.Instance.ShowUI(true);
         tutorialOpen = false;
