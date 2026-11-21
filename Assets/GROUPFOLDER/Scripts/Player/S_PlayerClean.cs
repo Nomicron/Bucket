@@ -111,9 +111,7 @@ public class Cleaning : MonoBehaviour
                 scrubAmount = 0;
 
                 CleaningModeController.SetCleaningMode(true);
-                //PauseController.SetPause(true);
-                //questText.ShowText(false);
-                //cleanLevelText.ShowText(false);
+                S_UIManager.Instance.ShowUI(false);
             }
         }
     }
@@ -135,8 +133,7 @@ public class Cleaning : MonoBehaviour
         hasMop = false;
 
         PauseController.SetPause(false);
-        //questText.ShowText(true);
-        //cleanLevelText.ShowText(true);
+        S_UIManager.Instance.ShowUI(true);
     }
 
     void HandleCleaning(StainType stainType)

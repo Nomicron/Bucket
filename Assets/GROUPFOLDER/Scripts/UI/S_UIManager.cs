@@ -2,17 +2,28 @@ using UnityEngine;
 
 public class S_UIManager : MonoBehaviour
 {
-    public QuestUI questUI;
-    public S_CleanLevelUI cleanLevelUI;
+    public static S_UIManager Instance { get; private set; }
 
-    public static bool showUI { get; private set; } = true;
-    public void ShowCleanLevelText(bool status)
+    [Header("Gameplay UI")]
+    [SerializeField] private GameObject questUI;
+    [SerializeField] private GameObject cleanLevelUI;
+
+
+    private void Awake()
     {
-        cleanLevelUI.gameObject.SetActive(status);
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
     }
 
-    public void ShowQuestText(bool status)
+    public void ShowUI(bool show)
     {
-        questUI.gameObject.SetActive(status);
+        questUI.gameObject.SetActive(show);
+        cleanLevelUI.gameObject.SetActive(show);
     }
+
 }

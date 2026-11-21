@@ -5,4 +5,7 @@ public class DialogueOption : ScriptableObject
 {
     public string optionText;
     public DialogueData nextDialogue;
+
+    [Header("Quest")]
+    public bool acceptQuest;
 }

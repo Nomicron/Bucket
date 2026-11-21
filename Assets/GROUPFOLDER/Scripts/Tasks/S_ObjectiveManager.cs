@@ -2,9 +2,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //handles Task and quest logics, controls tasklist and calls QuestUI.Update 
-public class QuestManager : MonoBehaviour
+public class ObjectiveManager : MonoBehaviour
 {
-    public static QuestManager Instance;
+    public static ObjectiveManager Instance;
 
     [SerializeField] public roomManager roomManager;
 
@@ -61,8 +61,10 @@ public class QuestManager : MonoBehaviour
         Quest q = activeQuests.Find(x => x.id == questId);
         if (q != null && q.state == QuestState.InProgress)
         {
-            q.state = QuestState.ObjectiveCompleted;
+            q.state = QuestState.TurnedIn; // This should be set to ObjectiveCompleted first, then TurnedIn when the player turns it in.
+            TrustController.Instance.AddTrust(q.character, 10); // Increase trust by 10 points for the character associated with the quest.
             questUI.UpdateUI();
+            
            // Debug.Log($"Quest completed for: {q.title}. Return to the quest giver!");
         }
     }

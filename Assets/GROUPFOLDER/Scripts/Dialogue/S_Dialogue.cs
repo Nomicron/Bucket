@@ -19,7 +19,7 @@ public class DialogueScript : MonoBehaviour
 
     bool startedDialogue = false;
     Character currentCharacter;
-
+    public Character CurrentCharacter => currentCharacter;
     public TextMeshProUGUI CharName;
     public Image CharImage;
     public TextMeshProUGUI CharDialogue;
@@ -66,7 +66,7 @@ public class DialogueScript : MonoBehaviour
                 startedDialogue = true;
                 DialogueCanvas.SetActive(true);
                 PauseController.SetPause(true);
-
+                S_UIManager.Instance.ShowUI(false);
                 StartNewDialogue(currentCharacter.dialogueData[0]);
             }
         }
@@ -74,6 +74,7 @@ public class DialogueScript : MonoBehaviour
 
     public void StartNewDialogue(DialogueData dialogue) 
     {
+
         if (optionManager != null) 
         {
             optionManager.gameObject.SetActive(false);
@@ -167,6 +168,7 @@ public class DialogueScript : MonoBehaviour
 
     public void EndDialogue() 
     {
+        S_UIManager.Instance.ShowUI(true);
         //end the dialogue
         startedDialogue = false;
         DialogueCanvas.SetActive(false);
@@ -177,7 +179,7 @@ public class DialogueScript : MonoBehaviour
         }
 
         PauseController.SetPause(false);
-
+        
         CharDialogue.text = "";
     }
 }

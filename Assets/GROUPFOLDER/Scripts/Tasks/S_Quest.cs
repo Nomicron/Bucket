@@ -23,6 +23,7 @@ public class Quest
     public string title;
     [TextArea] public string description;
     public QuestState state = QuestState.NotStarted;
+    public Character character;
 }
 [System.Serializable]
 

@@ -16837,6 +16837,14 @@ PrefabInstance:
       propertyPath: cleanLevel
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5339388639212983869, guid: c903b10b08ddf7347afb1b1decd40574, type: 3}
+      propertyPath: givesTrust
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5339388639212983869, guid: c903b10b08ddf7347afb1b1decd40574, type: 3}
+      propertyPath: mainCharacter
+      value: 
+      objectReference: {fileID: 1731845143}
     - target: {fileID: 9101087219675385519, guid: c903b10b08ddf7347afb1b1decd40574, type: 3}
       propertyPath: m_Name
       value: LoungeZone
@@ -17987,7 +17995,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectiveConnector
   objectiveMechanics: {fileID: 884528937}
-  id: 6
+  id: 1
   type: 1
 --- !u!4 &886002233 stripped
 Transform:
@@ -21070,6 +21078,10 @@ PrefabInstance:
       propertyPath: rayController
       value: 
       objectReference: {fileID: 2077969082}
+    - target: {fileID: 7343489702955247145, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}
+      propertyPath: targetNPC
+      value: 
+      objectReference: {fileID: 1731845143}
     - target: {fileID: 7438774225169723525, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}
       propertyPath: m_Name
       value: NewUI
@@ -21182,6 +21194,10 @@ PrefabInstance:
       propertyPath: m_text
       value: 'Good day sir, as the head caregiver on this vessel I shall guide you on how to use the cleaning tools at your disposal. '
       objectReference: {fileID: 0}
+    - target: {fileID: 9060389242471131050, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}
+      propertyPath: m_Name
+      value: ButlerTrust
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -21192,6 +21208,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7438774225169723525, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1063841030}
+    - targetCorrespondingSourceObject: {fileID: 7438774225169723525, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1063841031}
   m_SourcePrefab: {fileID: 100100000, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}
 --- !u!114 &1063841023 stripped
 MonoBehaviour:
@@ -21222,6 +21241,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::S_CleanLevelUI
   cleanLeveltext: {fileID: 1659885874}
+--- !u!114 &1063841031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5295971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e4b0575645b20d4bb4c568a1eb540dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::S_UIManager
+  questUI: {fileID: 1116591955}
+  cleanLevelUI: {fileID: 1659885872}
 --- !u!1 &1068277972 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1045338288334799785, guid: 18c8e95ccfff4474cbe8d48cd465545d, type: 3}
@@ -21650,7 +21683,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3728618397904662368, guid: 9a74ed30bded34e4496dd023ddea703c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1731845148}
   m_SourcePrefab: {fileID: 100100000, guid: 9a74ed30bded34e4496dd023ddea703c, type: 3}
 --- !u!4 &1079369639 stripped
 Transform:
@@ -22268,6 +22304,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1113657916}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1116591955 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 891183203649472732, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}
+  m_PrefabInstance: {fileID: 1063841022}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1124350781
 GameObject:
   m_ObjectHideFlags: 0
@@ -35999,6 +36040,40 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4974061530333314640, guid: dc4cdab06e126a44d864d2839d75a60a, type: 3}
   m_PrefabInstance: {fileID: 1727161073}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1731845142 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3728618397904662368, guid: 9a74ed30bded34e4496dd023ddea703c, type: 3}
+  m_PrefabInstance: {fileID: 1077707796}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1731845143 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4246153657811389346, guid: 9a74ed30bded34e4496dd023ddea703c, type: 3}
+  m_PrefabInstance: {fileID: 1077707796}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1731845142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0d5247991e138343a57a73387936297, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Character
+--- !u!114 &1731845148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1731845142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2de2040aa8a5b23749bd941e34ae0459, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::QuestGiver
+  quest:
+    id: 1
+    title: Test
+    description: You have a quest
+    state: 0
+    character: {fileID: 0}
 --- !u!1001 &1731932603
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44767,6 +44842,14 @@ PrefabInstance:
     - target: {fileID: 8556751855017896778, guid: 8f4c4e0215e0eb64cb36a7017b2540e0, type: 3}
       propertyPath: cleanLevel
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556751855017896778, guid: 8f4c4e0215e0eb64cb36a7017b2540e0, type: 3}
+      propertyPath: givesTrust
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556751855017896778, guid: 8f4c4e0215e0eb64cb36a7017b2540e0, type: 3}
+      propertyPath: mainCharacter
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8778640257004917104, guid: 8f4c4e0215e0eb64cb36a7017b2540e0, type: 3}
       propertyPath: m_Name

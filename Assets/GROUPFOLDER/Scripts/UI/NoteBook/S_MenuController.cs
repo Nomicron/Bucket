@@ -73,6 +73,7 @@ public class MenuController : MonoBehaviour
 
     void OpenNoteBook()
     {
+        S_UIManager.Instance.ShowUI(false);
         notebookOpen = true;
 
         menuCanvas.SetActive(true);
@@ -84,6 +85,7 @@ public class MenuController : MonoBehaviour
 
     void CloseNoteBook()
     {
+        S_UIManager.Instance.ShowUI(true);
         notebookOpen = false;
 
         menuCanvas.SetActive(false);
@@ -95,6 +97,7 @@ public class MenuController : MonoBehaviour
 
     void OpenTutorial()
     {
+        S_UIManager.Instance.ShowUI(false);
         tutorialOpen = true;
 
         tutorialGUI.SetActive(true);
@@ -105,6 +108,7 @@ public class MenuController : MonoBehaviour
 
     void CloseTutorial()
     {
+        S_UIManager.Instance.ShowUI(true);
         tutorialOpen = false;
 
         tutorialGUI.SetActive(false);

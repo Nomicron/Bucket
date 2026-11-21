@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class SuspicionController : MonoBehaviour
+public class TrustController : MonoBehaviour
 {
-    public static SuspicionController Instance;
+    public static TrustController Instance;
 
     [SerializeField]
     Character[] targetNPCs;
@@ -19,21 +19,22 @@ public class SuspicionController : MonoBehaviour
         }
     }
 
-    public void AddSuspicion(Character targetNPC, int amount) 
+    public void AddTrust(Character targetNPC, int amount) 
     {
         if(targetNPC != null) 
         {
-            targetNPC.ModifySuspicion(amount);
+            targetNPC.ModifyTrust(amount);
         }
+        Debug.Log($"Added {amount} trust to {targetNPC.NPCName}. Current Trust: {targetNPC.CurrentTrust}/{targetNPC.MaxTrust}");
     }
 
-    public void AddSuspicionAll(int amount) 
+    public void AddTrustAll(int amount) 
     {
         foreach(Character character in targetNPCs) 
         {
             if(character != null) 
             {
-                character.ModifySuspicion(amount);
+                character.ModifyTrust(amount);
             }
         }
     }

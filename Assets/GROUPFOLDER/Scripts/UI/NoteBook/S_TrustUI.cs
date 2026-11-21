@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class NPCSuspicionUI : MonoBehaviour
+public class NPCTrustUI : MonoBehaviour
 {
     [SerializeField]
     Character targetNPC;
@@ -13,9 +13,9 @@ public class NPCSuspicionUI : MonoBehaviour
     {
         if(targetNPC != null) 
         {
-            targetNPC.onSuspicionChanged.AddListener(UpdateSlider);
+            targetNPC.onTrustChanged.AddListener(UpdateSlider);
 
-            UpdateSlider(targetNPC.CurrentSuspicion, targetNPC.MaxSuspicion);
+            UpdateSlider(targetNPC.CurrentTrust, targetNPC.MaxTrust);
         }
         else 
         {
@@ -37,7 +37,7 @@ public class NPCSuspicionUI : MonoBehaviour
         // Clean up the listener when the Ui is destroyed
         if (targetNPC != null)
         {
-            targetNPC.onSuspicionChanged.RemoveListener(UpdateSlider);
+            targetNPC.onTrustChanged.RemoveListener(UpdateSlider);
         }
     }
 }

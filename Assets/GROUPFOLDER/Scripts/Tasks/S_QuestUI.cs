@@ -18,13 +18,13 @@ public class QuestUI : MonoBehaviour
 
         questListText.text = "<b>Tasks: </b>\n\n";
 
-        if (QuestManager.Instance.activeQuests.Count == 0 && QuestManager.Instance.activeTasks.Count == 0)
+        if (ObjectiveManager.Instance.activeQuests.Count == 0 && ObjectiveManager.Instance.activeTasks.Count == 0)
         {
             questListText.text += "<i>No active quests</i>";
             return;
         }
         // Added by Bob
-        var taskGroups = QuestManager.Instance.activeTasks.GroupBy(t => new
+        var taskGroups = ObjectiveManager.Instance.activeTasks.GroupBy(t => new
         {Room = t.room, Group = string.IsNullOrEmpty(t.groupId) ? t.id : t.groupId});// Tasks without a group stay individual.
 
         foreach (var group in taskGroups)
@@ -82,7 +82,7 @@ public class QuestUI : MonoBehaviour
         //    }
         //}
 
-        foreach (Quest q in QuestManager.Instance.activeQuests)
+        foreach (Quest q in ObjectiveManager.Instance.activeQuests)
         {
 
                 //    string status = q.state == QuestState.InProgress 

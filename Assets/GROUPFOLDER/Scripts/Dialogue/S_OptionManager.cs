@@ -28,7 +28,27 @@ public class OptionManagerScript : MonoBehaviour
 
     void SelectOption(DialogueOption option) 
     {
-        DialogueScript dialogueScript = FindFirstObjectByType<DialogueScript>();
+        //DialogueScript dialogueScript = FindFirstObjectByType<DialogueScript>();
+
+        //dialogueScript.StartNewDialogue(option.nextDialogue);
+        DialogueScript dialogueScript =  FindFirstObjectByType<DialogueScript>();
+
+        if (option.acceptQuest)
+        {
+            QuestGiver questGiver =
+                dialogueScript.CurrentCharacter.GetComponent<QuestGiver>();
+
+            if (questGiver != null)
+            {
+                questGiver.AcceptQuest();
+            }
+            else
+            {
+                Debug.LogWarning(
+                    "Character has no QuestGiver component!"
+                );
+            }
+        }
 
         dialogueScript.StartNewDialogue(option.nextDialogue);
     }
