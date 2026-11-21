@@ -69,7 +69,7 @@ public class roomManager : MonoBehaviour
                // room.questsInRoom.Remove(task);
                 float number = 100f / room.questsInRoom.Count;
                 room.cleanLevel += number; 
-                if(room.cleanLevel == 100f)
+                if(room.cleanLevel > 99.9f)
                     room.isCleaned = true;
                 Debug.Log("Room clean level increased by: " + number + " New clean level: " + room.cleanLevel);
                 cleanLevelUI.UpdateUI(room.cleanLevel, room);
