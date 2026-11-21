@@ -1,8 +1,10 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
+
 
 public class Character : MonoBehaviour
 {
@@ -13,12 +15,12 @@ public class Character : MonoBehaviour
     public string description;
     public Sprite sprite;
     public DialogueData[] dialogueData;
-
+    public List<string> clues = new List<string>();
 
     [SerializeField]
     int maxTrust = 100;
 
-    int currentTrust = 0;
+    int currentTrust = 50;
 
     public string NPCName => name;
     public int CurrentTrust => currentTrust;
@@ -32,6 +34,14 @@ public class Character : MonoBehaviour
         currentTrust = Mathf.Clamp(currentTrust + amount, 0, maxTrust);
 
         onTrustChanged?.Invoke(currentTrust, maxTrust);
+    }
+
+    public void AddClue(string clue) 
+    {
+        if (clues.Contains(clue)) return;
+
+        clues.Add(clue);
+        S_Notification.Instance.ShowNotification();
     }
 
     void Start()

@@ -20,6 +20,11 @@ public class S_EvidencePicker : MonoBehaviour
             evidence.image.SetActive(true);
             evidence.gameObject.SetActive(false);
 
+            if (!string.IsNullOrEmpty(evidence.evidenceText)) 
+            {
+                S_EvidenceNotes.Instance.AddEvidence(evidence.evidenceText);
+            }
+
         }
     }
 }

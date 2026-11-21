@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -48,6 +49,11 @@ public class OptionManagerScript : MonoBehaviour
                     "Character has no QuestGiver component!"
                 );
             }
+        }
+
+        if (option.givesClue) 
+        {
+            dialogueScript.CurrentCharacter.AddClue(option.clueText);
         }
 
         dialogueScript.StartNewDialogue(option.nextDialogue);

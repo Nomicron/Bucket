@@ -8,4 +8,8 @@ public class DialogueOption : ScriptableObject
 
     [Header("Quest")]
     public bool acceptQuest;
+
+    [Header("Clue")]
+    public bool givesClue;
+    public string clueText;
 }
