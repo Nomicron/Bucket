@@ -69,11 +69,34 @@ public class roomManager : MonoBehaviour
                // room.questsInRoom.Remove(task);
                 float number = 100f / room.questsInRoom.Count;
                 room.cleanLevel += number; 
+                if(room.cleanLevel > 99.9f)
+                    room.isCleaned = true;
                 Debug.Log("Room clean level increased by: " + number + " New clean level: " + room.cleanLevel);
                 cleanLevelUI.UpdateUI(room.cleanLevel, room);
+                AddTrust(room);
                 return;
             }
         }
+    }
+
+    public void CheckRoomTasks()
+    {
+        foreach (var room in roomList)
+        {
+            if (room.questsInRoom.Count == 0)
+                room.cleanLevel = 100f;
+            else
+                room.cleanLevel = 0f;
+        }
+    }
+    public void AddTrust(roomScript room)
+    {
+        if (room.isCleaned && room.givesTrust && room.mainCharacter != null)
+        {
+            TrustController.Instance.AddTrust(room.mainCharacter, 10);
+        }
+        else
+            return;
     }
 }
 

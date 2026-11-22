@@ -3,24 +3,47 @@ using UnityEngine;
 public class Inspectable : MonoBehaviour
 {
     [Header("Inspect Details")]
-    [SerializeField] private string inspectTitle = "Item Name";
+  // [SerializeField] private string inspectTitle = "Item Name";
 
-    [TextArea(3, 6)]
-    [SerializeField] private string inspectDescription = "Enter item description here...";
+    //[TextArea(3, 6)]
+    //[SerializeField] private string inspectDescription = "Enter item description here...";
 
-    private void OnMouseEnter()
+   [SerializeField] RayController rayController;
+
+    [SerializeField] Evidence evidence;
+    private void LateUpdate()
     {
-        if (InspectUI.Instance != null)
+        if (rayController.TryGetHit(out RaycastHit hit))
         {
-            InspectUI.Instance.ShowTooltip(inspectTitle, inspectDescription);
-        }
-    }
+            if (hit.collider.CompareTag("Evidence"))
+            {
+                Evidence evidence = hit.collider.GetComponent<Evidence>();
 
-    private void OnMouseExit()
-    {
-        if (InspectUI.Instance != null)
+                if (evidence != null)
+                {
+                    InspectUI.Instance.ShowTooltip(
+                        evidence.evidenceName,
+                        evidence.description
+                    );
+                }
+                else
+                {
+                    InspectUI.Instance.HideTooltip();
+                }
+            }
+            else
+            {
+                InspectUI.Instance.HideTooltip();
+            }
+        }
+        else
         {
             InspectUI.Instance.HideTooltip();
         }
+
     }
+
+    //private void OnMouseExit()
+    //{
+    //}
 }

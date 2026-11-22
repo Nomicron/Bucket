@@ -34,9 +34,9 @@ public class ObjectiveConnector : MonoBehaviour
     private void CleaningFinished(ObjectiveMechanics mechanic)
     {
         if(type == ObjectiveType.Task)
-             QuestManager.Instance.CompleteTask(id);
+             ObjectiveManager.Instance.CompleteTask(id);
         else 
-            QuestManager.Instance.CompleteQuest(id);
+            ObjectiveManager.Instance.CompleteQuest(id);
     }
 }
 
