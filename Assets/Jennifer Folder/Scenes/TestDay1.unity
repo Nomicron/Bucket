@@ -8805,6 +8805,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::S_Notification
   notificationText: {fileID: 626933522}
   duration: 4
+  timer: 0
 --- !u!1 &469876449
 GameObject:
   m_ObjectHideFlags: 0
@@ -34356,6 +34357,8 @@ MonoBehaviour:
     evidenceB: Wrench
     character: {fileID: 1731845143}
     newClue: Why do i need a wrench
+  evidences: []
+  selected: {fileID: 0}
 --- !u!1001 &1658156464
 PrefabInstance:
   m_ObjectHideFlags: 0
