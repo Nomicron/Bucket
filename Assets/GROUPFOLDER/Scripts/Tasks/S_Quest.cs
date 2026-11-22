@@ -23,13 +23,11 @@ public class Quest
     public string title;
     [TextArea] public string description;
     public QuestState state = QuestState.NotStarted;
-    public Character character;
 }
 [System.Serializable]
 
 public class Task 
 {
-    public string groupId; // Tasks with the same groupId + room are displayed together.
     public string id;
     public string title;
     [TextArea] public string description;
@@ -37,9 +35,4 @@ public class Task
     public roomScript room;
     public bool isCleaningTask;
     public bool isActiveTask;
-    //public TaskType taskType = TaskType.None;
 }
-//public enum TaskType
-//{
-//    None, Dust, Stain, Trash, Floor, PickUp, Other
-//}

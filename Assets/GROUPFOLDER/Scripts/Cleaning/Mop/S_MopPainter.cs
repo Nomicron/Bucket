@@ -24,12 +24,6 @@ public class MopPainter : ObjectiveMechanics
     int totalPixels;
     public bool completed;
 
-    [Header("Bucket")]
-    [SerializeField] private GameObject bucketPrefab;
-    [SerializeField] private Transform bucketSpawnPoint;
-
-    private GameObject spawnedBucket;
-
     void Start()
     {
         cleaningMask = new Texture2D(
@@ -164,7 +158,7 @@ public class MopPainter : ObjectiveMechanics
 
         Debug.Log("Floor cleaned!");
 
-        tag = "Untagged";
+
         }
 
 
@@ -198,28 +192,6 @@ public class MopPainter : ObjectiveMechanics
         );
 
         Destroy(bubble, bubbleLifetime);
-    }
-    public void SpawnBucket()
-    {
-        if (spawnedBucket != null)
-            return;
-
-        if (bucketPrefab == null || bucketSpawnPoint == null)
-            return;
-
-        spawnedBucket = Instantiate(
-            bucketPrefab,
-            bucketSpawnPoint.position,
-            bucketSpawnPoint.rotation
-        );
-    }
-    public void RemoveBucket()
-    {
-        if (spawnedBucket == null)
-            return;
-
-        Destroy(spawnedBucket);
-        spawnedBucket = null;
     }
 }
 

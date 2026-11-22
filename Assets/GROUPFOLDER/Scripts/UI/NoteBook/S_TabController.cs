@@ -5,15 +5,10 @@ public class TabController : MonoBehaviour
 {
     public Image[] tabImages;
     public GameObject[] pages;
-    public int startTab = 0;
-    public bool resetOnEnable = false;
-
-    bool started = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        ActivateTab(startTab);
-        started = true;
+        ActivateTab(0);
     }
 
     // Update is called once per frame
@@ -21,9 +16,10 @@ public class TabController : MonoBehaviour
     {
         for(int i = 0;  i < tabImages.Length; i++) 
         {
-            bool selected = i == tabNumber;
-            pages[i].SetActive(selected);
-            tabImages[i].color = selected ? Color.white : Color.grey;
+            pages[i].SetActive(false);
+            tabImages[i].color = Color.grey;
         }
+        pages[tabNumber].SetActive(true);
+        tabImages[tabNumber].color = Color.white;
     }
 }

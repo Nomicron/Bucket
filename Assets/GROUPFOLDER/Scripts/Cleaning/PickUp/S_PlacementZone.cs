@@ -79,9 +79,9 @@ public class PlacementZone : MonoBehaviour
             }
         }
 
-        if (targetNPC != null && TrustController.Instance != null)
+        if (targetNPC != null && SuspicionController.Instance != null)
         {
-            TrustController.Instance.AddTrust(targetNPC, suspicionAmount);
+            SuspicionController.Instance.AddSuspicion(targetNPC, suspicionAmount);
         }
 
         if (destroyOnPlacement)

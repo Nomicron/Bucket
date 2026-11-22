@@ -6,11 +6,6 @@ public class S_CleanLevelUI : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is create
     public TextMeshProUGUI cleanLeveltext;
     //public roomManager roomManager;
-
-    public void ShowText(bool status)
-    {
-        cleanLeveltext.gameObject.SetActive(status);
-    }
     void Start()
     {
         cleanLeveltext.text = "Clean Level: " + 0;
@@ -19,8 +14,7 @@ public class S_CleanLevelUI : MonoBehaviour
     // Update is called once per frame
    public void UpdateUI(float cleanLevel, roomScript room)
     {
-            cleanLeveltext.text = $"{room.roomName}" + ", Clean Level: " + $"{cleanLevel:F2}" + "%";
+        cleanLeveltext.text = room.roomName + ", Clean Level: " + cleanLevel.ToString() + "%";
         //Debug.Log("Clean Level updated to: " + cleanLevel.ToString() + " in room: " + room.roomName);
-
     }
 }

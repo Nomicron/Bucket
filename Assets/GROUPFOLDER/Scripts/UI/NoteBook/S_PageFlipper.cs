@@ -40,16 +40,6 @@ public class PageFlipper : MonoBehaviour
         SetActivePage();
     }
 
-    private void OnEnable()
-    {
-        if (pages == null || pages.Length == 0) 
-        {
-            return;
-        }
-        page = 0;
-        SetActivePage();
-    }
-
     // Update is called once per frame
 
     public void Next() 

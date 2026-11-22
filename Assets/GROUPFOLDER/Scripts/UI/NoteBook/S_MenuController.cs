@@ -1,131 +1,45 @@
-using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 using UnityEngine.InputSystem;
+
+
 
 public class MenuController : MonoBehaviour
 {
     public GameObject menuCanvas;
     public GameObject UINotebookOpen;
 
-    [SerializeField]
-    GameObject tutorialGUI;
-
-    bool notebookOpen = false;
-    bool tutorialOpen = false;
-    bool hasShownTutorial = false;
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Awake()
+    void Start()
     {
         menuCanvas.SetActive(false);
         UINotebookOpen.SetActive(false);
-        tutorialGUI.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        EscapeKey();
-        ActivateTutorial();
+        if (Keyboard.current.tabKey.wasPressedThisFrame) 
+        {
+            ToggleNotePad();
+        }
     }
 
-    void EscapeKey()
+    public void ToggleNotePad() 
     {
-        if (!Keyboard.current.escapeKey.wasPressedThisFrame)
+        if (menuCanvas == null) 
+        {
+            return;
+        }
+        if(!menuCanvas.activeSelf && PauseController.IsGamePaused) 
         {
             return;
         }
 
-        if (tutorialOpen) 
-        {
-            CloseTutorial();
-        }
-        else if (notebookOpen) 
-        {
-            CloseNoteBook();
-        }
-        else 
-        {
-            OpenNoteBook();
-        }
-    }
+        bool isMenuOpen = !menuCanvas.activeSelf;
+        menuCanvas.SetActive(isMenuOpen);
 
-    void ActivateTutorial()
-    {
-        if (notebookOpen) 
-        {
-            return;
-        }
-
-        if (Keyboard.current.hKey.wasPressedThisFrame || (!hasShownTutorial && tutorialGUI != null && CleaningModeController.InCleaningMode))
-        {
-            if (!tutorialOpen)
-            {
-                hasShownTutorial = true;
-                OpenTutorial();
-            }
-            else
-            {
-                CloseTutorial();
-            }
-        }
-    }
-
-    void OpenNoteBook()
-    {
-        S_UIManager.Instance.ShowUI(false);
-        notebookOpen = true;
-
-        menuCanvas.SetActive(true);
-        UINotebookOpen.SetActive(true);
-
-        PauseController.SetPause(true);
-        UpdatePause();
-    }
-
-    void CloseNoteBook()
-    {
-        S_UIManager.Instance.ShowUI(true);
-        notebookOpen = false;
-
-        menuCanvas.SetActive(false);
-        UINotebookOpen.SetActive(false);
-
-        PauseController.SetPause(false);
-        UpdatePause();
-    }
-
-    void OpenTutorial()
-    {
-        S_UIManager.Instance.ShowUI(false);
-        tutorialOpen = true;
-
-        tutorialGUI.SetActive(true);
-
-        PauseController.SetPause(true);
-        UpdatePause();
-    }
-
-    public void CloseTutorial()
-    {
-        S_UIManager.Instance.ShowUI(true);
-        tutorialOpen = false;
-
-        tutorialGUI.SetActive(false);
-
-        PauseController.SetPause(false);
-        UpdatePause();
-    }
-
-    void UpdatePause()
-    {
-        if (notebookOpen == true || tutorialOpen == true) 
-        {
-            PauseController.SetPause(true);
-        }
-        else 
-        {
-            PauseController.SetPause(false);
-        }
+        bool isNotebookOpen = !UINotebookOpen.activeSelf;
+        UINotebookOpen.SetActive(isNotebookOpen);
+        PauseController.SetPause(menuCanvas.activeSelf);
     }
 }

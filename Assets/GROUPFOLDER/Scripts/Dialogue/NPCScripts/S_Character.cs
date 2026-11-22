@@ -1,10 +1,8 @@
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
-
 
 public class Character : MonoBehaviour
 {
@@ -15,33 +13,25 @@ public class Character : MonoBehaviour
     public string description;
     public Sprite sprite;
     public DialogueData[] dialogueData;
-    public List<string> clues = new List<string>();
+
 
     [SerializeField]
-    int maxTrust = 100;
+    int maxSuspicion = 100;
 
-    int currentTrust = 50;
+    int currentSuspicion = 0;
 
     public string NPCName => name;
-    public int CurrentTrust => currentTrust;
-    public int MaxTrust => maxTrust;
+    public int CurrentSuspicion => currentSuspicion;
+    public int MaxSuspicion => maxSuspicion;
 
     // Event that broadcasts updates to specific NPC UI Bar
-    public UnityEvent<int, int> onTrustChanged;
+    public UnityEvent<int, int> onSuspicionChanged;
 
-    public void ModifyTrust(int amount)
+    public void ModifySuspicion(int amount)
     {
-        currentTrust = Mathf.Clamp(currentTrust + amount, 0, maxTrust);
+        currentSuspicion = Mathf.Clamp(currentSuspicion + amount, 0, maxSuspicion);
 
-        onTrustChanged?.Invoke(currentTrust, maxTrust);
-    }
-
-    public void AddClue(string clue) 
-    {
-        if (clues.Contains(clue)) return;
-
-        clues.Add(clue);
-        S_Notification.Instance.ShowNotification();
+        onSuspicionChanged?.Invoke(currentSuspicion, maxSuspicion);
     }
 
     void Start()

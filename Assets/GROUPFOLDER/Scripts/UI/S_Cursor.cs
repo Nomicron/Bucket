@@ -93,36 +93,6 @@ public class CursorScript : MonoBehaviour
 
                 return;
             }
-            else if (hit.collider.CompareTag("CleaningMode")) 
-            {
-                if(CleaningModeController.InCleaningMode)
-                {
-                    hitStain = hit.collider.GetComponent<Stain>();
-
-                    if (hitStain != null)
-                    {
-                        if (!CleaningModeController.InCleaningMode)
-                        {
-                            currentTexture = textures[5];
-                        }
-                        else if (hitStain.stainType == StainType.Blood)
-                        {
-                            currentTexture = textures[6 + hitStain.currentStage];
-                        }
-                        else
-                        {
-                            currentTexture = null;
-                        }
-                    }
-                }
-                else
-                {
-                    //E cursor
-                    currentTexture = textures[9];
-                }
-                    
-                return;
-            }
         }
 
         currentTexture = null;

@@ -1,4 +1,3 @@
-using JetBrains.Annotations;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -29,32 +28,7 @@ public class OptionManagerScript : MonoBehaviour
 
     void SelectOption(DialogueOption option) 
     {
-        //DialogueScript dialogueScript = FindFirstObjectByType<DialogueScript>();
-
-        //dialogueScript.StartNewDialogue(option.nextDialogue);
-        DialogueScript dialogueScript =  FindFirstObjectByType<DialogueScript>();
-
-        if (option.acceptQuest)
-        {
-            QuestGiver questGiver =
-                dialogueScript.CurrentCharacter.GetComponent<QuestGiver>();
-
-            if (questGiver != null)
-            {
-                questGiver.AcceptQuest();
-            }
-            else
-            {
-                Debug.LogWarning(
-                    "Character has no QuestGiver component!"
-                );
-            }
-        }
-
-        if (option.givesClue) 
-        {
-            dialogueScript.CurrentCharacter.AddClue(option.clueText);
-        }
+        DialogueScript dialogueScript = FindFirstObjectByType<DialogueScript>();
 
         dialogueScript.StartNewDialogue(option.nextDialogue);
     }

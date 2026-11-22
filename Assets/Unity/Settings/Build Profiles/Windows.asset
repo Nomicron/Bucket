@@ -74,13 +74,13 @@ MonoBehaviour:
     rid: 6589605803949555804
   m_ActivePlatformGuid: 
   m_AdditionalPlatformBuildSettings: []
-  m_OverrideGlobalSceneList: 0
+  m_OverrideGlobalSceneList: 1
   m_Scenes:
   - m_enabled: 0
-    m_path: Assets/GROUPFOLDER/Scenes/OldScenes/NewCopy.unity
+    m_path: Assets/Scenes/NewCopy.unity
     m_guid: 43c55019abc14d54e9ca9f7856160445
-  - m_enabled: 0
-    m_path: Assets/GROUPFOLDER/Scenes/Day1.unity
+  - m_enabled: 1
+    m_path: Assets/Jennifer Folder/Scenes/TestAllScene.unity
     m_guid: 085b5119c30e69f418ae538268f77d74
   m_HasScriptingDefines: 0
   m_ScriptingDefines: []
@@ -114,3 +114,18 @@ MonoBehaviour:
         m_CopyPDBFiles: 0
         m_WindowsDevicePortalAddress: 
         m_WindowsDevicePortalUsername: 
+--- !u!114 &3782761411415133231
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 15010, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: Quality Settings
+  m_EditorClassIdentifier: UnityEditor.dll::UnityEditor.Build.Profile.BuildProfileQualitySettings
+  m_DefaultQualityLevel: PC
+  m_QualityLevels:
+  - PC

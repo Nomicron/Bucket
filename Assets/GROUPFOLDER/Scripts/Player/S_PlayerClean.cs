@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using System.Collections;
 
 public class Cleaning : MonoBehaviour
 {
@@ -13,16 +12,15 @@ public class Cleaning : MonoBehaviour
     public MopPainter currentMopPainter;
 
     Ray ray;
-    private Vector3 cleaningStartPosition;
+
     float scrubAmount;
     //public bool cleaningMode = false;
     Stain currentStain;
     public bool hasMop = false;
-    private bool mopRestarted = false;
+
     //private bool isClean = false; 
-    //[SerializeField] QuestUI questText;
-    //[SerializeField] S_CleanLevelUI cleanLevelText;
-    // [SerializeField] GameObject madeBed;
+
+    [SerializeField] GameObject madeBed;
     private void Start()
     {
         ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward
@@ -31,26 +29,10 @@ public class Cleaning : MonoBehaviour
     void Update()
     {
 
-        //if (CleaningModeController.InCleaningMode && currentStain != null)
-        //{
-        //    HandleCleaning(currentStain.stainType);
-        //}
-        if (!CleaningModeController.InCleaningMode)
-            return;
-
-        // The cleaning object may have been destroyed when completed.
-        if (currentStain == null)
+        if (CleaningModeController.InCleaningMode && currentStain != null)
         {
-            ExitCleaningMode();
-            return;
+            HandleCleaning(currentStain.stainType);
         }
-
-        CheckCleaningDistance();
-
-        if (!CleaningModeController.InCleaningMode)
-            return;
-
-        HandleCleaning(currentStain.stainType);
 
     }
     private void OnInteract(InputValue input)
@@ -67,73 +49,41 @@ public class Cleaning : MonoBehaviour
             TryEnterCleaningMode();
         }
     }
-    private void OnEscape(InputValue input)
-    {
-        if (!input.isPressed)
-            return;
-
-        if (CleaningModeController.InCleaningMode)
-        {
-            ExitCleaningMode();
-        }
-    }
-
-    private void CleaningObjectiveFinished(ObjectiveMechanics mechanic)
-    {
-        ExitCleaningMode();
-    }
 
     void TryEnterCleaningMode()
     {
 
-        if (rayController.TryGetHit(out RaycastHit hit))
-        {
-            Stain stain = hit.collider.GetComponent<Stain>();
+      //Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
 
+        if (rayController.TryGetComponent<Stain>(out Stain stain))
+        {
             if (stain != null)
             {
                 currentStain = stain;
+
                 currentMopPainter = stain.GetComponent<MopPainter>();
-
-
-                // Remember where cleaning started.
-                cleaningStartPosition = hit.point;
-
-                if (currentMopPainter != null)
-                {
-                    if (currentMopPainter.completed)
-                        return;
-
-                    currentMopPainter.OnFinished += CleaningObjectiveFinished;
-                    currentMopPainter.SpawnBucket();
-                }
 
                 scrubAmount = 0;
 
+                //cleaningMode = true;
                 CleaningModeController.SetCleaningMode(true);
-                S_UIManager.Instance.ShowUI(false);
+
+                //PauseController.SetPause(true);
             }
         }
     }
 
     void ExitCleaningMode()
     {
-        if (currentMopPainter != null)
-        {
-            currentMopPainter.OnFinished -= CleaningObjectiveFinished;
-            currentMopPainter.RemoveBucket();
-        }
-        // cleaningMode = false;
+       // cleaningMode = false;
         CleaningModeController.SetCleaningMode(false);
         currentStain = null;
         currentMopPainter = null;
 
         lookScript.canLook = true;
-        mopRestarted = false;
         hasMop = false;
 
         PauseController.SetPause(false);
-        S_UIManager.Instance.ShowUI(true);
     }
 
     void HandleCleaning(StainType stainType)
@@ -148,7 +98,6 @@ public class Cleaning : MonoBehaviour
             case StainType.Blood:
 
                 lookScript.canLook = false;
-                //PauseController.SetPause(true);
 
                 if (!Mouse.current.leftButton.isPressed)
                 {
@@ -178,63 +127,20 @@ public class Cleaning : MonoBehaviour
 
             case StainType.Dirt:
 
-                //hasMop = true;
+                hasMop = true;
                 lookScript.canLook = false;
-
-                if (!mopRestarted)
-                {
-                    mopRestarted = true;
-                    StartCoroutine(RestartMop());
-                }
 
                 break;
             case StainType.Bed:
 
-                //stain.gameObject.SetActive(false);
-                //madeBed.SetActive(true);
-
-                //ExitCleaningMode();
-
+                stain.gameObject.SetActive(false);
+                madeBed.SetActive(true);
 
                 break;
-
+   
         }
-    }
-    private void CheckCleaningDistance()
-    {
-        Vector3 playerPosition = playerCamera.transform.position;
-
-        // Ignore vertical height.
-        playerPosition.y = cleaningStartPosition.y;
-
-        float distance = Vector3.Distance(
-            playerPosition,
-            cleaningStartPosition
-        );
-
-        if (distance > cleaningRange)
-        {
-            ExitCleaningMode();
-        }
-    }
-    private IEnumerator RestartMop()
-    {
-        // First activation.
-        hasMop = true;
-
-        // Let Unity process one frame.
-        yield return null;
-
-        // Disable mop again.
-        hasMop = false;
-
-        yield return null;
-
-        // Enable it a second time.
-        hasMop = true;
     }
 }
-
 public enum StainType
 {
     Blood,

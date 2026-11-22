@@ -47,6 +47,38 @@ public class mopMovement : MonoBehaviour
 
     private void MopControls()
     {
+        //float horizontaInput = 0f;
+        //float verticalInput = 0f;
+
+        //// Z = Left, X = Right, C = Up, V = Down (Let's change this later!)
+
+        //if (Keyboard.current.zKey.isPressed)
+        //    horizontaInput -= 1f;
+
+        //if (Keyboard.current.xKey.isPressed)
+        //    horizontaInput += 1f;
+
+        //if(Keyboard.current.cKey.isPressed)
+        //    verticalInput += 1f;
+
+        //if (Keyboard.current.vKey.isPressed)
+        //    verticalInput -= 1f;
+
+        ////Horizontal movement
+        //currentHorizontalOffset += horizontaInput * moveSpeed * Time.deltaTime;
+        //currentHorizontalOffset = Mathf.Clamp(currentHorizontalOffset, -maxHorizontalOffset, maxHorizontalOffset);
+
+        //// Vertical movement
+        //currentVerticalOffset += verticalInput * liftSpeed * Time.deltaTime;
+        //currentVerticalOffset = Mathf.Clamp(currentVerticalOffset, -maxVerticalOffset, maxVerticalOffset);
+
+        //// Final transformation
+        //transform.localPosition = startLocalPosition + Vector3.right * currentHorizontalOffset + Vector3.up * currentVerticalOffset;
+
+        //float normalizedOffset = currentHorizontalOffset / maxHorizontalOffset;
+        //float angle =  -normalizedOffset * maxRotation;
+
+        //transform.localRotation = startLocalRotation * Quaternion.Euler(0f, 0f, angle);
         if (look == null)
             return;
 
