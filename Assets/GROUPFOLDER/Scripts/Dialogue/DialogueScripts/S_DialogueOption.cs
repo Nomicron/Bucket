@@ -12,4 +12,10 @@ public class DialogueOption : ScriptableObject
     [Header("Clue")]
     public bool givesClue;
     public string clueText;
+
+    [Header("Evidence")]
+    public bool givesEvidence;
+    public string evidenceId;
+    [TextArea]
+    public string evidenceDisplayText;
 }

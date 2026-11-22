@@ -56,6 +56,11 @@ public class OptionManagerScript : MonoBehaviour
             dialogueScript.CurrentCharacter.AddClue(option.clueText);
         }
 
+        if (option.givesEvidence) 
+        {
+            S_EvidenceNotes.Instance.AddEvidence(option.evidenceId, option.evidenceDisplayText);
+        }
+
         dialogueScript.StartNewDialogue(option.nextDialogue);
     }
 }

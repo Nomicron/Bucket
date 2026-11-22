@@ -22,7 +22,7 @@ public class S_EvidencePicker : MonoBehaviour
 
             if (!string.IsNullOrEmpty(evidence.evidenceText)) 
             {
-                S_EvidenceNotes.Instance.AddEvidence(evidence.evidenceText);
+                S_EvidenceNotes.Instance.AddEvidence(evidence.evidenceName, evidence.evidenceText);
             }
 
         }
