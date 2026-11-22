@@ -20,7 +20,7 @@ public class Stain : ObjectiveMechanics
 
         if (currentStage >= cleaningStages.Length)
         {
-            Finish();
+            Finish();           
             Destroy(gameObject);
             return;
             

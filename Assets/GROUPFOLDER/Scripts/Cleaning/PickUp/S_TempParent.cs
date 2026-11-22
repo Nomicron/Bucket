@@ -13,7 +13,7 @@ public class TempParent : MonoBehaviour
         }
         else 
         {
-            Destroy(this);
+            Destroy(gameObject);
         }
     }
 }
