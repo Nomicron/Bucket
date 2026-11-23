@@ -14,3 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueOption
   optionText: Did you kill the CEO?
   nextDialogue: {fileID: 11400000, guid: 05895ec9ff142d04782ef8d41e5c38ec, type: 2}
+  acceptQuest: 0
+  givesClue: 0
+  clueText: 
+  givesEvidence: 1
+  evidenceId: Enginer
+  evidenceDisplayText: Kill the butler
