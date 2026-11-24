@@ -5,6 +5,7 @@ public class S_CharacterNotes : MonoBehaviour
 {
     public Character character;
     public TMP_Text characterDescription;
+    public TMP_Text connectedText;
 
     void OnEnable()
     {
@@ -21,5 +22,10 @@ public class S_CharacterNotes : MonoBehaviour
         }
 
         characterDescription.text = character.description + "\n\n" + clueList;
+
+        if(connectedText != null) 
+        {
+            connectedText.text = string.Join("\n\n", character.info);
+        }
     }
 }
