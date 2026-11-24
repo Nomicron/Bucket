@@ -24444,6 +24444,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::S_CharacterNotes
   character: {fileID: 1515097761}
   characterDescription: {fileID: 1063841027}
+  connectedText: {fileID: 0}
 --- !u!114 &1063841030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33885,6 +33886,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::S_CharacterNotes
   character: {fileID: 1731845143}
   characterDescription: {fileID: 1742782804}
+  connectedText: {fileID: 752756937}
 --- !u!224 &1486986162 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2937150151401381049, guid: 2c100539b70d4ca4d8738eff5816abbc, type: 3}
