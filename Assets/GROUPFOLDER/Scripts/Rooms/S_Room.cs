@@ -30,4 +30,13 @@ public class roomScript : MonoBehaviour
             roomManager.Instance.ExitRoom(this);
         }
     }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.attachedRigidbody != null && other.attachedRigidbody.CompareTag("Player") && roomManager.Instance.currentRoom == roomManager.Instance.outside)
+        {
+            roomManager.Instance.EnterRoom(this);
+        }
+
+    }
 }
