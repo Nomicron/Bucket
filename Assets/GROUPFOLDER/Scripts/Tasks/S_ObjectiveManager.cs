@@ -1,12 +1,17 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-//handles Task and quest logics, controls tasklist and calls QuestUI.Update 
+//handles Task and quest logics, controls tasklist and calls QuestUI.Update
 public class ObjectiveManager : MonoBehaviour
 {
     public static ObjectiveManager Instance;
 
     [SerializeField] public roomManager roomManager;
+
+    [SerializeField] public Task collectSuppliesTask;
+    [SerializeField] public Task disposeSuppliesTask;
+    [SerializeField] public string nextSceneName;
 
     [SerializeField] public List<Quest> activeQuests = new List<Quest>();
     [SerializeField] public List<Task> allTasks = new List<Task>();
@@ -16,6 +21,8 @@ public class ObjectiveManager : MonoBehaviour
 
     public QuestUI questUI;
 
+    private Task firstTask;
+
     private void Awake()
     {
         if (Instance == null) Instance = this;
@@ -24,7 +31,21 @@ public class ObjectiveManager : MonoBehaviour
 
     private void Start()
     {
+        firstTask = new Task();
 
+        if (collectSuppliesTask != null && !string.IsNullOrEmpty(collectSuppliesTask.id))
+        {
+            collectSuppliesTask.state = TaskState.InProgress;
+            activeTasks.Add(collectSuppliesTask);
+            questUI.UpdateUI();
+            return;
+        }
+
+        StartAllTasks();
+    }
+
+    private void StartAllTasks()
+    {
         foreach (Task task in allTasks)
         {
             AddToLists(task);
@@ -42,7 +63,6 @@ public class ObjectiveManager : MonoBehaviour
         //}
         roomManager.CheckRoomTasks();
         questUI.UpdateUI();
-
     }
 
     public void AddQuest(Quest quest)
@@ -64,7 +84,7 @@ public class ObjectiveManager : MonoBehaviour
             q.state = QuestState.TurnedIn; // This should be set to ObjectiveCompleted first, then TurnedIn when the player turns it in.
             TrustController.Instance.AddTrust(q.character, 10); // Increase trust by 10 points for the character associated with the quest.
             questUI.UpdateUI();
-            
+
            // Debug.Log($"Quest completed for: {q.title}. Return to the quest giver!");
         }
     }
@@ -83,17 +103,54 @@ public class ObjectiveManager : MonoBehaviour
 
     public void CompleteTask(string taskId)
     {
+        // ADDED: Step 1 -> Remove collect task and activate main tasks
+        if (collectSuppliesTask != null && collectSuppliesTask.id == taskId && collectSuppliesTask.state == TaskState.InProgress)
+        {
+            collectSuppliesTask.state = TaskState.ObjectiveCompleted;
+            activeTasks.Remove(collectSuppliesTask);
+            StartAllTasks();
+            return;
+        }
+
+        // ADDED: Step 3 -> Dispose supplies task finished -> load next scene
+        if (disposeSuppliesTask != null && disposeSuppliesTask.id == taskId && disposeSuppliesTask.state == TaskState.InProgress)
+        {
+            disposeSuppliesTask.state = TaskState.ObjectiveCompleted;
+            activeTasks.Remove(disposeSuppliesTask);
+            questUI.UpdateUI();
+
+            if (!string.IsNullOrEmpty(nextSceneName))
+                SceneManager.LoadScene(nextSceneName);
+            else
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
+            return;
+        }
+
         Task t = allTasks.Find(x => x.id == taskId);
         if (t != null && t.state == TaskState.InProgress)
         {
             t.state = TaskState.ObjectiveCompleted;
             roomManager.RemoveTask(t);
+
+            // ADDED: Step 2 -> When all active tasks are done, clear them and show dispose task
+            if (activeTasks.TrueForAll(x => x.state == TaskState.ObjectiveCompleted))
+            {
+                activeTasks.Clear();
+
+                if (disposeSuppliesTask != null && !string.IsNullOrEmpty(disposeSuppliesTask.id))
+                {
+                    disposeSuppliesTask.state = TaskState.InProgress;
+                    activeTasks.Add(disposeSuppliesTask);
+                }
+            }
+
             questUI.UpdateUI();
             // Debug.Log($"Task completed for: {t.title}. Return to the quest giver!");
         }
     }
 
-    private void AddToLists(Task task) 
+    private void AddToLists(Task task)
     {
         if(task.isActiveTask && !activeTasks.Contains(task))
         {
@@ -118,8 +175,8 @@ public class ObjectiveManager : MonoBehaviour
     //        }
     //    }
     //}
-    //private void CompleteRoom(string roomName) 
-    //{ 
+    //private void CompleteRoom(string roomName)
+    //{
     //    for(int i = 0; i < activeTasks.Count; i++)
     //    {
     //        Task task = activeTasks[i];
