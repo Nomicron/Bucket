@@ -10,7 +10,7 @@ public class S_StatementPanel : MonoBehaviour
     [SerializeField] 
     S_EvidenceEntry entryPrefab;
     [SerializeField] 
-    GameObject lockerView;
+    GameObject closetView;
 
     [SerializeField]
     TMP_Text nameCharacter;
@@ -19,10 +19,16 @@ public class S_StatementPanel : MonoBehaviour
 
     public Action onStatementPicked;
     public Character Character { get; private set; }
-    public string SelectedStatement => selected != null ? selected.Evidence : null;
-    public bool HasSelection => selected != null;
+    public string SelectedStatement => selected != null ? selected.Evidence : selectedItem != null ? selectedItem.evidenceId : null;
+    public bool HasSelection => selected != null || selectedItem != null;
 
     S_EvidenceEntry selected;
+
+    S_ClosetItem selectedItem;
+
+    public bool IsCloset { get; private set; }
+
+ 
 
     public void Show(S_ConnectionController choice)
     {
@@ -31,29 +37,40 @@ public class S_StatementPanel : MonoBehaviour
             Destroy(child.gameObject); 
         }
         selected = null;
+        selectedItem = null;
         Character = choice.character;
 
-        bool locker = choice.isLocker;
+        IsCloset = choice.isLocker;
         if ((nameCharacter != null))
         {
-            nameCharacter.text = locker ? "Locker" : Character.name;
+            nameCharacter.text = IsCloset ? "Closet" : Character.name;
         }
 
-        if (portrait = null) 
+        if (portrait != null) 
         {
-            portrait.gameObject.SetActive(!locker && Character.sprite != null);
-            if (!locker) 
+            portrait.gameObject.SetActive(!IsCloset && Character.sprite != null);
+            if (!IsCloset) 
             {
                 portrait.sprite = Character.sprite;
             }
         }
-        if (lockerView != null) 
+        if (closetView != null) 
         {
-            lockerView.SetActive(locker); 
+            closetView.SetActive(IsCloset); 
         }
-        listParent.gameObject.SetActive(!locker);
-        if (locker) 
+
+        listParent.gameObject.SetActive(!IsCloset);
+
+        if (IsCloset) 
         {
+            foreach(S_ClosetItem item in closetView.GetComponentsInChildren<S_ClosetItem>(true)) 
+            {
+                item.onClicked = OnClosetItemClicked;
+                item.SetSelected(false);
+                bool unlocked = S_ClosetManager.Instance != null && S_ClosetManager.Instance.IsUnlocked(item.evidenceId);
+                item.gameObject.SetActive(unlocked);
+                Debug.Log($"Closet panel assigning to {closetView.GetComponentsInChildren<S_ClosetItem>(true).Length} items");
+            }
             return;
         }
 
@@ -62,6 +79,21 @@ public class S_StatementPanel : MonoBehaviour
             S_EvidenceEntry entry = Instantiate(entryPrefab, listParent);
             entry.SetUp(s, s, OnEntryClicked);
         }
+    }
+
+    void OnClosetItemClicked(S_ClosetItem item) 
+    {
+        if (selectedItem != null) 
+        {
+            selectedItem.SetSelected(false);
+        }
+        selectedItem = (selectedItem == item) ? null : item;
+
+        if(selectedItem != null) 
+        {
+            selectedItem.SetSelected(true);
+        }
+        onStatementPicked?.Invoke();
     }
 
     void OnEntryClicked(S_EvidenceEntry entry)
@@ -81,6 +113,11 @@ public class S_StatementPanel : MonoBehaviour
         {
             selected.SetSelected(false); 
         }
+        if(selectedItem != null) 
+        {
+            selectedItem.SetSelected(false);
+        }
         selected = null;
+        selectedItem = null;
     }
 }

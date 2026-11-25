@@ -85,24 +85,25 @@ public class S_ConnectionsPage : MonoBehaviour
 
     void TryConnect() 
     {
-        if(!panelA.HasSelection || !panelB.HasSelection) 
+        Debug.Log($"TryConnect called. A has selection: {panelA.HasSelection}, B has selection: {panelB.HasSelection}");
+        if (!panelA.HasSelection || !panelB.HasSelection) 
         {
             return;
         }
-
+        Debug.Log($"A: [{panelA.Character}] [{panelA.SelectedStatement}] | B: [{panelB.Character}] [{panelB.SelectedStatement}]");
         foreach (var c in connections) 
         {
             bool direct = c.characterA == panelA.Character && c.statementA == panelA.SelectedStatement && c.characterB == panelB.Character && c.statementB == panelB.SelectedStatement;
 
             bool swapped = c.characterA == panelB.Character && c.statementA == panelB.SelectedStatement && c.characterB == panelA.Character && c.statementB == panelA.SelectedStatement;
-
-            if(direct || swapped) 
+            Debug.Log($"Entry: [{c.characterA}] [{c.statementA}] | [{c.characterB}] [{c.statementB}]");
+            if (direct || swapped) 
             {
-                if (!string.IsNullOrEmpty(c.infoForA)) 
+                if (!string.IsNullOrEmpty(c.infoForA) && c.characterA != null) 
                 {
                     c.characterA.AddInfo(c.infoForA);
                 }
-                if (!string.IsNullOrEmpty(c.infoForB)) 
+                if (!string.IsNullOrEmpty(c.infoForB) && c.characterB != null) 
                 {
                     c.characterB.AddInfo(c.infoForB);
                 }
