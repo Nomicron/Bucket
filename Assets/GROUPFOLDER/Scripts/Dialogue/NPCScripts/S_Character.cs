@@ -32,6 +32,8 @@ public class Character : MonoBehaviour
         currentTrust = Mathf.Clamp(currentTrust + amount, 0, maxTrust);
 
         onTrustChanged?.Invoke(currentTrust, maxTrust);
+        S_Notification.Instance.ChangeNotificationText(true);
+        S_Notification.Instance.ShowNotification();
     }
 
     void Start()
