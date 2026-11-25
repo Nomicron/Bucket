@@ -12,7 +12,7 @@ public class roomManager : MonoBehaviour
 
     public S_CleanLevelUI cleanLevelUI;
 
-    
+    [SerializeField] public roomScript outside;
     private void Awake()
     {
         Instance = this;
@@ -20,7 +20,8 @@ public class roomManager : MonoBehaviour
     }
 
     public void EnterRoom(roomScript room)
-    {
+    {       
+
         if (currentRoom == room)
             return;
 
@@ -37,6 +38,11 @@ public class roomManager : MonoBehaviour
             Debug.Log("Player left room: " + room.roomName);
 
             currentRoom = null;
+        }
+        if (currentRoom == null)
+        {
+            currentRoom = outside;
+            cleanLevelUI.UpdateUI(currentRoom.cleanLevel, currentRoom);
         }
     }
 

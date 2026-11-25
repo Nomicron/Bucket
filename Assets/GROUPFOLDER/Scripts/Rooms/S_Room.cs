@@ -8,7 +8,6 @@ public class roomScript : MonoBehaviour
     public bool givesTrust = false;
     public Character mainCharacter;
 
-
     [SerializeField] public List<Task> questsInRoom = new List<Task>();
 
     private void Start()
