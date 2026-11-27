@@ -104,57 +104,64 @@ public class DialogueScript : MonoBehaviour
     IEnumerator SlowPrint(DialogueData dialogue)
     {
         yield return new WaitUntil(() => !Mouse.current.leftButton.isPressed);
-
-        //Prints every line in the scriptable dialogue data object attatched to the character
-        foreach (string line in dialogue.lines) 
+        for (int i = 0; i < dialogue.lines.Length; i++)
         {
-            //Clears text after every line
-            CharDialogue.text = "";
-            bool skippedLine = false;
+            string line = dialogue.lines[i];
+            ////Prints every line in the scriptable dialogue data object attatched to the character
+            //foreach (string line in dialogue.lines)
+            //{
+                //Clears text after every line
+                CharDialogue.text = "";
+                bool skippedLine = false;
 
-            //Prints letter by letter
-            foreach (char c in line) 
-            {
-                //instantly finishes line if you press left click
-                if (Mouse.current.leftButton.wasPressedThisFrame) 
+                //Prints letter by letter
+                foreach (char c in line)
                 {
-                    CharDialogue.text = line;
-                    skippedLine = true;
-                    break;
-                }
-
-                CharDialogue.text += c;
-
-                float timer = 0f;
-
-                while (timer < timeBetweenLetters) 
-                {
-                    if (Mouse.current.leftButton.wasPressedThisFrame) 
+                    //instantly finishes line if you press left click
+                    if (Mouse.current.leftButton.wasPressedThisFrame)
                     {
                         CharDialogue.text = line;
                         skippedLine = true;
                         break;
                     }
 
-                    timer += Time.deltaTime;
-                    yield return null;
+                    CharDialogue.text += c;
+
+                    float timer = 0f;
+
+                    while (timer < timeBetweenLetters)
+                    {
+                        if (Mouse.current.leftButton.wasPressedThisFrame)
+                        {
+                            CharDialogue.text = line;
+                            skippedLine = true;
+                            break;
+                        }
+
+                        timer += Time.deltaTime;
+                        yield return null;
+                    }
+
+                    if (skippedLine)
+                    {
+                        break;
+                    }
                 }
 
-                if (skippedLine)
-                {
-                    break;
-                }
+                CharDialogue.text = line;
+            if(dialogue.statementSummeries != null && i < dialogue.statementSummeries.Length && !string.IsNullOrWhiteSpace(dialogue.statementSummeries[i])) 
+            {
+                currentCharacter.AddStatement(dialogue.statementSummeries[i]);
             }
 
-            CharDialogue.text = line;
+                //checks if the mouse is pressed first to ensure no line is skipped
+                yield return new WaitUntil(() => !Mouse.current.leftButton.isPressed);
 
-            //checks if the mouse is pressed first to ensure no line is skipped
-            yield return new WaitUntil(() => !Mouse.current.leftButton.isPressed);
+                //then checks to make sure its pressed this frame
+                yield return new WaitUntil(() => Mouse.current.leftButton.wasPressedThisFrame);
 
-            //then checks to make sure its pressed this frame
-            yield return new WaitUntil(() => Mouse.current.leftButton.wasPressedThisFrame);
-
-            yield return null;
+                yield return null;
+            //}
         }
 
         if (optionManager != null) 

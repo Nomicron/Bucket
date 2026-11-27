@@ -20,6 +20,16 @@ public class S_EvidencePicker : MonoBehaviour
             evidence.image.SetActive(true);
             evidence.gameObject.SetActive(false);
 
+            if (S_ClosetManager.Instance != null)
+            {
+                S_ClosetManager.Instance.Unlock(evidence.evidenceName);
+            }
+
+            if (!string.IsNullOrEmpty(evidence.evidenceText) && S_Notification.Instance != null)
+            {
+                S_Notification.Instance.ShowNotification();
+            }
+
         }
     }
 }
