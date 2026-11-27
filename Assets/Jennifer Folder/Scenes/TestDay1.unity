@@ -9017,7 +9017,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99cc8cba49aed98489b4d32412bcd3b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::S_Notification
-  notificationText: {fileID: 626933522}
+  notificationText: {fileID: 0}
   duration: 4
 --- !u!1 &469876449
 GameObject:
@@ -24595,6 +24595,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::S_UIManager
   questUI: {fileID: 1116591955}
   cleanLevelUI: {fileID: 1659885872}
+--- !u!114 &1063841032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5295971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68d232c618101d549acf8f0d7f9ca867, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::S_Notification
+  notificationText: {fileID: 626933522}
+  duration: 4
 --- !u!1 &1068277972 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1045338288334799785, guid: 18c8e95ccfff4474cbe8d48cd465545d, type: 3}

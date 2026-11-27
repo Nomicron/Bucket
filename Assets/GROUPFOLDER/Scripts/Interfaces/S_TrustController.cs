@@ -24,6 +24,7 @@ public class TrustController : MonoBehaviour
         if(targetNPC != null) 
         {
             targetNPC.ModifyTrust(amount);
+
         }
         Debug.Log($"Added {amount} trust to {targetNPC.NPCName}. Current Trust: {targetNPC.CurrentTrust}/{targetNPC.MaxTrust}");
     }

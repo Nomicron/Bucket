@@ -12,7 +12,7 @@ public class roomManager : MonoBehaviour
 
     public S_CleanLevelUI cleanLevelUI;
 
-    
+    [SerializeField] public roomScript outside;
     private void Awake()
     {
         Instance = this;
@@ -20,7 +20,8 @@ public class roomManager : MonoBehaviour
     }
 
     public void EnterRoom(roomScript room)
-    {
+    {       
+
         if (currentRoom == room)
             return;
 
@@ -37,6 +38,11 @@ public class roomManager : MonoBehaviour
             Debug.Log("Player left room: " + room.roomName);
 
             currentRoom = null;
+        }
+        if (currentRoom == null)
+        {
+            currentRoom = outside;
+            cleanLevelUI.UpdateUI(currentRoom.cleanLevel, currentRoom);
         }
     }
 
@@ -68,9 +74,12 @@ public class roomManager : MonoBehaviour
                 Debug.Log("Task removed from room: " + task.title + " in room: " + room.roomName);
                // room.questsInRoom.Remove(task);
                 float number = 100f / room.questsInRoom.Count;
-                room.cleanLevel += number; 
+                room.cleanLevel += number;
+                if (room.cleanLevel > 99.99f)
+                    room.isCleaned = true;
                 Debug.Log("Room clean level increased by: " + number + " New clean level: " + room.cleanLevel);
                 cleanLevelUI.UpdateUI(room.cleanLevel, room);
+                AddTrust(room);
                 //CleanLevel(room.cleanLevel, room);
                 return;
             }
@@ -87,6 +96,16 @@ public class roomManager : MonoBehaviour
             else
                 room.cleanLevel = 0f;
         }
+    }
+
+    public void AddTrust(roomScript room)
+    {
+        if (room.isCleaned && room.givesTrust && room.mainCharacter != null)
+        {
+            TrustController.Instance.AddTrust(room.mainCharacter, 10);
+        }
+        else
+            return;
     }
 }
 
